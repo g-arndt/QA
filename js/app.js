@@ -1,6 +1,6 @@
 function fetchNav() {
 
-    return fetch("../nav/nav.html")
+    return fetch("/nav/nav.html")
         .then(response => {
             console.log("Status:", response.status);
             return response.text();
