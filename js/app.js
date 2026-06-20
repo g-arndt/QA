@@ -1,29 +1,21 @@
 function fetchNav() {
 
-    return fetch("/nav/nav.html")
-        .then(response => {
-            console.log("Status:", response.status);
-            return response.text();
-        })
+    const basePath = window.location.pathname.startsWith("/QA/")
+        ? "/QA"
+        : "";
+
+    return fetch(basePath + "/nav/nav.html")
+        .then(response => response.text())
         .then(html => {
-            console.log(html);
 
             document.getElementById("nav").innerHTML = html;
-
-            console.log("NAV CONTENT:");
-            console.log(document.getElementById("nav").innerHTML);
 
             highlightCurrentNav();
             highlightProgressNav();
             highlightCurrentSidebar();
             updateProgressSidebar();
             initSidebarState();
-
-            document.querySelector(".sidebar-toggle")
-                ?.addEventListener("click", toggleSidebar);
-
         });
-
 }
 
 function highlightCurrentNav() {
