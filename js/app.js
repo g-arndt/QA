@@ -61,44 +61,45 @@ function highlightProgressNav() {
     }
 }
 
-function highlightCurrentSidebar() {
 
-    const path = window.location.pathname.split("/").pop().toLowerCase();
+async function loadHTML(id, file) {
+    const el = document.getElementById(id);
+    if (!el) return;
 
-    document.querySelectorAll(".side-nav a").forEach(a => {
-
-        const href = a.getAttribute("href").toLowerCase();
-
-        if (href === path) {
-            a.classList.add("active");
-        }
-    });
-}
-
-function updateProgressSidebar() {
-
-    const done = localStorage.getItem("schwingung_quiz_done");
-    const p = document.getElementById("progress");
-
-    if (!p) return; // ← WICHTIG
-
-    if (done) {
-        p.textContent = "Schwingung: ✔ ";
-        p.style.color = "green";
+    try {
+        const res = await fetch(file);
+        el.innerHTML = await res.text();
+    } catch (err) {
+        console.error("Failed to load", file, err);
     }
 }
 
-function toggleSidebar() {
-
-    const layout = document.querySelector(".layout");
-    if (!layout) return;
-
-    layout.classList.toggle("sidebar-open");
-
-    const isOpen = layout.classList.contains("sidebar-open");
-
-    localStorage.setItem("sidebar_hidden", !isOpen);
+// detect page name from URL
+function getPageName() {
+    const path = window.location.pathname;
+    const file = path.split("/").pop(); // e.g. Schwingung.html
+    return file.replace(".html", "").toLowerCase();
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadHTML("nav", "/QA/nav/nav.html");
+
+    const page = getPageName();
+
+    // map pages to sidebar files
+    const sidebarMap = {
+        "index": "/QA/sidebar/index.html",
+        "theorie": "/QA/sidebar/theorie.html",
+        "schwingung": "/QA/sidebar/schwingung.html",
+        "quiz": "/QA/sidebar/quiz.html"
+    };
+
+    const sidebarFile = sidebarMap[page] || "/QA/sidebar/default.html";
+
+    loadHTML("sidebar", sidebarFile);
+});
+
 
 function initSidebarState() {
 
@@ -113,6 +114,49 @@ function initSidebarState() {
 
     console.log("sidebar state:", hidden);
 }
+
+
+function toggleSidebar() {
+
+    const layout = document.querySelector(".layout");
+    if (!layout) return;
+
+    layout.classList.toggle("sidebar-open");
+
+    const isOpen = layout.classList.contains("sidebar-open");
+
+    localStorage.setItem("sidebar_hidden", !isOpen);
+}
+
+
+function highlightCurrentSidebar() {
+
+    const path = window.location.pathname.split("/").pop().toLowerCase();
+
+    document.querySelectorAll(".side-nav a").forEach(a => {
+
+        const href = a.getAttribute("href").toLowerCase();
+
+        if (href === path) {
+            a.classList.add("active");
+        }
+    });
+}
+
+
+function updateProgressSidebar() {
+
+    const done = localStorage.getItem("schwingung_quiz_done");
+    const p = document.getElementById("progress");
+
+    if (!p) return; // ← WICHTIG
+
+    if (done) {
+        p.textContent = "Schwingung: ✔ ";
+        p.style.color = "green";
+    }
+}
+
 
 
 
