@@ -1,3 +1,8 @@
+const BASE_PATH =
+    location.hostname.includes("github.io")
+        ? "/QA"
+        : "";
+
 function fetchNav() {
 
     return fetch("/QA/nav/nav.html")
