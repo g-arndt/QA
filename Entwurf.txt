@@ -1,8 +1,17 @@
 
 python3 -m http.server 8000
 
-
 http://localhost:8000
+
+
+git branch -M main
+git remote add origin https://github.com/g-arndt/QA.git
+git push -u origin main
+
+git add .
+git commit -m "Beschreibung der Änderung"
+git push
+
 
 
 

@@ -50,10 +50,18 @@ function highlightCurrentNav() {
 
 function highlightProgressNav() {
 
-    if(localStorage.getItem("schwingung_quiz_done")){
-        document.getElementById("nav-schwingung").style.fontStyle = "italic";
+    if (!localStorage.getItem("schwingung_quiz_done")) {
+        return;
     }
-   
+
+    const navItem = document.getElementById("nav-schwingung");
+
+    if (!navItem) {
+        console.warn("nav-schwingung nicht gefunden");
+        return;
+    }
+
+    navItem.style.fontStyle = "italic";
 }
 
 function highlightCurrentSidebar() {
