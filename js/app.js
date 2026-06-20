@@ -55,9 +55,12 @@ function highlightProgressNav() {
 
     const navItem = document.getElementById("nav-schwingung");
 
-    console.log("nav-schwingung:", navItem);
+    if (!navItem) {
+        console.log("nav-schwingung nicht gefunden");
+        return;
+    }
 
-    if (localStorage.getItem("schwingung_quiz_done") && navItem) {
+    if (localStorage.getItem("schwingung_quiz_done")) {
         navItem.style.fontStyle = "italic";
     }
 }
