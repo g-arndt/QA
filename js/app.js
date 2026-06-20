@@ -1,10 +1,24 @@
-function fetchNav() {
 
-    const basePath = window.location.pathname.startsWith("/QA/")
+const BASE_PATH =
+    window.location.hostname.includes("github.io")
         ? "/QA"
         : "";
 
-    return fetch("/QA/nav/nav.html") //(basePath + "/nav/nav.html")
+document.getElementById("nav-start").href =
+    BASE_PATH + "/index.html";
+
+document.getElementById("nav-theorie").href =
+    BASE_PATH + "/Kapitel/Theorie.html";
+
+document.getElementById("nav-schwingung").href =
+    BASE_PATH + "/Kapitel/Schwingung.html";
+
+document.getElementById("nav-quiz").href =
+    BASE_PATH + "/Kapitel/Quiz.html";
+
+function fetchNav() {
+
+    return fetch(BASE_PATH + "/nav/nav.html")
         .then(response => response.text())
         .then(html => {
 
@@ -15,6 +29,9 @@ function fetchNav() {
             highlightCurrentSidebar();
             updateProgressSidebar();
             initSidebarState();
+
+            document.querySelector(".sidebar-toggle")
+                ?.addEventListener("click", toggleSidebar);
         });
 }
 
