@@ -113,11 +113,11 @@ function initSidebarState() {
 
     const hidden = localStorage.getItem("sidebar_hidden");
 
+    layout.classList.remove("initial-hidden");
+
     if (hidden !== "true") {
         layout.classList.add("sidebar-open");
     }
-
-    console.log("sidebar state:", hidden);
 }
 
 
