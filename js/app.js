@@ -89,10 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // map pages to sidebar files
     const sidebarMap = {
-        "index": "/QA/sidebar/index.html",
-        "theorie": "/QA/sidebar/theorie.html",
-        "schwingung": "/QA/sidebar/schwingung.html",
-        "quiz": "/QA/sidebar/quiz.html"
+        "index": "/QA/sidebar/sidebar-index.html",
+        "theorie": "/QA/sidebar/sidebar-theorie.html",
+        "schwingung": "/QA/sidebar/sidebar-schwingung.html",
+        "quiz": "/QA/sidebar/sidebar-quiz.html"
     };
 
     const sidebarFile = sidebarMap[page] || "/QA/sidebar/default.html";
