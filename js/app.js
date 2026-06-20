@@ -13,8 +13,6 @@ function fetchNav() {
 
             highlightCurrentNav();
             highlightProgressNav();
-            highlightCurrentSidebar();
-            updateProgressSidebar();
             initSidebarState();
 
             document.querySelector(".sidebar-toggle")
@@ -82,22 +80,29 @@ function getPageName() {
 }
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    loadHTML("nav", "/QA/nav/nav.html");
+document.addEventListener("DOMContentLoaded", async () => {
+
+    await loadHTML("nav", "/QA/nav/nav.html");
 
     const page = getPageName();
 
-    // map pages to sidebar files
     const sidebarMap = {
         "index": "/QA/sidebar/sidebar-index.html",
-        "Theorie": "/QA/sidebar/sidebar-Theorie.html",
-        "Schwingung": "/QA/sidebar/sidebar-Schwingung.html",
-        "Quiz": "/QA/sidebar/sidebar-Quiz.html"
+        "theorie": "/QA/sidebar/sidebar-Theorie.html",
+        "schwingung": "/QA/sidebar/sidebar-Schwingung.html",
+        "quiz": "/QA/sidebar/sidebar-Quiz.html"
     };
 
     const sidebarFile = sidebarMap[page] || "/QA/sidebar/default.html";
 
-    loadHTML("sidebar", sidebarFile);
+    await loadHTML("sidebar", sidebarFile);
+
+    highlightCurrentSidebar();
+    updateProgressSidebar();
+    initSidebarState();
+
+    document.querySelector(".sidebar-toggle")
+        ?.addEventListener("click", toggleSidebar);
 });
 
 
