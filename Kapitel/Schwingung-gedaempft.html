@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Gedämpfte Schwingung</title>
+    <script src="../js/preload.js"></script>
+    <link rel="stylesheet" href="../style/style.css">
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+</head>
+
+<body>
+
+<div id="nav"></div>
+
+<div class="layout initial-hidden">
+
+    <aside class="sidebar" id="sidebar">
+
+        <h3>Schwingungen</h3>
+
+        <ul class="side-nav">
+            <li><a href="Schwingung.html">Übersicht</a></li>
+            <li><a href="Schwingung-ungedaempft.html">Ungedämpfte Schwingung</a></li>
+            <li><a href="Schwingung-gedaempft.html">Gedämpfte Schwingung</a></li>
+        </ul>
+
+    </aside>
+
+    <main class="content">
+
+        <div class="card">
+            <h1>Gedämpfte Schwingung</h1>
+            <p>
+                Bei einer gedämpften Schwingung nimmt die Amplitude mit der Zeit ab.
+                Ursache ist Energieverlust, z. B. durch Reibung.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Mathematische Beschreibung</h2>
+            <p>
+                x(t) = A · e<sup>-γt</sup> · sin(ωt)
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Physikalische Bedeutung</h2>
+            <p>
+                Die Schwingung verliert kontinuierlich Energie und klingt schließlich ab.
+            </p>
+        </div>
+
+    </main>
+
+</div>
+
+<script src="../js/app.js"></script>
+<script>
+fetchNav()
+</script>
+
+</body>
+</html>

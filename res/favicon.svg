@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 12.7 12.7"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="favicon.ico"
+   inkscape:export-xdpi="1000"
+   inkscape:export-ydpi="1000"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   sodipodi:docname="favicon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.20784314"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showguides="true"
+     inkscape:zoom="1.1430294"
+     inkscape:cx="407.25113"
+     inkscape:cy="805.75358"
+     inkscape:window-width="1280"
+     inkscape:window-height="677"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect4"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <filter
+       id="mask-powermask-path-effect6_inverse"
+       inkscape:label="filtermask-powermask-path-effect6"
+       style="color-interpolation-filters:sRGB"
+       height="100"
+       width="100"
+       x="-50"
+       y="-50">
+      <feColorMatrix
+         id="mask-powermask-path-effect6_primitive1"
+         values="1"
+         type="saturate"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         id="mask-powermask-path-effect6_primitive2"
+         values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0 "
+         in="fbSourceGraphic" />
+    </filter>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath6">
+      <path
+         style="mix-blend-mode:normal;fill:#eaf939;fill-opacity:1;stroke:none;stroke-width:0.264999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+         d="m 99.778772,139.92408 c 1.581298,20.19783 3.162568,40.3953 6.317428,45.38719 3.15486,4.9919 7.88297,-5.22194 11.82277,-3.93606 3.9398,1.28589 7.09083,14.07136 11.46089,9.08166 4.37006,-4.9897 9.95874,-27.7544 15.54754,-50.51957"
+         id="path6"
+         sodipodi:nodetypes="ccccc"
+         transform="matrix(1.1686432,0,0,1.4515739,-18.813274,-87.683314)"
+         inkscape:original-d="m 99.778772,139.92408 c 1.581298,20.19783 3.162568,40.3953 4.743898,60.59353 4.72839,-10.21444 9.4565,-20.42828 14.18489,-30.64273 3.15121,12.78622 6.30224,25.57169 9.45345,38.35791 5.58891,-22.76562 11.17759,-45.53032 16.76639,-68.29549"
+         inkscape:path-effect="#path-effect4" />
+    </clipPath>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter6"
+       x="-0.192"
+       y="-0.192"
+       width="1.384"
+       height="1.384">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.4"
+         id="feGaussianBlur6" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter6-8"
+       x="-0.192"
+       y="-0.192"
+       width="1.384"
+       height="1.384">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.4"
+         id="feGaussianBlur6-7" />
+    </filter>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath7">
+      <ellipse
+         style="opacity:1;mix-blend-mode:normal;fill:#acff19;fill-opacity:1;stroke:none;stroke-width:0.264999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+         id="ellipse7"
+         ry="28.966337"
+         rx="29.215"
+         cy="170.98416"
+         cx="120.25168"
+         clip-path="url(#clipPath6)"
+         transform="matrix(1.3765328,-0.06946814,0.02789293,1.2277157,-49.882877,-33.118843)" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8">
+      <circle
+         style="opacity:1;mix-blend-mode:normal;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:0.273286;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+         id="circle8"
+         cy="171.56421"
+         cx="119.51373"
+         r="30"
+         clip-path="url(#clipPath7)"
+         transform="translate(-19.620549,45.631989)" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="mix-blend-mode:normal;fill:#008080;fill-opacity:1;stroke:none;stroke-width:0.273286;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       id="path5-5-85-5"
+       cy="200.63933"
+       cx="91.435402"
+       r="30"
+       inkscape:export-filename="favicon.png"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <circle
+       style="mix-blend-mode:normal;fill:#8eff00;fill-opacity:1;stroke:none;stroke-width:0.273286;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       id="path5-5-85-5-1"
+       cy="218"
+       cx="100"
+       r="30"
+       clip-path="url(#clipPath8)"
+       transform="translate(77.544304,-15.971812)" />
+    <circle
+       style="opacity:0.75;mix-blend-mode:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0227739;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;filter:url(#filter6-8)"
+       id="path5-5-8-7"
+       cy="247.53546"
+       cx="156.73569"
+       r="2.5" />
+    <circle
+       style="opacity:0.6;mix-blend-mode:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0227739;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;filter:url(#filter6)"
+       id="path5-5-8"
+       cy="243.49376"
+       cx="51.065464"
+       r="2.5" />
+    <text
+       xml:space="preserve"
+       style="font-size:35.2777px;font-family:Baskerville;-inkscape-font-specification:Baskerville;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;opacity:0.75;fill:#8eff00;fill-opacity:1;stroke:none;stroke-width:0.264999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       x="90.738411"
+       y="208.55945"
+       id="text8"><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         style="stroke-width:0.265"
+         x="90.738411"
+         y="208.55945">QA</tspan></text>
+  </g>
+</svg>
