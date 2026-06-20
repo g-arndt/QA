@@ -4,7 +4,7 @@ function fetchNav() {
         ? "/QA"
         : "";
 
-    return fetch(basePath + "/nav/nav.html")
+    return fetch("/QA/nav/nav.html") //(basePath + "/nav/nav.html")
         .then(response => response.text())
         .then(html => {
 
