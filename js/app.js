@@ -3,41 +3,40 @@ const BASE_PATH =
         ? "/QA"
         : "";
 
-function fetchNav() {
+/* =========================
+   NAV
+========================= */
 
-    return fetch("/QA/nav/nav.html")
-        .then(response => response.text())
-        .then(html => {
+async function fetchNav() {
+    const res = await fetch(`${BASE_PATH}/nav/nav.html`);
+    const html = await res.text();
 
-            document.getElementById("nav").innerHTML = html;
+    document.getElementById("nav").innerHTML = html;
 
-            highlightCurrentNav();
-            highlightProgressNav();
-            initSidebarState();
+    highlightCurrentNav();
+    highlightProgressNav();
+    initSidebarState();
 
-            document.querySelector(".sidebar-toggle")
-                ?.addEventListener("click", toggleSidebar);
-        });
+    document.querySelector(".sidebar-toggle")
+        ?.addEventListener("click", toggleSidebar);
 }
 
-function highlightCurrentNav() {
+/* =========================
+   NAV ACTIVE STATE
+========================= */
 
+function highlightCurrentNav() {
     let path = window.location.pathname.split("/").pop().toLowerCase();
 
     if (!path || path === "") {
         path = "index.html";
     }
 
-    console.log("ACTIVE CHECK:", path);
-
     document.querySelectorAll("#nav a").forEach(a => {
-
         const href = (a.getAttribute("href") || "")
             .split("/")
             .pop()
             .toLowerCase();
-
-        console.log("LINK:", href);
 
         if (href === path) {
             a.classList.add("active");
@@ -45,127 +44,129 @@ function highlightCurrentNav() {
     });
 }
 
-function highlightProgressNav() {
+/* =========================
+   PROGRESS INDICATOR
+========================= */
 
+function highlightProgressNav() {
     const navItem = document.getElementById("nav-schwingung");
 
-    if (!navItem) {
-        console.log("nav-schwingung nicht gefunden");
-        return;
-    }
+    if (!navItem) return;
 
     if (localStorage.getItem("schwingung_quiz_done")) {
         navItem.style.fontStyle = "italic";
     }
 }
 
+/* =========================
+   SIDEBAR (FOLDER-BASED)
+========================= */
 
-async function loadHTML(id, file) {
-    const el = document.getElementById(id);
-    if (!el) return;
+function getSection() {
+    const parts = window.location.pathname
+        .split("/")
+        .filter(Boolean);
+
+    // assumes: /Kapitel/Schwingung/gedaempft.html
+    return parts[parts.length - 2]?.toLowerCase() || "default";
+}
+
+async function loadSidebar() {
+    const section = getSection();
+
+    const file = `${BASE_PATH}/sidebar/sidebar-${section}.html`;
+
+    const el = document.getElementById("sidebar");
 
     try {
         const res = await fetch(file);
+
+        if (!res.ok) {
+            console.warn("Sidebar not found:", file);
+            el.innerHTML = "";
+            return;
+        }
+
         el.innerHTML = await res.text();
+
+        highlightCurrentSidebar();
+        updateProgressSidebar();
+
     } catch (err) {
-        console.error("Failed to load", file, err);
+        console.error("Sidebar load failed:", err);
     }
 }
 
-// detect page name from URL
-function getPageName() {
-    const path = window.location.pathname;
-    const file = path.split("/").pop(); // e.g. Schwingung.html
-    return file.replace(".html", "").toLowerCase();
+/* =========================
+   SIDEBAR ACTIVE LINK
+========================= */
+
+function highlightCurrentSidebar() {
+    const current = window.location.pathname
+        .split("/")
+        .pop()
+        .toLowerCase();
+
+    document.querySelectorAll(".side-nav a").forEach(a => {
+        const href = (a.getAttribute("href") || "")
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+        if (href === current) {
+            a.classList.add("active");
+        }
+    });
 }
 
-
-document.addEventListener("DOMContentLoaded", async () => {
-
-    await loadHTML("nav", "/QA/nav/nav.html");
-
-    const page = getPageName();
-
-    const sidebarMap = {
-        "index": "/QA/sidebar/sidebar-index.html",
-        "theorie": "/QA/sidebar/sidebar-Theorie.html",
-        "schwingung": "/QA/sidebar/sidebar-Schwingung.html",
-        "schwingung-gedaempft": "/QA/sidebar/sidebar-Schwingung.html",
-        "schwingung-ungedaempft": "/QA/sidebar/sidebar-Schwingung.html",
-        "quiz": "/QA/sidebar/sidebar-Quiz.html"
-    };
-
-    const sidebarFile = sidebarMap[page] || "/QA/sidebar/default.html";
-
-    await loadHTML("sidebar", sidebarFile);
-
-    highlightCurrentSidebar();
-    updateProgressSidebar();
-    initSidebarState();
-
-    document.querySelector(".sidebar-toggle")
-        ?.addEventListener("click", toggleSidebar);
-});
-
+/* =========================
+   SIDEBAR STATE
+========================= */
 
 function initSidebarState() {
-
     const layout = document.querySelector(".layout");
     if (!layout) return;
 
-    const hidden = localStorage.getItem("sidebar_hidden");
-
     layout.classList.remove("initial-hidden");
+
+    const hidden = localStorage.getItem("sidebar_hidden");
 
     if (hidden !== "true") {
         layout.classList.add("sidebar-open");
     }
 }
 
-
 function toggleSidebar() {
-
     const layout = document.querySelector(".layout");
     if (!layout) return;
 
     layout.classList.toggle("sidebar-open");
 
     const isOpen = layout.classList.contains("sidebar-open");
-
     localStorage.setItem("sidebar_hidden", !isOpen);
 }
 
-
-function highlightCurrentSidebar() {
-
-    const path = window.location.pathname.split("/").pop().toLowerCase();
-
-    document.querySelectorAll(".side-nav a").forEach(a => {
-
-        const href = a.getAttribute("href").toLowerCase();
-
-        if (href === path) {
-            a.classList.add("active");
-        }
-    });
-}
-
+/* =========================
+   PROGRESS (SIDEBAR)
+========================= */
 
 function updateProgressSidebar() {
-
     const done = localStorage.getItem("schwingung_quiz_done");
     const p = document.getElementById("progress");
 
-    if (!p) return; // ← WICHTIG
+    if (!p) return;
 
     if (done) {
-        p.textContent = "Schwingung: ✔ ";
+        p.textContent = "Schwingung: ✔";
         p.style.color = "green";
     }
 }
 
+/* =========================
+   INIT
+========================= */
 
-
-
-
-
+document.addEventListener("DOMContentLoaded", async () => {
+    await fetchNav();
+    await loadSidebar();
+});
