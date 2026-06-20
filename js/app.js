@@ -10,6 +10,9 @@ function fetchNav() {
 
             document.getElementById("nav").innerHTML = html;
 
+            console.log("NAV CONTENT:");
+            console.log(document.getElementById("nav").innerHTML);
+
             highlightCurrentNav();
             highlightProgressNav();
             highlightCurrentSidebar();
