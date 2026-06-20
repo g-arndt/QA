@@ -90,6 +90,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         "index": "/QA/sidebar/sidebar-index.html",
         "theorie": "/QA/sidebar/sidebar-Theorie.html",
         "schwingung": "/QA/sidebar/sidebar-Schwingung.html",
+        "schwingung-gedaempft": "/QA/sidebar/sidebar-Schwingung.html",
+        "schwingung-ungedaempft": "/QA/sidebar/sidebar-Schwingung.html",
         "quiz": "/QA/sidebar/sidebar-Quiz.html"
     };
 
