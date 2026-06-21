@@ -50,6 +50,7 @@ nav a:hover {
     grid-template-columns: 100px 1fr;
     transition: grid-template-columns 0.3s ease;
     padding-right: 20px;
+    gap: 0;
 }
 
 .layout.sidebar-open {
@@ -65,6 +66,8 @@ nav a:hover {
     pointer-events: none;
     padding: 0;
     transition: opacity 0.2s ease, padding 0.2s ease;
+    border-right: 1px solid #e5e7eb;
+    box-shadow: 2px 0 6px rgba(0,0,0,0.04);
 }
 
 .layout.sidebar-open .sidebar {
@@ -72,7 +75,7 @@ nav a:hover {
     background: white;
     opacity: 1;
     pointer-events: auto;
-    padding: 20px;
+    gap: 20px;
 }
 
 /* =========================
