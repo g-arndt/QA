@@ -49,11 +49,35 @@ function highlightCurrentNav() {
 ========================= */
 
 function highlightProgressNav() {
-    const navItem = document.getElementById("nav-schwingung");
+    const navItem = document.getElementById("nav-theorie");
 
     if (!navItem) return;
 
-    if (localStorage.getItem("schwingung_quiz_done")) {
+    if (localStorage.getItem("theorie_done")) {
+        navItem.style.fontStyle = "italic";
+    }
+
+    const navItem = document.getElementById("nav-umsetzung");
+
+    if (!navItem) return;
+
+    if (localStorage.getItem("umsetzung_done")) {
+        navItem.style.fontStyle = "italic";
+    }
+
+    const navItem = document.getElementById("nav-anwendung");
+
+    if (!navItem) return;
+
+    if (localStorage.getItem("anwendung_done")) {
+        navItem.style.fontStyle = "italic";
+    }
+
+    const navItem = document.getElementById("nav-selbsttest");
+
+    if (!navItem) return;
+
+    if (localStorage.getItem("selbsttest_done")) {
         navItem.style.fontStyle = "italic";
     }
 }
@@ -62,19 +86,18 @@ function highlightProgressNav() {
    SIDEBAR (FOLDER-BASED)
 ========================= */
 
-function getSection() {
+function getSubsection() {
     const parts = window.location.pathname
         .split("/")
         .filter(Boolean);
 
-    // assumes: /Kapitel/Schwingung/gedaempft.html
-    return parts[parts.length - 2]?.toLowerCase() || "default";
+    return parts[parts.length - 2]?.toLowerCase();
 }
 
 async function loadSidebar() {
-    const section = getSection();
+    const subsection = getSubsection();
 
-    const file = `${BASE_PATH}/sidebar/sidebar-${section}.html`;
+    const file = `${BASE_PATH}/sidebar/sidebar-${subsection}.html`;
 
     const el = document.getElementById("sidebar");
 
