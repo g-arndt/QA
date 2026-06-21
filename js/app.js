@@ -175,10 +175,32 @@ function updateProgressSidebar() {
 }
 
 /* =========================
-   INIT
+   MATH SETUP
 ========================= */
 
-document.addEventListener("DOMContentLoaded", async () => {
+function renderMathInContent() {
+    const content = document.querySelector(".content");
+
+    if (window.MathJax && content) {
+        MathJax.typesetPromise([content]);
+    }
+}
+
+/* =========================
+   PAGE INIT
+========================= */
+
+async function initPage() {
     await fetchNav();
     await loadSidebar();
-});
+
+    highlightCurrentNav();
+    highlightProgressNav();
+    initSidebarState();
+
+    renderMathInContent();
+}
+
+document.addEventListener("DOMContentLoaded", initPage);
+
+
