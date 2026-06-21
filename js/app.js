@@ -135,20 +135,18 @@ function highlightCurrentSidebar() {
 
 function initSidebarState() {
     const layout = document.querySelector(".layout");
-
-    console.log("LAYOUT FOUND:", layout);
-
     if (!layout) return;
 
     layout.classList.remove("initial-hidden");
 
     const hidden = localStorage.getItem("sidebar_hidden");
 
-    console.log("SIDEBAR HIDDEN STATE:", hidden);
-
     if (hidden !== "true") {
         layout.classList.add("sidebar-open");
     }
+
+    // force reflow
+    layout.offsetHeight;
 }
 
 function toggleSidebar() {
@@ -185,14 +183,10 @@ async function renderMathInContent() {
     const content = document.querySelector(".content");
     if (!content || !window.MathJax) return;
 
-    if (window.MathJax.startup?.promise) {
-        await MathJax.startup.promise;
-    }
+    await MathJax.startup?.promise;
 
     if (MathJax.typesetPromise) {
-        return MathJax.typesetPromise([content]);
-    } else {
-        MathJax.typeset([content]);
+        await MathJax.typesetPromise([content]);
     }
 }
 
