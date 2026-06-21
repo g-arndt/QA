@@ -135,11 +135,16 @@ function highlightCurrentSidebar() {
 
 function initSidebarState() {
     const layout = document.querySelector(".layout");
+
+    console.log("LAYOUT FOUND:", layout);
+
     if (!layout) return;
 
     layout.classList.remove("initial-hidden");
 
     const hidden = localStorage.getItem("sidebar_hidden");
+
+    console.log("SIDEBAR HIDDEN STATE:", hidden);
 
     if (hidden !== "true") {
         layout.classList.add("sidebar-open");
