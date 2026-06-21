@@ -50,25 +50,25 @@ function highlightCurrentNav() {
 
 function highlightProgressNav() {
 
-    const theorieItem = document.getElementById("nav-theorie");
-    if (theorieItem && localStorage.getItem("theorie_done")) {
-        theorieItem.style.fontStyle = "italic";
-    }
+    const pages = [
+        "theorie",
+        "umsetzung",
+        "anwendung",
+        "selbsttest"
+    ];
 
-    const umsetzungItem = document.getElementById("nav-umsetzung");
-    if (umsetzungItem && localStorage.getItem("umsetzung_done")) {
-        umsetzungItem.style.fontStyle = "italic";
-    }
+    pages.forEach(page => {
 
-    const anwendungItem = document.getElementById("nav-anwendung");
-    if (anwendungItem && localStorage.getItem("anwendung_done")) {
-        anwendungItem.style.fontStyle = "italic";
-    }
+        const navItem = document.getElementById(`nav-${page}`);
 
-    const selbsttestItem = document.getElementById("nav-selbsttest");
-    if (selbsttestItem && localStorage.getItem("selbsttest_done")) {
-        selbsttestItem.style.fontStyle = "italic";
-    }
+        if (
+            navItem &&
+            localStorage.getItem(`${page}_done`)
+        ) {
+            navItem.style.fontStyle = "italic";
+        }
+
+    });
 }
 
 /* =========================
