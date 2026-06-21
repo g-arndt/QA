@@ -80,7 +80,7 @@ function getSubsection() {
         .split("/")
         .filter(Boolean);
 
-    return parts[parts.length - 2]?.toLowerCase();
+    return parts[2]?.toLowerCase() || "default";
 }
 
 async function loadSidebar() {
