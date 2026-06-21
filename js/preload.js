@@ -6,6 +6,15 @@
         tex: {
             inlineMath: [['$', '$'], ['\\(', '\\)']],
             displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        startup: {
+            typeset: false,
+            pageReady: () => {
+                const content = document.querySelector(".content");
+                if (content) {
+                    MathJax.typesetPromise([content]);
+                }
+            }
         }
     };
 
@@ -16,3 +25,5 @@
 
     document.head.appendChild(script);
 })();
+
+
