@@ -12,13 +12,6 @@ async function fetchNav() {
     const html = await res.text();
 
     document.getElementById("nav").innerHTML = html;
-
-    highlightCurrentNav();
-    highlightProgressNav();
-    initSidebarState();
-
-    document.querySelector(".sidebar-toggle")
-        ?.addEventListener("click", toggleSidebar);
 }
 
 /* =========================
@@ -72,7 +65,7 @@ function highlightProgressNav() {
 }
 
 /* =========================
-   SIDEBAR (FOLDER-BASED)
+   SIDEBAR 
 ========================= */
 
 function getSubsection() {
@@ -107,6 +100,11 @@ async function loadSidebar() {
     } catch (err) {
         console.error("Sidebar load failed:", err);
     }
+}
+
+function setupSidebarEvents() {
+    document.querySelector(".sidebar-toggle")
+        ?.addEventListener("click", toggleSidebar);
 }
 
 /* =========================
@@ -178,11 +176,18 @@ function updateProgressSidebar() {
    MATH SETUP
 ========================= */
 
-function renderMathInContent() {
+async function renderMathInContent() {
     const content = document.querySelector(".content");
+    if (!content || !window.MathJax) return;
 
-    if (window.MathJax && content) {
-        MathJax.typesetPromise([content]);
+    if (window.MathJax.startup?.promise) {
+        await MathJax.startup.promise;
+    }
+
+    if (MathJax.typesetPromise) {
+        return MathJax.typesetPromise([content]);
+    } else {
+        MathJax.typeset([content]);
     }
 }
 
@@ -190,17 +195,24 @@ function renderMathInContent() {
    PAGE INIT
 ========================= */
 
-async function initPage() {
-    await fetchNav();
-    await loadSidebar();
-
+function applyUIState() {
     highlightCurrentNav();
     highlightProgressNav();
     initSidebarState();
-
-    renderMathInContent();
+    highlightCurrentSidebar();
+    updateProgressSidebar();
 }
 
 document.addEventListener("DOMContentLoaded", initPage);
 
+async function initPage() {
+    await fetchNav();
+    await loadSidebar();
+
+    applyUIState();
+
+    await renderMathInContent();
+
+    setupSidebarEvents();
+}
 
