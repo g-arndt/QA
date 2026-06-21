@@ -211,13 +211,14 @@ function applyUIState() {
 document.addEventListener("DOMContentLoaded", initPage);
 
 async function initPage() {
+    initSidebarState(); 
+
     await fetchNav();
     await loadSidebar();
 
     applyUIState();
-
-    await renderMathInContent();
-
     setupSidebarEvents();
+
+    renderMathInContent();
 }
 
