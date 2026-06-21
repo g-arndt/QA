@@ -15,24 +15,12 @@
 
 <div class="layout initial-hidden">
 
-    <aside class="sidebar" id="sidebar">
-
-        <h3>Lernpfad</h3>
-
-        <p>→ Theorie</p>
-        <p>→ Simulation</p>
-        <p>→ Quiz</p>
-
-        <hr>
-
-        <p id="progress">Fortschritt</p>
-
-    </aside>
+    <aside class="sidebar" id="sidebar"></aside>
 
     <main class="content">
 
-        <h1>Harmonische Schwingungen</h1>
-        <p>Interaktives Fortbildungsmodul zur Untersuchung harmonischer Schwingungen.</p>
+        <h1>Quantum Annealing</h1>
+        <p>Interaktives Fortbildungsmodul für Fachkräfte der Chemieindustrie</p>
 
 
         <div class="card">
@@ -41,9 +29,11 @@
             <p>
                 <a class="button" href="Kapitel/Theorie/">Theorie</a>
 	        → 
-                <a class="button" href="Kapitel/Schwingung/">Simulation</a>
+                <a class="button" href="Kapitel/Umsetzung/">Umsetzung</a>
+	        → 
+                <a class="button" href="Kapitel/Anwendung/">Anwendung</a>
 	        →
-                <a class="button" href="Kapitel/Quiz/">Quiz</a>
+                <a class="button" href="Kapitel/Selbsttest/">Selbsttest</a>
             </p>
 
         </div>
@@ -62,7 +52,7 @@
         <div class="card">
             <h2>Lernfortschritt</h2>
 
-            <p id="quizStatus">Schwingung: nicht abgeschlossen</p>
+            <p id="quizStatus">Umsetzung: nicht abgeschlossen</p>
 
         </div>
 
@@ -84,7 +74,7 @@ function updateProgress(){
     let quizDone = localStorage.getItem("schwingung_quiz_done");
 
     if(quizDone){
-        document.getElementById("quizStatus").textContent = "Schwingung: abgeschlossen";
+        document.getElementById("quizStatus").textContent = "Umsetzung: abgeschlossen";
         document.getElementById("quizStatus").style.color = "green";
     }
 }

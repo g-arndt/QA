@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="icon" href="/QA/favicon.ico">
-    <title>Quiz</title>
+    <title>Selbsttest</title>
     <script src="/QA/js/preload.js"></script>
     <link rel="stylesheet" href="/QA/style/style.css">
     <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
@@ -14,29 +14,36 @@
 
 <div id="nav"></div>
 
-<main>
+<div class="layout initial-hidden">
 
-<h1>Quiz</h1>
+    <aside class="sidebar" id="sidebar"></aside>
 
-<p>
-Selbstüberprüfung durch Quizfragen
-</p>
+    <main class="content">
 
+        <h1>Abschließender Selbsttest</h1>
 
-<div class="card">
+        <p>Testen Sie Ihren Lernfortschritt anhand von Multiple-Choice-Fragen.</p>
 
-    <h2>Zwischenfrage</h2>
+        <div class="card">
 
-    <p>Welche Größe verändert sich, wenn ω erhöht wird?</p>
+            <h2>Zwischenfrage</h2>
 
-    <label><input type="radio" name="q1" value="a"> Amplitude</label><br>
-    <label><input type="radio" name="q1" value="b"> Periodendauer</label><br><br>
+            <p>Welche Größe verändert sich, wenn ω erhöht wird?</p>
 
-    <button onclick="checkAnswer()">Prüfen</button>
+            <label><input type="radio" name="q1" value="a"> Amplitude</label><br>
+            <label><input type="radio" name="q1" value="b"> Periodendauer</label><br><br>
 
-    <p id="feedback" style="margin-top: 10px;"></p>
+            <button onclick="checkAnswer()">Prüfen</button>
+
+            <p id="feedback" style="margin-top: 10px;"></p>
+
+        </div>
+
+    </main>
 
 </div>
+
+
 
 
 
