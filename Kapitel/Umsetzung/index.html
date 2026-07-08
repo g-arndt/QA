@@ -69,67 +69,54 @@
 <script>
 
 // dynamischer Plot
+let t = [];
+for(let i = 0; i <= 1000; i++){
+    t.push(i * 0.01);
+}
+
+let omega = 1;
+
+function drawPlot(omega){
+
+    let y = t.map(x => Math.sin(omega * x));
+
+    Plotly.react("plot", [{
+        x: t,
+        y: y,
+        mode: "lines"
+    }], {
+        title: "x(t) = sin(ωt)"
+    });
+
+}
+
+// Initial zeichnen
+drawPlot(omega);
+
+
+// Slider
+const slider = document.getElementById("omegaSlider");
+const display = document.getElementById("omegaValue");
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    const t = [];
+    // Ausgangsplot zeichnen
+    drawPlot(omega);
 
-    for (let i = 0; i <= 1000; i++) {
-        t.push(i * 0.01);
-    }
-
-    let omega = 1;
-
-    Plotly.newPlot(
-        "plot",
-        [{
-            x: t,
-            y: t.map(x => Math.sin(omega * x)),
-            mode: "lines"
-        }],
-        {
-            title: "x(t) = sin(ωt)",
-            autosize: true,
-            margin: {
-                l: 50,
-                r: 20,
-                t: 50,
-                b: 40
-            }
-        },
-        {
-            responsive: true
-        }
-    );
-
-
-    const slider =
-        document.getElementById("omegaSlider");
-
-    const display =
-        document.getElementById("omegaValue");
-
+    // Änderungen über Slider durchführen
     slider.addEventListener("input", function () {
 
-        omega = Number(this.value);
+        omega = parseFloat(this.value);
 
         display.textContent =
             omega.toFixed(1);
 
-        Plotly.restyle(
-            "plot",
-            {
-                y: [
-                    t.map(
-                        x => Math.sin(omega * x)
-                    )
-                ]
-            }
-        );
+        drawPlot(omega);
 
     });
 
 });
-
 
 // Quiz
 function checkAnswer(){
