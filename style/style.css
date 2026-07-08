@@ -46,7 +46,7 @@ nav a:hover {
 
 .layout {
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 0 1fr;
     transition: grid-template-columns 0.3s ease;
 }
 
