@@ -372,21 +372,18 @@ async function initPage() {
        korrigieren
     */
 
-    requestAnimationFrame(() => {
+    setTimeout(() => {
 
         const plot =
             document.getElementById("plot");
-
-
+    
         if (
             plot &&
             window.Plotly
         ) {
-
             Plotly.Plots.resize(plot);
-
         }
 
-    });
+    }, 500);
 
 }
