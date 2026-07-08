@@ -256,7 +256,7 @@ function updateProgressSidebar() {
 
 
     const p =
-        document.getElementById("progress");
+        document.getElementById("progress-umsetzung");
 
 
     if (!p) return;
@@ -265,7 +265,7 @@ function updateProgressSidebar() {
     if (done) {
 
         p.textContent =
-            "Umsetzung: ✔";
+            "Umsetzung ✔";
 
         p.style.color =
             "green";
