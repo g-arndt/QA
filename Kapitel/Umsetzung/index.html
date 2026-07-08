@@ -104,6 +104,15 @@ slider.addEventListener("input", function(){
 
 });
 
+// Änderung des Containers beim Aus- und Einklappen der Sidebar
+const container = document.querySelector(".content");
+
+const observer = new ResizeObserver(() => {
+    Plotly.Plots.resize(document.getElementById("plot"));
+});
+
+observer.observe(container);
+
 // Quiz
 function checkAnswer(){
 
