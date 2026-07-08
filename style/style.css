@@ -81,7 +81,7 @@ nav a:hover {
 
 .side-nav {
     list-style: none;
-    padding: 20px;
+    padding: 0px;
     margin: 0;
 }
 
@@ -91,6 +91,9 @@ nav a:hover {
 
 .side-nav a {
     text-decoration: none;
+    padding: 14px 18px; 
+    margin-bottom: 10px;
+    min-height: 25px;  
     color: #2563eb;
     display: block;
     padding: 0px;
@@ -104,7 +107,7 @@ nav a:hover {
 
 .side-nav a.active {
     color: black;
-    background: #FCECD4;
+    background: #fcecd4;
 }
 
 /* =========================
