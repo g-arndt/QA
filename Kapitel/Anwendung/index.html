@@ -79,20 +79,22 @@ function drawPlot(omega){
 
 }
 
-// Ausgangsplot zeichnen
-drawPlot(omega);
+document.addEventListener("DOMContentLoaded", () => {
 
-// Änderungen über Slider durchführen
-let slider = document.getElementById("omegaSlider");
-let display = document.getElementById("omegaValue");
-
-slider.addEventListener("input", function(){
-
-    omega = parseFloat(this.value);
-
-    display.textContent = omega.toFixed(1);
-
+    // Ausgangsplot zeichnen
     drawPlot(omega);
+
+    // Änderungen über Slider durchführen
+    slider.addEventListener("input", function () {
+
+        omega = parseFloat(this.value);
+
+        display.textContent =
+            omega.toFixed(1);
+
+        drawPlot(omega);
+
+    });
 
 });
 
