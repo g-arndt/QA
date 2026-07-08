@@ -264,23 +264,46 @@ function toggleSidebar() {
 
 function updateProgressSidebar() {
 
-    const done =
+    // Umsetzung
+    const done_umsetzung =
         localStorage.getItem("umsetzung_done");
 
 
-    const p =
+    const p_umsetzung =
         document.getElementById("progress-umsetzung");
 
 
-    if (!p) return;
+    if (!p_umsetzung) return;
 
 
-    if (done) {
+    if (done_umsetzung) {
 
-        p.textContent =
+        p_umsetzung.textContent =
             "Umsetzung ✔";
 
-        p.style.color =
+        p_umsetzung.style.color =
+            "green";
+
+    }
+
+    // Anwendung
+    const done_anwendung =
+        localStorage.getItem("anwendung_done");
+
+
+    const p_anwendung =
+        document.getElementById("progress-anwendung");
+
+
+    if (!p_anwendung) return;
+
+
+    if (done_anwendung) {
+
+        p_umsetzung.textContent =
+            "Anwendung ✔";
+
+        p_umsetzung.style.color =
             "green";
 
     }
