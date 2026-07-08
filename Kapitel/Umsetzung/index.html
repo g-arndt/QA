@@ -29,7 +29,7 @@
         <input type="range" id="omegaSlider" min="0.5" max="5" step="0.1" value="1">
 
         <div class="plot-container">
-            <div id="plot"></div>
+            <div id="plot" class="plot"></div>
         </div>
 
         <p>irgendein Text</p>
@@ -65,54 +65,130 @@
 <script src="/QA/js/app.js"></script>
 <script>
 
-fetchNav();
+<script>
 
-// dynamischer Plot
-// Zeitachse
-const t = [];
-for (let i = 0; i <= 1000; i++) {
-    t.push(i * 0.01);
-}
+document.addEventListener("DOMContentLoaded", () => {
 
-let omega = 1;
+    // dynamischer Plot
 
-// Plot einmal erzeugen
-Plotly.newPlot(
-    "plot",
-    [{
-        x: t,
-        y: t.map(x => Math.sin(omega * x)),
-        mode: "lines"
-    }],
-    {
-        title: "x(t) = sin(ωt)",
-        autosize: true,
-        margin: {
-            l: 50,
-            r: 20,
-            t: 50,
-            b: 40
-        }
-    },
-    {
-        responsive: true
+    const t = [];
+
+    for (let i = 0; i <= 1000; i++) {
+        t.push(i * 0.01);
     }
-);
 
-// Slider
-const slider = document.getElementById("omegaSlider");
-const display = document.getElementById("omegaValue");
 
-slider.addEventListener("input", function () {
+    let omega = 1;
 
-    omega = Number(this.value);
-    display.textContent = omega.toFixed(1);
 
-    Plotly.restyle("plot", {
-        y: [t.map(x => Math.sin(omega * x))]
+    Plotly.newPlot(
+        "plot",
+        [{
+            x: t,
+            y: t.map(x => Math.sin(omega * x)),
+            mode: "lines"
+        }],
+        {
+            title: "x(t) = sin(ωt)",
+            autosize: true,
+            margin: {
+                l: 50,
+                r: 20,
+                t: 50,
+                b: 40
+            }
+        },
+        {
+            responsive: true
+        }
+    );
+
+
+    const slider =
+        document.getElementById("omegaSlider");
+
+    const display =
+        document.getElementById("omegaValue");
+
+
+    slider.addEventListener("input", function () {
+
+        omega = Number(this.value);
+
+        display.textContent =
+            omega.toFixed(1);
+
+
+        Plotly.restyle(
+            "plot",
+            {
+                y: [
+                    t.map(
+                        x => Math.sin(omega * x)
+                    )
+                ]
+            }
+        );
+
     });
 
 });
+
+
+function checkAnswer(){
+
+    let selected =
+        document.querySelector(
+            'input[name="q1"]:checked'
+        );
+
+    let feedback =
+        document.getElementById("feedback");
+
+
+    if(!selected){
+
+        feedback.textContent =
+            "Bitte eine Antwort wählen.";
+
+        return;
+
+    }
+
+
+    if(selected.value === "b"){
+
+        feedback.textContent =
+            "Richtig! Die Periodendauer hängt von ω ab.";
+
+        feedback.style.color =
+            "green";
+
+    } else {
+
+        feedback.textContent =
+            "Nicht ganz. Überlege den Zusammenhang zwischen ω und T.";
+
+        feedback.style.color =
+            "red";
+
+    }
+
+
+    feedback.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+
+    localStorage.setItem(
+        "umsetzung_done",
+        "true"
+    );
+
+}
+
+</script>
 
 
 // Quiz
