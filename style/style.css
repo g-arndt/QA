@@ -46,12 +46,13 @@ nav a:hover {
 
 .layout {
     display: grid;
-    grid-template-columns: 0px minmax(auto, 1fr);
+    grid-template-columns: 0px minmax(0, 1fr);
     transition: grid-template-columns 0.3s ease;
+    width: 100%;
 }
 
 .layout.sidebar-open {
-    grid-template-columns: 260px  0px minmax(0, 1fr);
+    grid-template-columns: 260px minmax(0, 1fr);
 }
 
 /* =========================
@@ -114,16 +115,17 @@ nav a:hover {
 ========================= */
 
 .content {
-    width: 100%;
     min-width: 0;
+    width: 100%;
     box-sizing: border-box;
     padding: 40px 80px;
 }
 
 .content-inner {
-    max-width: 1200px;
     width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 /* =========================
