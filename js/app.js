@@ -164,13 +164,13 @@ function toggleSidebar() {
 ========================= */
 
 function updateProgressSidebar() {
-    const done = localStorage.getItem("schwingung_quiz_done");
+    const done = localStorage.getItem("umsetzung_done");
     const p = document.getElementById("progress");
 
     if (!p) return;
 
     if (done) {
-        p.textContent = "Schwingung: ✔";
+        p.textContent = "Umsetzung: ✔";
         p.style.color = "green";
     }
 }

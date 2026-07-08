@@ -1,6 +1,5 @@
 
 python3 -m http.server 8000
-
 http://localhost:8000
 
 
@@ -13,8 +12,18 @@ git commit -m "Beschreibung der Änderung"
 git push
 
 
-
-
+QA/index.html
+QA/favicon.ico
+QA/style/style.css
+QA/js/app.js
+QA/nav/nav.html
+QA/sidebar/sidebar-umsetzung.html
+QA/Kapitel/Theorie/index.html
+QA/Kapitel/Umsetzung/index.html
+QA/Kapitel/Umsetzung/a.html
+QA/Kapitel/Umsetzung/b.html
+QA/Kapitel/Anwendung/index.html
+QA/Kapitel/Selbsttest/index.html
 
 
 js-PopUp: alert("Text des PopUps");
