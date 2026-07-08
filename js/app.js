@@ -157,6 +157,14 @@ function toggleSidebar() {
 
     const isOpen = layout.classList.contains("sidebar-open");
     localStorage.setItem("sidebar_hidden", !isOpen);
+
+    // nach CSS-Transition Plot neu berechnen
+    setTimeout(() => {
+        const plot = document.getElementById("plot");
+        if (plot) {
+            Plotly.Plots.resize(plot);
+        }
+    }, 320);
 }
 
 /* =========================

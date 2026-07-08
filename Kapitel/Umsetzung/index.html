@@ -28,7 +28,9 @@
 
         <input type="range" id="omegaSlider" min="0.5" max="5" step="0.1" value="1">
 
-        <div id="plot"></div>
+        <div class="plot-container">
+            <div id="plot"></div>
+        </div>
 
         <p>irgendein Text</p>
 
@@ -66,52 +68,52 @@
 fetchNav();
 
 // dynamischer Plot
-let t = [];
-for(let i = 0; i <= 1000; i++){
+// Zeitachse
+const t = [];
+for (let i = 0; i <= 1000; i++) {
     t.push(i * 0.01);
 }
 
 let omega = 1;
 
-function drawPlot(omega){
-
-    let y = t.map(x => Math.sin(omega * x));
-
-    Plotly.react("plot", [{
+// Plot einmal erzeugen
+Plotly.newPlot(
+    "plot",
+    [{
         x: t,
-        y: y,
+        y: t.map(x => Math.sin(omega * x)),
         mode: "lines"
-    }], {
-        title: "x(t) = sin(ωt)"
-    });
+    }],
+    {
+        title: "x(t) = sin(ωt)",
+        autosize: true,
+        margin: {
+            l: 50,
+            r: 20,
+            t: 50,
+            b: 40
+        }
+    },
+    {
+        responsive: true
+    }
+);
 
-}
+// Slider
+const slider = document.getElementById("omegaSlider");
+const display = document.getElementById("omegaValue");
 
-// Ausgangsplot zeichnen
-drawPlot(omega);
+slider.addEventListener("input", function () {
 
-// Änderungen über Slider durchführen
-let slider = document.getElementById("omegaSlider");
-let display = document.getElementById("omegaValue");
-
-slider.addEventListener("input", function(){
-
-    omega = parseFloat(this.value);
-
+    omega = Number(this.value);
     display.textContent = omega.toFixed(1);
 
-    drawPlot(omega);
+    Plotly.restyle("plot", {
+        y: [t.map(x => Math.sin(omega * x))]
+    });
 
 });
 
-// Änderung des Containers beim Aus- und Einklappen der Sidebar
-const container = document.querySelector(".content");
-
-const observer = new ResizeObserver(() => {
-    Plotly.Plots.resize(document.getElementById("plot"));
-});
-
-observer.observe(container);
 
 // Quiz
 function checkAnswer(){
