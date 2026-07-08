@@ -184,18 +184,28 @@ function initSidebarState() {
 
 
     if (hidden !== "true") {
-
         layout.classList.add("sidebar-open");
-
-    } else {
-
-        layout.classList.remove("sidebar-open");
-
     }
 
 
-    // Layout-Neuberechnung erzwingen
+    // Browser zwingt Grid neu zu berechnen
     layout.offsetHeight;
+
+
+    // Plot nach initialem Layout anpassen
+    requestAnimationFrame(() => {
+
+        const plot =
+            document.getElementById("plot");
+
+        if (
+            plot &&
+            window.Plotly
+        ) {
+            Plotly.Plots.resize(plot);
+        }
+
+    });
 }
 
 
@@ -227,20 +237,23 @@ function toggleSidebar() {
        und Plot neu berechnen
     */
 
-    setTimeout(() => {
+    layout.addEventListener(
+        "transitionend",
+        () => {
 
-        const plot =
-            document.getElementById("plot");
+            const plot =
+                document.getElementById("plot");
 
+            if (
+                plot &&
+                window.Plotly
+           ) {
+                Plotly.Plots.resize(plot);
+            }
 
-        if (
-            plot &&
-            window.Plotly
-        ) {
-            Plotly.Plots.resize(plot);
-        }
-
-    }, 320);
+        },
+        { once: true }
+    );
 }
 
 
