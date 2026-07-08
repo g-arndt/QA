@@ -68,9 +68,8 @@
 
 <script>
 
+// dynamischer Plot
 document.addEventListener("DOMContentLoaded", () => {
-
-    // dynamischer Plot
 
     const t = [];
 
@@ -78,9 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         t.push(i * 0.01);
     }
 
-
     let omega = 1;
-
 
     Plotly.newPlot(
         "plot",
@@ -111,14 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const display =
         document.getElementById("omegaValue");
 
-
     slider.addEventListener("input", function () {
 
         omega = Number(this.value);
 
         display.textContent =
             omega.toFixed(1);
-
 
         Plotly.restyle(
             "plot",
