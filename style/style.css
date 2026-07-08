@@ -59,15 +59,16 @@ nav a:hover {
 ========================= */
 
 .sidebar {
-    opacity: 0;
-    pointer-events: none;
     padding: 0;
+    opacity: 0;
     transition: opacity 0.2s ease, padding 0.2s ease;
     border-right: 1px solid #e5e7eb;
     box-shadow: 2px 0 6px rgba(0,0,0,0.04);
+    pointer-events: none;
 }
 
 .layout.sidebar-open .sidebar {
+    padding: 8px;
     overflow: hidden;
     background: white;
     opacity: 1;
@@ -79,20 +80,15 @@ nav a:hover {
 ========================= */
 
 .side-nav {
-    list-style: none;
-    padding: 20px;
     margin: 0;
-}
-
-.side-nav li {
-    margin: 8px 0;
+    padding: 0px;
+    list-style: none;
 }
 
 .side-nav a {
     text-decoration: none;
     color: #2563eb;
     display: block;
-    padding: 8px 10px;
     border-radius: 6px;
     font-size: 14px;
 }
