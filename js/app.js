@@ -3,6 +3,7 @@ const BASE_PATH =
         ? "/QA"
         : "";
 
+
 /* =========================
    NAV
 ========================= */
@@ -14,18 +15,24 @@ async function fetchNav() {
     document.getElementById("nav").innerHTML = html;
 }
 
+
 /* =========================
    NAV ACTIVE STATE
 ========================= */
 
 function highlightCurrentNav() {
-    let path = window.location.pathname.split("/").pop().toLowerCase();
 
-    if (!path || path === "") {
+    let path = window.location.pathname
+        .split("/")
+        .pop()
+        .toLowerCase();
+
+    if (!path) {
         path = "index.html";
     }
 
     document.querySelectorAll("#nav a").forEach(a => {
+
         const href = (a.getAttribute("href") || "")
             .split("/")
             .pop()
@@ -34,8 +41,10 @@ function highlightCurrentNav() {
         if (href === path) {
             a.classList.add("active");
         }
+
     });
 }
+
 
 /* =========================
    PROGRESS INDICATOR
@@ -64,11 +73,13 @@ function highlightProgressNav() {
     });
 }
 
+
 /* =========================
-   SIDEBAR 
+   SIDEBAR LOAD
 ========================= */
 
 function getSubsection() {
+
     const parts = window.location.pathname
         .split("/")
         .filter(Boolean);
@@ -76,14 +87,19 @@ function getSubsection() {
     return parts[2]?.toLowerCase() || "default";
 }
 
+
 async function loadSidebar() {
+
     const subsection = getSubsection();
 
-    const file = `${BASE_PATH}/sidebar/sidebar-${subsection}.html`;
+    const file =
+        `${BASE_PATH}/sidebar/sidebar-${subsection}.html`;
 
     const el = document.getElementById("sidebar");
 
+
     try {
+
         const res = await fetch(file);
 
         if (!res.ok) {
@@ -98,129 +114,266 @@ async function loadSidebar() {
         updateProgressSidebar();
 
     } catch (err) {
+
         console.error("Sidebar load failed:", err);
+
     }
 }
 
+
 function setupSidebarEvents() {
-    document.querySelector(".sidebar-toggle")
-        ?.addEventListener("click", toggleSidebar);
+
+    document
+        .querySelector(".sidebar-toggle")
+        ?.addEventListener(
+            "click",
+            toggleSidebar
+        );
 }
+
 
 /* =========================
    SIDEBAR ACTIVE LINK
 ========================= */
 
 function highlightCurrentSidebar() {
-    const current = window.location.pathname
-        .split("/")
-        .pop()
-        .toLowerCase();
 
-    document.querySelectorAll(".side-nav a").forEach(a => {
-        const href = (a.getAttribute("href") || "")
+    const current =
+        window.location.pathname
             .split("/")
             .pop()
             .toLowerCase();
 
-        if (href === current) {
-            a.classList.add("active");
-        }
-    });
+
+    document
+        .querySelectorAll(".side-nav a")
+        .forEach(a => {
+
+            const href =
+                (a.getAttribute("href") || "")
+                .split("/")
+                .pop()
+                .toLowerCase();
+
+
+            if (href === current) {
+                a.classList.add("active");
+            }
+
+        });
 }
+
 
 /* =========================
    SIDEBAR STATE
 ========================= */
 
 function initSidebarState() {
-    const layout = document.querySelector(".layout");
+
+    const layout =
+        document.querySelector(".layout");
+
     if (!layout) return;
+
 
     layout.classList.remove("initial-hidden");
 
-    const hidden = localStorage.getItem("sidebar_hidden");
+
+    const hidden =
+        localStorage.getItem("sidebar_hidden");
+
 
     if (hidden !== "true") {
+
         layout.classList.add("sidebar-open");
+
+    } else {
+
+        layout.classList.remove("sidebar-open");
+
     }
 
-    // force reflow
+
+    // Layout-Neuberechnung erzwingen
     layout.offsetHeight;
 }
 
+
+
 function toggleSidebar() {
-    const layout = document.querySelector(".layout");
+
+    const layout =
+        document.querySelector(".layout");
+
+
     if (!layout) return;
+
 
     layout.classList.toggle("sidebar-open");
 
-    const isOpen = layout.classList.contains("sidebar-open");
-    localStorage.setItem("sidebar_hidden", !isOpen);
 
-    // nach CSS-Transition Plot neu berechnen
+    const isOpen =
+        layout.classList.contains("sidebar-open");
+
+
+    localStorage.setItem(
+        "sidebar_hidden",
+        !isOpen
+    );
+
+
+    /*
+       Warten bis CSS Grid Transition fertig ist
+       und Plot neu berechnen
+    */
+
     setTimeout(() => {
-        const plot = document.getElementById("plot");
-        if (plot) {
+
+        const plot =
+            document.getElementById("plot");
+
+
+        if (
+            plot &&
+            window.Plotly
+        ) {
             Plotly.Plots.resize(plot);
         }
+
     }, 320);
 }
 
+
+
 /* =========================
-   PROGRESS (SIDEBAR)
+   PROGRESS SIDEBAR
 ========================= */
 
 function updateProgressSidebar() {
-    const done = localStorage.getItem("umsetzung_done");
-    const p = document.getElementById("progress");
+
+    const done =
+        localStorage.getItem("umsetzung_done");
+
+
+    const p =
+        document.getElementById("progress");
+
 
     if (!p) return;
 
+
     if (done) {
-        p.textContent = "Umsetzung: ✔";
-        p.style.color = "green";
+
+        p.textContent =
+            "Umsetzung: ✔";
+
+        p.style.color =
+            "green";
+
     }
+
 }
+
 
 /* =========================
    MATH SETUP
 ========================= */
 
 async function renderMathInContent() {
-    const content = document.querySelector(".content");
-    if (!content || !window.MathJax) return;
+
+    const content =
+        document.querySelector(".content");
+
+
+    if (
+        !content ||
+        !window.MathJax
+    ) return;
+
 
     await MathJax.startup?.promise;
 
+
     if (MathJax.typesetPromise) {
-        await MathJax.typesetPromise([content]);
+
+        await MathJax.typesetPromise(
+            [content]
+        );
+
     }
+
 }
+
+
+/* =========================
+   INITIAL UI STATE
+========================= */
+
+function applyUIState() {
+
+    highlightCurrentNav();
+
+    highlightProgressNav();
+
+    initSidebarState();
+
+    updateProgressSidebar();
+
+}
+
 
 /* =========================
    PAGE INIT
 ========================= */
 
-function applyUIState() {
-    highlightCurrentNav();
-    highlightProgressNav();
-    initSidebarState();
-    highlightCurrentSidebar();
-    updateProgressSidebar();
-}
+document.addEventListener(
+    "DOMContentLoaded",
+    initPage
+);
 
-document.addEventListener("DOMContentLoaded", initPage);
+
 
 async function initPage() {
-    initSidebarState(); 
+
 
     await fetchNav();
+
+
     await loadSidebar();
 
+
     applyUIState();
+
+
     setupSidebarEvents();
 
-    renderMathInContent();
-}
 
+    await renderMathInContent();
+
+
+
+    /*
+       Falls Seite mit geöffneter Sidebar
+       geladen wurde:
+       Plot nach Layout-Berechnung
+       korrigieren
+    */
+
+    requestAnimationFrame(() => {
+
+        const plot =
+            document.getElementById("plot");
+
+
+        if (
+            plot &&
+            window.Plotly
+        ) {
+
+            Plotly.Plots.resize(plot);
+
+        }
+
+    });
+
+}

@@ -46,12 +46,12 @@ nav a:hover {
 
 .layout {
     display: grid;
-    grid-template-columns: 0 1fr;
+    grid-template-columns: 0px minmax(0, 1fr);
     transition: grid-template-columns 0.3s ease;
 }
 
 .layout.sidebar-open {
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 260px  0px minmax(0, 1fr);
 }
 
 /* =========================
@@ -91,12 +91,11 @@ nav a:hover {
 
 .side-nav a {
     text-decoration: none;
-    padding: 14px 18px; 
+    padding: 0px; 
     margin-bottom: 10px;
     min-height: 25px;  
     color: #2563eb;
     display: block;
-    padding: 0px;
     border-radius: 6px;
     font-size: 14px;
 }
@@ -115,6 +114,7 @@ nav a:hover {
 ========================= */
 
 .content {
+    min-width: 0;
     padding: 40px 80px;
 }
 
