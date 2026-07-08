@@ -300,10 +300,10 @@ function updateProgressSidebar() {
 
     if (done_anwendung) {
 
-        p_umsetzung.textContent =
+        p_anwendung.textContent =
             "Anwendung ✔";
 
-        p_umsetzung.style.color =
+        p_anwendung.style.color =
             "green";
 
     }
