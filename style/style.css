@@ -68,7 +68,7 @@ nav a:hover {
 }
 
 .layout.sidebar-open .sidebar {
-    padding: 8px;
+    padding: 10px;
     overflow: hidden;
     background: white;
     opacity: 1;
@@ -80,15 +80,20 @@ nav a:hover {
 ========================= */
 
 .side-nav {
-    margin: 0;
-    padding: 0px;
     list-style: none;
+    padding: 20px;
+    margin: 0;
+}
+
+.side-nav li {
+    margin: 8px 0;
 }
 
 .side-nav a {
     text-decoration: none;
     color: #2563eb;
     display: block;
+    padding: 0px;
     border-radius: 6px;
     font-size: 14px;
 }
