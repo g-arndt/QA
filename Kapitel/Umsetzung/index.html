@@ -44,7 +44,7 @@
             <label><input type="radio" name="q1" value="a"> Amplitude</label><br>
             <label><input type="radio" name="q1" value="b"> Periodendauer</label><br><br>
 
-           <button onclick="checkAnswer()">Prüfen</button>
+            <button onclick="checkAnswer()">Prüfen</button>
 
             <p id="feedback" style="margin-top: 10px;"></p>
 
@@ -89,10 +89,6 @@ function drawPlot(omega){
     });
 
 }
-
-// Initial zeichnen
-drawPlot(omega);
-
 
 // Slider
 const slider = document.getElementById("omegaSlider");

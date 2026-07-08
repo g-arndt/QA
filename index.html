@@ -71,11 +71,18 @@
 // Fortschritt tracken
 function updateProgress(){
 
-    let quizDone = localStorage.getItem("schwingung_quiz_done");
+    let quiz_umsetzung_done = localStorage.getItem("umsetzung_done");
 
-    if(quizDone){
-        document.getElementById("quizStatus").textContent = "Umsetzung: abgeschlossen";
-        document.getElementById("quizStatus").style.color = "green";
+    if(quiz_umsetzung_done){
+        document.getElementById("quiz_umsetzung_status").textContent = "Umsetzung: abgeschlossen";
+        document.getElementById("quiz_umsetzung_status").style.color = "green";
+    }
+
+    let quiz_anwendung_done = localStorage.getItem("anwendung_done");
+
+    if(quiz_anwendung_done){
+        document.getElementById("quiz_anwendung_status").textContent = "Anwendung: abgeschlossen";
+        document.getElementById("quiz_anwendung_status").style.color = "green";
     }
 }
 
