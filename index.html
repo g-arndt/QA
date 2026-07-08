@@ -53,7 +53,9 @@
         <div class="card">
             <h2>Lernfortschritt</h2>
 
-            <p id="quizStatus">Umsetzung: nicht abgeschlossen</p>
+            <p id="quiz_theorie_status">Theorie: nicht abgeschlossen</p>
+            <p id="quiz_umsetzung_status">Umsetzung: nicht abgeschlossen</p>
+            <p id="quiz_anwendung_status">Anwendung: nicht abgeschlossen</p>
 
         </div>
 
@@ -71,6 +73,15 @@
 // Fortschritt tracken
 function updateProgress(){
 
+    // Theorie
+    let quiz_theorie_done = localStorage.getItem("theorie_done");
+
+    if(quiz_theorie_done){
+        document.getElementById("quiz_theorie_status").textContent = "Theorie: abgeschlossen";
+        document.getElementById("quiz_theorie_status").style.color = "green";
+    }
+
+    // Umsetzung
     let quiz_umsetzung_done = localStorage.getItem("umsetzung_done");
 
     if(quiz_umsetzung_done){
@@ -78,6 +89,7 @@ function updateProgress(){
         document.getElementById("quiz_umsetzung_status").style.color = "green";
     }
 
+    // Anwendung
     let quiz_anwendung_done = localStorage.getItem("anwendung_done");
 
     if(quiz_anwendung_done){
