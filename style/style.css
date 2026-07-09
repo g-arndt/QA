@@ -284,10 +284,10 @@ h3 {
 
 
 .gradient-button-fill {
-    padding: 0.75rem 1.5rem;
+    padding: 5px 10px;
     font-size: 1.1rem;
     font-weight: bold;
-    min-width: 250px;
+    min-width: 175px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -309,10 +309,10 @@ h3 {
 }
 
 .gradient-button {
-    padding: 0.75rem 1.5rem;
+    padding: 5px 10px;
     font-size: 1.1rem;
     font-weight: bold;
-    min-width: 250px;
+    min-width: 175px;
     border: 2px solid transparent;
     border-radius: 8px;
     cursor: pointer;
