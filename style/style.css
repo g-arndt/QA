@@ -287,7 +287,7 @@ h3 {
     padding: 0.75rem 1.5rem;
     font-size: 1.1rem;
     font-weight: bold;
-    min-width: 150px;
+    min-width: 250px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -312,7 +312,7 @@ h3 {
     padding: 0.75rem 1.5rem;
     font-size: 1.1rem;
     font-weight: bold;
-    min-width: 150px;
+    min-width: 250px;
     border: 2px solid transparent;
     border-radius: 8px;
     cursor: pointer;
