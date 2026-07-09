@@ -316,9 +316,10 @@ h3 {
     border: 2px solid transparent;
     border-radius: 8px;
     cursor: pointer;
+    color: black;
 
     background:
-        linear-gradient(#000, #000) padding-box,
+        linear-gradient(#f6f8fb, #f6f8fb) padding-box,
         linear-gradient(
             75deg,
             #2563EB,
