@@ -208,3 +208,11 @@ h2,
 h3 {
     color: #111827;
 }
+
+.gradient-text {
+    background: linear-gradient(90deg, #2563EB, #06B6D4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
