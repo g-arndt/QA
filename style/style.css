@@ -179,8 +179,15 @@ nav a:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    margin-bottom: 20px;
+    gap: 20px;
+    display: flex;
+    border: 1px solid #ddd;
 }
+
+.text {
+    flex: 1;
+}
+
 
 /* =========================
    BUTTONS
@@ -236,3 +243,13 @@ h3 {
     100% { background-position: 300%; }
 }
 
+/* =========================
+   BILDER
+========================= */
+
+.card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
