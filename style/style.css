@@ -304,6 +304,10 @@ h3 {
     background-size: 300% 100%;
 }
 
+gradient-button-fill:hover {
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.7);
+}
+
 .gradient-button {
     padding: 0.75rem 1.5rem;
     font-size: 1.1rem;
