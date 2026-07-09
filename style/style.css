@@ -154,7 +154,7 @@ nav a:hover {
     justify-content: space-between;
     padding: 2rem;
     min-height: 80vh;
-    background-color: #f6f8fb;
+    background-color: transparent;
 }
 
 .hero-text {
