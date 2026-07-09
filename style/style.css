@@ -283,11 +283,11 @@ h3 {
 }
 
 
-.gradient-button {
+.gradient-button-fill {
     padding: 0.75rem 1.5rem;
     font-size: 1.1rem;
     font-weight: bold;
-    min-width: 50px;
+    min-width: 100px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -302,8 +302,27 @@ h3 {
     );
     
     background-size: 300% 100%;
-    animation: gradient 20s ease-in-out infinite alternate;
-    transition: box-shadow 0.3s ease;
+}
+
+.gradient-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    min-width: 100px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+
+    border: linear-gradient(
+      75deg,
+      #2563EB,
+      #06B6D4,
+      #7C3AED,
+      #2563EB
+    );
+    
+    background: transparent;
+    background-size: 300% 100%;
 }
 
 gradient-button:hover {
