@@ -150,6 +150,7 @@ nav a:hover {
   .hero {
     display: flex;
     align-items: center;
+    gap: 40px;
     justify-content: space-between;
     padding: 2rem;
     min-height: 80vh;
@@ -172,8 +173,9 @@ nav a:hover {
   }
 
   .hero-image img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
+    display: flex;
     border-radius: 12px;
     object-fit: cover;
   }
