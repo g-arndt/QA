@@ -210,7 +210,7 @@ h3 {
 }
 
 .gradient-text {
-    background: linear-gradient(90deg, #2563EB, #06B6D4);
+    background: linear-gradient(90deg, #2563EB, #7C3AED);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
