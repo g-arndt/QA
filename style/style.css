@@ -99,14 +99,15 @@ nav a:hover {
 }
 
 .side-nav li {
-    margin: 8px 0;
+    margin: 10px 0;
 }
 
 .side-nav a {
     text-decoration: none;
-    padding: 5px; 
+    align-items: center;
+    padding: 10px; 
     margin-bottom: 10px;
-    min-height: 30px;  
+    min-height: 20px;  
     color: #2563eb;
     display: block;
     border-radius: 10px;
@@ -181,7 +182,6 @@ nav a:hover {
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     margin-bottom: 20px;
-    display: flex;
     border: 1px solid #ddd;
 }
 
@@ -193,10 +193,10 @@ nav a:hover {
 .button {
     display: inline-block;
     align-items: center;
-    padding: 10px 15px;
+    padding: 20px 20px;
     background: #2563eb;
     color: white;
-    border-radius: 6px;
+    border-radius: 20px;
     text-decoration: none;
 }
 
@@ -246,8 +246,8 @@ h3 {
 ========================= */
 
 .card img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     border-radius: 10px;
 }
