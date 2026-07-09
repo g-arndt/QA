@@ -27,7 +27,7 @@
                 <p>Dies ist ein interaktives Fortbildungsmodul für Fachkräfte der Chemieindustrie, welches im Rahmen meiner Bachelorarbeit entstanden ist.</p>
 
                 <a class="gradient-button-fill" href="Kapitel/Theorie/">Jetzt starten</a>
-                <a class="gradient-button" href="Kapitel/Theorie/">Fortsetzen</a> 
+                <a class="gradient-button" id="continueButton" href="Kapitel/Theorie/">Fortsetzen</a> 
 
             </div>
 
@@ -122,6 +122,13 @@ function updateProgress(){
 }
 
 updateProgress();
+
+const continueButton = document.getElementById("continueButton");
+const nextChapter = localStorage.getItem("nextChapter");
+
+if (nextChapter) {
+    continueButton.href = nextChapter;
+}
 
 </script>
 
