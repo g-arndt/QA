@@ -316,10 +316,9 @@ gradient-button-fill:hover {
     border: 2px solid transparent;
     border-radius: 8px;
     cursor: pointer;
-    color: white;
 
     background:
-        linear-gradient(#111, #111) padding-box,
+        linear-gradient(#000, #000) padding-box,
         linear-gradient(
             75deg,
             #2563EB,
