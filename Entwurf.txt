@@ -29,7 +29,4 @@ QA/Kapitel/Selbsttest/index.html
 js-PopUp: alert("Text des PopUps");
 
 
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+
