@@ -228,7 +228,7 @@ h3 {
 
     -webkit-text-fill-color: transparent;
 
-    animation: gradient 100s linear infinite;
+    animation: gradient 20s ease-in-out infinite alternate;
 }
 
 @keyframes gradient {
