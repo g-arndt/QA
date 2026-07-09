@@ -310,13 +310,21 @@ h3 {
     cursor: pointer;
     color: white;
 
-    background: linear-gradient(
-      75deg,
-      #2563EB,
-      #06B6D4,
-      #7C3AED,
-      #2563EB
-    );
+    background:
+        linear-gradient(
+            75deg,
+            #2563EB,
+            #06B6D4,
+            #7C3AED,
+            #2563EB
+        ) padding-box,
+        linear-gradient(
+            75deg,
+            #2563EB,
+            #06B6D4,
+            #7C3AED,
+            #2563EB
+        ) border-box;
     
     background-size: 300% 100%;
 }
