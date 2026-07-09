@@ -210,9 +210,23 @@ h3 {
 }
 
 .gradient-text {
-    background: linear-gradient(90deg, #2563EB, #7C3AED);
+    background: linear-gradient(
+        90deg,
+        #2563EB,
+        #06B6D4,
+        #7C3AED,
+        #2563EB
+    );
+    background-size: 300%;
+    animation: gradient 6s ease infinite;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
 }
+
+@keyframes gradient {
+    0%   { background-position: 0%; }
+    100% { background-position: 300%; }
+}
+
