@@ -147,7 +147,7 @@ nav a:hover {
    HERO SECTION
 ========================= */
 
-  .hero {
+.hero {
     display: flex;
     align-items: center;
     gap: 40px;
@@ -155,30 +155,30 @@ nav a:hover {
     padding: 2rem;
     min-height: 80vh;
     background-color: #f6f8fb;
-  }
+}
 
-  .hero-text {
+.hero-text {
     flex: 1;
     max-width: 50%;
-  }
+}
 
-  .hero-text h1 {
-    font-size: 2rem;
+.hero-text h1 {
+    /* font-size: 2rem; */
     margin: 0 0 1rem 0;
-  }
+}
 
-  .hero-image {
+.hero-image {
     flex: 1;
     max-width: 45%;
-  }
+}
 
-  .hero-image img {
+.hero-image img {
     max-width: 100%;
     height: auto;
     display: flex;
-    border-radius: 12px;
+    /* border-radius: 12px; */
     object-fit: cover;
-  }
+}
 
 /* =========================
    PLOT
