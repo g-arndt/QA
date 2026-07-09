@@ -222,6 +222,21 @@ nav a:hover {
     border: 1px solid #ddd;
 }
 
+.card-with-image {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.card-with-image img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.card-text {
+    flex: 1;
+}
 
 /* =========================
    BUTTONS
