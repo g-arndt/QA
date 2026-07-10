@@ -110,7 +110,8 @@ nav a:hover {
     min-height: 20px;
     color: #2563eb;
     display: block;
-    border-radius: 10px;
+    border-radius:0 8px 8px 0;
+    border-left:3px solid transparent;
     font-size: 14px;
 }
 
@@ -122,6 +123,7 @@ nav a:hover {
     color: #2563eb;
     background: #eff6ff; /* #fcecd4; */
   /*  border-left: 5px solid #2563eb; */
+    border-left-color:#2563eb;
 }
 
 /* =========================
