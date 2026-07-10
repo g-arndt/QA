@@ -53,13 +53,14 @@ nav a:hover {
 
 .nav-cards{
     display:flex;
+    padding:20px;
     flex-direction:column;
     gap:14px;
 }
 
 .nav-card{
     display:block;
-    padding:18px 10px;
+    padding:10px;
     background:white;
     border:1px solid #e5e7eb;
     border-radius:12px;
