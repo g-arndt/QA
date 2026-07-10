@@ -66,10 +66,6 @@ nav a:hover {
     border-radius:12px;
     text-decoration:none;
     color:inherit;
-    transition:
-        border-color .2s ease,
-        transform .15s ease,
-        box-shadow .2s ease;
 }
 
 /*
@@ -77,14 +73,6 @@ nav a:hover {
     color:inherit;
 }
 */
-
-.nav-card:hover{
-    text-decoration:none;
-    color:inherit;
-    border-color:#2563eb;
-    transform:translateX(4px);
-    box-shadow:0 4px 12px rgba(37,99,235,.08);
-}
 
 .nav-card h4{
     margin:0;
@@ -461,17 +449,47 @@ h3 {
     background-size: 150% 150%;
 }
 
+/*
+    TRANSITIONS
+*/
+
+.nav-card{
+    transition:
+        transform .15s ease,
+        border-color .2s ease,
+        background-color .2s ease;
+        /* box-shadow .2s ease; */
+}
+
+.nav-card:hover{
+    text-decoration:none;
+    color:inherit;
+    transform:translateX(4px);
+    border-color:#2563eb;
+    background:#fafcff;
+    box-shadow:0 4px 12px rgba(37,99,235,.08);
+}
+
 .gradient-button,
-.gradient-button-fill,
-.gradient-side-nav {
+.gradient-button-fill {
     transition:
         transform .15s ease,
         box-shadow .2s ease;
 }
 
 .gradient-button:hover,
-.gradient-button-fill:hover,
-.gradient-side-nav:hover {
+.gradient-button-fill:hover {
+    transform:translateY(-1px);
+    box-shadow:0 6px 16px rgba(0,0,0,.08);
+}
+
+.gradient-side-nav a{
+    transition:
+        transform .15s ease,
+        box-shadow .2s ease;
+}
+
+.gradient-side-nav a:hover{
     transform:translateY(-1px);
     box-shadow:0 6px 16px rgba(0,0,0,.08);
 }
