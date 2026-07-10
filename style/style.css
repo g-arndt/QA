@@ -189,11 +189,10 @@ nav a:hover {
 
 .hero {
     display: flex;
-    align-items: top;
+    align-items: center;
     gap: 40px;
     justify-content: space-between;
-    padding: 2rem;
-    min-height: 80vh;
+    min-height: calc(100vh - 72px);
     background-color: transparent;
 }
 
@@ -204,7 +203,7 @@ nav a:hover {
 
 .hero-text h1 {
     /* font-size: 2rem; */
-    margin: 0 40px 1rem 0;
+    /* margin: 0 40px 1rem 0; */
 }
 
 .hero-text p {
