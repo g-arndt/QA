@@ -486,6 +486,6 @@ nav a:hover{
 }
 
 .gradient-side-nav a:hover{
-    transform:translateX(4px);
-    box-shadow:var(--shadow-small);
+    transform:translateY(-1px);
+    box-shadow:var(--shadow-medium);
 }
