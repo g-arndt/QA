@@ -20,6 +20,31 @@ body {
 }
 
 /* =========================
+   FARBEN
+========================= */
+
+:root {
+    --bg: #f6f8fb;
+    --surface: #ffffff;
+
+    --text: #111827;
+    --text-normal: #374151;
+    --text-muted: #6b7280;
+
+    --border: #e5e7eb;
+
+    --accent: #2563eb;
+    --accent-light: #eef2ff;
+    --accent-active: #eff6ff;
+
+    --transition-fast: .15s ease;
+    --transition-normal: .2s ease;
+
+    --shadow-small: 0 4px 10px rgba(0,0,0,.08);
+    --shadow-medium: 0 6px 16px rgba(0,0,0,.08);
+}
+
+/* =========================
    NAVIGATION TOP
 ========================= */
 
