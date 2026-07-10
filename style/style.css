@@ -201,10 +201,10 @@ nav a:hover {
 
 .hero {
     display: flex;
-    align-items: center;
+    align-items: top;
     gap: 40px;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 0 2rem 2rem 2rem;
     min-height: 80vh;
     background-color: transparent;
 }
