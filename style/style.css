@@ -362,7 +362,13 @@ h3 {
     color: black;
 
     background:
-        linear-gradient(#f6f8fb, #f6f8fb) padding-box,
+        linear-gradient(
+            75deg,
+            #2563EB,
+            #06B6D4,
+            #7C3AED,
+            #2563EB
+        ) padding-box,
         linear-gradient(
             75deg,
             #2563EB,
@@ -375,6 +381,47 @@ h3 {
 }
 
 .gradient-button:hover {
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.7);
+}
+
+.gradient-side-nav-fill {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.gradient-side-nav-fill li {
+    margin: 10px 0;
+}
+
+.gradient-side-nav-fill a {
+    align-items: center;
+    padding: 10px;
+    min-height: 20px;
+    display: block;
+    font-size: 14px;
+
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    color: black;
+
+    background:
+        linear-gradient(white, white) padding-box,
+        linear-gradient(
+            75deg,
+            #2563EB,
+            #06B6D4,
+            #7C3AED,
+            #2563EB
+        ) border-box;
+
+    background-size: 150% 150%;
+}
+
+.gradient-side-nav-fill a:hover {
     box-shadow: 0 0 10px rgba(124, 58, 237, 0.7);
 }
 
@@ -391,7 +438,6 @@ h3 {
 .gradient-side-nav a {
     align-items: center;
     padding: 10px;
-    /* margin-bottom: 10px; */
     min-height: 20px;
     display: block;
     font-size: 14px;
