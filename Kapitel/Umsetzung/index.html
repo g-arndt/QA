@@ -117,41 +117,26 @@ document.addEventListener("DOMContentLoaded", () => {
 // Quiz
 function checkAnswer(){
 
-    let selected =
-        document.querySelector(
-            'input[name="q1"]:checked'
-        );
-
-    let feedback =
-        document.getElementById("feedback");
-
+    let selected = document.querySelector('input[name="q1"]:checked');
+    let feedback = document.getElementById("feedback");
 
     if(!selected){
 
-        feedback.textContent =
-            "Bitte eine Antwort wählen.";
-
+        feedback.textContent = "Bitte eine Antwort wählen.";
         return;
 
     }
 
-
     if(selected.value === "b"){
+        feedback.textContent = "Richtig! Die Periodendauer hängt von ω ab.";
+        feedback.style.color = "green";
 
-        feedback.textContent =
-            "Richtig! Die Periodendauer hängt von ω ab.";
-
-        feedback.style.color =
-            "green";
-
+        // Fortschritt speichern
+        localStorage.setItem("umsetzung_done", "true");
+        localStorage.setItem("nextChapter", "Kapitel/Anwendung/");
     } else {
-
-        feedback.textContent =
-            "Nicht ganz. Überlege den Zusammenhang zwischen ω und T.";
-
-        feedback.style.color =
-            "red";
-
+        feedback.textContent = "Nicht ganz. Überlege den Zusammenhang zwischen ω und T.";
+        feedback.style.color = "red";
     }
 
 
@@ -159,14 +144,6 @@ function checkAnswer(){
         behavior: "smooth",
         block: "center"
     });
-
-
-    localStorage.setItem(
-        "umsetzung_done",
-        "true"
-    );
-
-    localStorage.setItem("nextChapter", "Kapitel/Anwendung/");
 
 }
 

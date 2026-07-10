@@ -121,6 +121,10 @@ function checkAnswer(){
     if(selected.value === "b"){
         feedback.textContent = "Richtig! Die Periodendauer hängt von ω ab.";
         feedback.style.color = "green";
+
+        // Fortschritt speichern
+        localStorage.setItem("anwendung_done", "true");
+        localStorage.setItem("nextChapter", "Kapitel/Selbsttest/");
     } else {
         feedback.textContent = "Nicht ganz. Überlege den Zusammenhang zwischen ω und T.";
         feedback.style.color = "red";
@@ -129,10 +133,6 @@ function checkAnswer(){
     // automatisch zum Feedback scrollen
     feedback.scrollIntoView({ behavior: "smooth", block: "center" });
 
-    // Fortschritt speichern
-    localStorage.setItem("anwendung_done", "true");
-
-    localStorage.setItem("nextChapter", "Kapitel/Selbsttest/");
 }
 
 </script>

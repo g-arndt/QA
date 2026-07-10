@@ -26,9 +26,10 @@
 
                 <p>Dies ist ein interaktives Fortbildungsmodul für Fachkräfte der Chemieindustrie, welches im Rahmen meiner Bachelorarbeit entstanden ist.</p>
 
-                <a class="gradient-button-fill" href="Kapitel/Theorie/">Jetzt starten</a>
-                <a class="gradient-button" id="continueButton" href="Kapitel/Theorie/">Fortsetzen</a> 
-
+                <div class="button-group">
+                    <a class="gradient-button-fill" href="Kapitel/Theorie/">Jetzt starten</a>
+                    <a class="gradient-button" id="continueButton" href="Kapitel/Theorie/">Fortsetzen</a> 
+                </div>
             </div>
 
             <div class="hero-image">
@@ -102,6 +103,7 @@ function updateProgress(){
     if(quiz_theorie_done){
         document.getElementById("quiz_theorie_status").textContent = "Theorie: abgeschlossen";
         document.getElementById("quiz_theorie_status").style.color = "green";
+        localStorage.setItem("nextChapter", "Kapitel/Umsetzung/");
     }
 
     // Umsetzung
@@ -110,6 +112,7 @@ function updateProgress(){
     if(quiz_umsetzung_done){
         document.getElementById("quiz_umsetzung_status").textContent = "Umsetzung: abgeschlossen";
         document.getElementById("quiz_umsetzung_status").style.color = "green";
+        localStorage.setItem("nextChapter", "Kapitel/Anwendung/");
     }
 
     // Anwendung
@@ -118,13 +121,14 @@ function updateProgress(){
     if(quiz_anwendung_done){
         document.getElementById("quiz_anwendung_status").textContent = "Anwendung: abgeschlossen";
         document.getElementById("quiz_anwendung_status").style.color = "green";
+        localStorage.setItem("nextChapter", "Kapitel/Selbsttest/");
     }
 }
 
-updateProgress();
-
 const continueButton = document.getElementById("continueButton");
 const nextChapter = localStorage.getItem("nextChapter");
+
+updateProgress();
 
 if (nextChapter) {
     continueButton.href = nextChapter;
