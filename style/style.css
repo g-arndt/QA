@@ -190,6 +190,8 @@ nav a:hover {
 .hero {
     display: flex;
     align-items: center;
+    padding-top: 0;
+    padding-bottom: 60px;
     gap: 40px;
     justify-content: space-between;
     min-height: calc(100vh - 72px);
