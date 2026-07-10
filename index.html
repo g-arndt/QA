@@ -27,8 +27,8 @@
                 <p>Dies ist ein interaktives Fortbildungsmodul für Fachkräfte der Chemieindustrie, welches im Rahmen meiner Bachelorarbeit entstanden ist.</p>
 
                 <div class="button-group">
-                    <a class="gradient-button-fill" href="Kapitel/Theorie/">Jetzt starten</a>
-                    <a class="gradient-button" id="continueButton" href="Kapitel/Theorie/">Fortsetzen</a> 
+                    <a class="gradient-button-fill equal-button" href="Kapitel/Theorie/">Jetzt starten</a>
+                    <a class="gradient-button equal-button" id="continueButton" href="Kapitel/Theorie/">Fortsetzen</a>
                 </div>
             </div>
 
@@ -53,14 +53,14 @@
 
             <p>
                 <a class="button" href="Kapitel/Theorie/">Theorie</a>
-	        → 
+	        →
                 <a class="button" href="Kapitel/Umsetzung/">Umsetzung</a>
-	        → 
+	        →
                 <a class="button" href="Kapitel/Anwendung/">Anwendung</a>
             </p>
 
         </div>
-    
+
         <div class="card">
             <h2>Eine Liste</h2>
 
@@ -93,6 +93,28 @@
 
 <script src="/QA/js/app.js"></script>
 <script>
+
+// gleiche Breite der Buttons
+function equalizeButtonWidths() {
+    const buttons = document.querySelectorAll(".equal-button");
+
+    // Vorherige Breite zurücksetzen
+    buttons.forEach(btn => btn.style.width = "auto");
+
+    // Größte Breite bestimmen
+    let maxWidth = 0;
+    buttons.forEach(btn => {
+        maxWidth = Math.max(maxWidth, btn.offsetWidth);
+    });
+
+    // Auf alle anwenden
+    buttons.forEach(btn => {
+        btn.style.width = `${maxWidth}px`;
+    });
+}
+
+window.addEventListener("load", equalizeButtonWidths);
+window.addEventListener("resize", equalizeButtonWidths);
 
 // Fortschritt tracken
 function updateProgress(){

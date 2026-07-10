@@ -88,7 +88,7 @@ nav a:hover {
 }
 
 /* =========================
-   SIDEBAR NAV LINKS
+   SIDEBAR NAV
 ========================= */
 
 .side-nav {
@@ -104,9 +104,9 @@ nav a:hover {
 .side-nav a {
     text-decoration: none;
     align-items: center;
-    padding: 10px; 
+    padding: 10px;
     margin-bottom: 10px;
-    min-height: 20px;  
+    min-height: 20px;
     color: #2563eb;
     display: block;
     border-radius: 10px;
@@ -121,6 +121,36 @@ nav a:hover {
     color: #2563eb;
     background: #eff6ff; /* #fcecd4; */
   /*  border-left: 5px solid #2563eb; */
+}
+
+/* =========================
+   SIDEBAR NAV GRADIENT
+========================= */
+
+.side-nav-gradient {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.side-nav-gradient li {
+    margin: 10px 0;
+}
+
+.side-nav-gradient a {
+    text-decoration: none;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    min-height: 20px;
+    color: #2563eb;
+    display: block;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.side-nav-gradient a:hover {
+    background: #eef2ff;
 }
 
 /* =========================
@@ -258,12 +288,18 @@ nav a:hover {
 .button-group {
     display: flex;
     gap: 1rem;
-    max-width: 400px;
 }
 
 .button-group a {
     flex: 1;
     text-align: center;
+}
+
+.equal-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 /* =========================
@@ -334,7 +370,7 @@ h3 {
             #7C3AED,
             #2563EB
         ) border-box;
-    
+
     background-size: 150% 150%;
 }
 
