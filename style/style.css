@@ -30,6 +30,10 @@ nav {
     padding: 15px 20px;
     background: white;
     border-bottom: 1px solid #e5e7eb;
+    transition:
+        background-color .2s ease,
+        color .2s ease,
+        transform .15s ease;
 }
 
 nav a {
@@ -42,6 +46,8 @@ nav a {
 
 nav a:hover {
     background: #eef2ff;
+    color:#2563eb;
+    transform:translateY(-1px);
 }
 
 /*
@@ -464,8 +470,13 @@ h3 {
     color:inherit;
     transform:translateX(4px);
     border-color:#2563eb;
-    background:#fafcff;
+    background:#fbfcff;
     box-shadow:0 4px 12px rgba(37,99,235,.08);
+}
+
+.sidebar-toggle:hover{
+    transform:translateY(-1px);
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
 }
 
 .gradient-button,
