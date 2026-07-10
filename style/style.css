@@ -400,10 +400,6 @@ h3 {
     background-size: 150% 150%;
 }
 
-.gradient-button-fill:hover {
-    box-shadow: 0 0 10px rgba(124, 58, 237, 0.7);
-}
-
 .gradient-button {
     padding: 10px 15px;
     font-size: 1.1rem;
@@ -425,10 +421,6 @@ h3 {
         ) border-box;
 
     background-size: 150% 150%;
-}
-
-.gradient-button:hover {
-    box-shadow: 0 0 10px rgba(124, 58, 237, 0.7);
 }
 
 .gradient-side-nav {
@@ -469,8 +461,19 @@ h3 {
     background-size: 150% 150%;
 }
 
-.gradient-side-nav a:hover {
-    box-shadow: 0 0 10px rgba(124, 58, 237, 0.7);
+.gradient-button,
+.gradient-button-fill,
+.gradient-side-nav {
+    transition:
+        transform .15s ease,
+        box-shadow .2s ease;
+}
+
+.gradient-button:hover,
+.gradient-button-fill:hover,
+.gradient-side-nav:hover {
+    transform:translateY(-1px);
+    box-shadow:0 6px 16px rgba(0,0,0,.08);
 }
 
 /* =========================
