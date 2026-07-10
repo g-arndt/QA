@@ -14,6 +14,7 @@
    sodipodi:docname="favicon.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -27,9 +28,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showguides="true"
-     inkscape:zoom="1.1430294"
-     inkscape:cx="407.25113"
-     inkscape:cy="805.75358"
+     inkscape:zoom="7.0430671"
+     inkscape:cx="31.662342"
+     inkscape:cy="26.408949"
      inkscape:window-width="1280"
      inkscape:window-height="677"
      inkscape:window-x="0"
@@ -38,6 +39,22 @@
      inkscape:current-layer="layer1" />
   <defs
      id="defs1">
+    <linearGradient
+       id="linearGradient1"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#2563eb;stop-opacity:1;"
+         offset="0"
+         id="stop1" />
+      <stop
+         style="stop-color:#06b6d4;stop-opacity:1;"
+         offset="0.5103578"
+         id="stop3" />
+      <stop
+         style="stop-color:#7c3aed;stop-opacity:1;"
+         offset="1"
+         id="stop2" />
+    </linearGradient>
     <inkscape:path-effect
        effect="bspline"
        id="path-effect4"
@@ -80,32 +97,6 @@
          inkscape:original-d="m 99.778772,139.92408 c 1.581298,20.19783 3.162568,40.3953 4.743898,60.59353 4.72839,-10.21444 9.4565,-20.42828 14.18489,-30.64273 3.15121,12.78622 6.30224,25.57169 9.45345,38.35791 5.58891,-22.76562 11.17759,-45.53032 16.76639,-68.29549"
          inkscape:path-effect="#path-effect4" />
     </clipPath>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter6"
-       x="-0.192"
-       y="-0.192"
-       width="1.384"
-       height="1.384">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.4"
-         id="feGaussianBlur6" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter6-8"
-       x="-0.192"
-       y="-0.192"
-       width="1.384"
-       height="1.384">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.4"
-         id="feGaussianBlur6-7" />
-    </filter>
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath7">
@@ -131,50 +122,41 @@
          clip-path="url(#clipPath7)"
          transform="translate(-19.620549,45.631989)" />
     </clipPath>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1"
+       id="linearGradient2"
+       x1="-11.089556"
+       y1="201.85144"
+       x2="128.38565"
+       y2="189.03917"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="reflect"
+       gradientTransform="matrix(0.21169424,0,0,0.21169424,-12.998156,-36.115363)" />
   </defs>
   <g
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1">
     <circle
-       style="mix-blend-mode:normal;fill:#008080;fill-opacity:1;stroke:none;stroke-width:0.273286;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       style="mix-blend-mode:normal;fill:url(#linearGradient2);stroke:none;stroke-width:0.057853;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
        id="path5-5-85-5"
-       cy="200.63933"
-       cx="91.435402"
-       r="30"
+       cy="6.3588257"
+       cx="6.3581924"
        inkscape:export-filename="favicon.png"
        inkscape:export-xdpi="1000"
-       inkscape:export-ydpi="1000" />
-    <circle
-       style="mix-blend-mode:normal;fill:#8eff00;fill-opacity:1;stroke:none;stroke-width:0.273286;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
-       id="path5-5-85-5-1"
-       cy="218"
-       cx="100"
-       r="30"
-       clip-path="url(#clipPath8)"
-       transform="translate(77.544304,-15.971812)" />
-    <circle
-       style="opacity:0.75;mix-blend-mode:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0227739;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;filter:url(#filter6-8)"
-       id="path5-5-8-7"
-       cy="247.53546"
-       cx="156.73569"
-       r="2.5" />
-    <circle
-       style="opacity:0.6;mix-blend-mode:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0227739;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;filter:url(#filter6)"
-       id="path5-5-8"
-       cy="243.49376"
-       cx="51.065464"
-       r="2.5" />
+       inkscape:export-ydpi="1000"
+       r="6.3000002" />
     <text
        xml:space="preserve"
-       style="font-size:35.2777px;font-family:Baskerville;-inkscape-font-specification:Baskerville;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;opacity:0.75;fill:#8eff00;fill-opacity:1;stroke:none;stroke-width:0.264999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
-       x="90.738411"
-       y="208.55945"
+       style="font-size:7.41855px;font-family:Baskerville;-inkscape-font-specification:Baskerville;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;opacity:0.75;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.0557267;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       x="6.1774106"
+       y="8.3458681"
        id="text8"><tspan
          sodipodi:role="line"
          id="tspan8"
-         style="stroke-width:0.265"
-         x="90.738411"
-         y="208.55945">QA</tspan></text>
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.0557268"
+         x="6.1774106"
+         y="8.3458681">QA</tspan></text>
   </g>
 </svg>
