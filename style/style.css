@@ -362,13 +362,7 @@ h3 {
     color: black;
 
     background:
-        linear-gradient(
-            75deg,
-            #2563EB,
-            #06B6D4,
-            #7C3AED,
-            #2563EB
-        ) padding-box,
+        linear-gradient(#f6f8fb, #f6f8fb) padding-box,
         linear-gradient(
             75deg,
             #2563EB,
@@ -406,10 +400,16 @@ h3 {
     border: 2px solid transparent;
     border-radius: 8px;
     cursor: pointer;
-    color: black;
+    color: white;
 
     background:
-        linear-gradient(white, white) padding-box,
+        linear-gradient(
+            75deg,
+            #2563EB,
+            #06B6D4,
+            #7C3AED,
+            #2563EB
+        ) padding-box,
         linear-gradient(
             75deg,
             #2563EB,
