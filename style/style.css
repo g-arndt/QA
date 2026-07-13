@@ -12,11 +12,9 @@
     --text-muted:#6b7280;
 
     --hover-bg:#fafafa;
-    --hover-bg-nav:#f5f5f5;
     --hover-border:#cfcfcf;
 
-    --active-bg:#f6f6f6;
-    --active-bg-nav:#fdfdfd;
+    --active-bg:#f8f8f8;
     --active-border:#cfcfcf;
 
     --accent:#666;
@@ -84,7 +82,7 @@ nav a{
 }
 
 nav a.active{
-    background-color:var(--active-bg-nav);
+    background-color:var(--active-bg);
     font-weight:var(--font-weight-heavy);
 }
 
@@ -319,7 +317,7 @@ nav a.active{
    BUTTONS
 ========================================================= */
 
-.button{
+button{
     display:inline-flex;
     align-items:center;
     justify-content:center;
@@ -426,7 +424,7 @@ nav a{
 }
 
 nav a:hover{
-    background:var(--hover-bg-nav);
+    background:var(--hover-bg);
     color:var(--text);
 }
 
@@ -464,6 +462,7 @@ nav a:hover{
     background:var(--hover-bg);
 }
 
+button,
 .gradient-button,
 .gradient-button-fill,
 .gradient-side-nav a{
@@ -472,7 +471,7 @@ nav a:hover{
         box-shadow var(--transition-normal);
 }
 
-.button:hover,
+button:hover,
 .gradient-button:hover,
 .gradient-button-fill:hover,
 .gradient-side-nav a:hover{
