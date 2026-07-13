@@ -21,16 +21,20 @@
     --active-bg:#eff6ff;
     --active-border:#cfcfcf;
 
-    --transition-fast:.15s ease;
-    --transition-normal:.2s ease;
+    --font-weight-normal:500;
+    --font-weight-heavy:600;
 
     --shadow-small:0 4px 10px rgba(0,0,0,.08);
     --shadow-medium:0 6px 16px rgba(0,0,0,.08);
     --shadow-sidebar:6px 0 6px rgba(0,0,0,.04);
+    --shadow-card:0 2px 8px rgba(0,0,0,.06);
 
     --radius-sm:8px;
     --radius-md:10px;
     --radius-lg:12px;
+
+    --transition-fast:.15s ease;
+    --transition-normal:.2s ease;
 }
 
 /* =========================================================
@@ -266,10 +270,11 @@ nav a{
 .card{
     margin-bottom:20px;
     padding:20px;
-    border:1px solid #ddd;
+    border:1px solid var(--border);
     border-radius:var(--radius-md);
     background:var(--surface);
-    box-shadow:0 2px 8px rgba(0,0,0,.06);
+    box-shadow:var(--shadow-card);
+    color:var(--text-normal);
 }
 
 .card img{
@@ -291,6 +296,7 @@ nav a{
     border-radius:var(--radius-sm);
 }
 
+/* ??? in use ??? */
 .card-text{
     flex:1;
 }
@@ -360,14 +366,14 @@ nav a{
     border:2px solid transparent;
     border-radius:var(--radius-sm);
     font-size:1.1rem;
-    font-weight:600;
+    font-weight:var(--font-weight-heavy);
     text-decoration:none;
     cursor:pointer;
     background-size:200% 150%;
 }
 
 .gradient-button-fill{
-    color:#fff;
+    color:var(--surface);
     background:
         linear-gradient(
             75deg,
@@ -386,7 +392,7 @@ nav a{
 }
 
 .gradient-button{
-    color:#000;
+    color:var(--text);
     background:
         linear-gradient(var(--bg), var(--bg)) padding-box,
         linear-gradient(
@@ -413,7 +419,7 @@ nav a{
     min-height:20px;
     text-align:center;
     font-size:14px;
-    color:#000;
+    color:var(--text);
     background:
         linear-gradient(var(--surface), var(--surface)) padding-box,
         linear-gradient(
