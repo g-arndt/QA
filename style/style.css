@@ -307,7 +307,7 @@ nav a.active{
 .card-with-image img{
     width:150px;
     height:auto;
-    border-radius:var(--radius-sm);
+    border-radius:0px;
 }
 
 /* ??? in use ??? */
