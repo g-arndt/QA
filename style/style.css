@@ -85,7 +85,7 @@ nav a{
 
 nav a.active{
     background-color:var(--active-bg-nav);
-    font-weight:var(--font-weight-heavy);
+    /* font-weight:var(--font-weight-heavy); */
 }
 
 /* =========================================================
@@ -291,6 +291,7 @@ nav a.active{
     color:var(--text-normal);
 }
 
+/* ??? check layout */
 .card img{
     width:100px;
     height:100px;
@@ -307,7 +308,7 @@ nav a.active{
 .card-with-image img{
     width:150px;
     height:auto;
-    border-radius:0px;
+    border-radius:0;
 }
 
 /* ??? in use ??? */
