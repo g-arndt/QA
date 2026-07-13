@@ -11,14 +11,23 @@
     --text-normal:#374151;
     --text-muted:#6b7280;
 
-    --accent:#666;
-
     --hover-bg:#fdfdfd;
     --hover-bg-nav:#f3f3f3;
     --hover-border:#cfcfcf;
     --active-bg:#f6f6f6;
     --active-bg-nav:#fcfcfc;
     --active-border:#cfcfcf;
+
+    --accent:#666;
+    --accent-gradient: linear-gradient(
+        75deg,
+        #2563EB,
+        #06B6D4,
+        #7C3AED,
+        #2563EB
+    );
+    --fake-gradient-bg: linear-gradient(var(--bg), var(--bg));
+    --fake-gradient-surface: linear-gradient(var(--surface), var(--surface));
 
     --font-weight-normal:500;
     --font-weight-heavy:600;
@@ -343,13 +352,7 @@ nav a.active{
 
 .gradient-text{
     display:inline-block;
-    background-image:linear-gradient(
-        75deg,
-        #2563EB,
-        #06B6D4,
-        #7C3AED,
-        #2563EB
-    );
+    background-image:var(--accent-gradient);
     background-size:300% 100%;
     background-position:0 0;
     -webkit-background-clip:text;
@@ -379,33 +382,15 @@ nav a.active{
 .gradient-button-fill{
     color:var(--surface);
     background:
-        linear-gradient(
-            75deg,
-            #2563EB,
-            #06B6D4,
-            #7C3AED,
-            #2563EB
-        ) padding-box,
-        linear-gradient(
-            75deg,
-            #2563EB,
-            #06B6D4,
-            #7C3AED,
-            #2563EB
-        ) border-box;
+    var(--accent-gradient) padding-box,
+    var(--accent-gradient) border-box;
 }
 
 .gradient-button{
     color:var(--text);
     background:
-        linear-gradient(var(--bg), var(--bg)) padding-box,
-        linear-gradient(
-            75deg,
-            #2563EB,
-            #06B6D4,
-            #7C3AED,
-            #2563EB
-        ) border-box;
+    var(--fake-gradient-bg) padding-box,
+    var(--accent-gradient) border-box;
 }
 
 .gradient-side-nav{
@@ -425,14 +410,8 @@ nav a.active{
     font-size:14px;
     color:var(--text);
     background:
-        linear-gradient(var(--surface), var(--surface)) padding-box,
-        linear-gradient(
-            75deg,
-            #2563EB,
-            #06B6D4,
-            #7C3AED,
-            #2563EB
-        ) border-box;
+        var(--fake-gradient-surface) padding-box,
+        var(--accent-gradient) border-box;
 }
 
 /* =========================================================
