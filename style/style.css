@@ -3,9 +3,9 @@
 ========================================================= */
 
 :root{
-    --bg:#f6f8fb;
+    --bg:#f8f8f8;
     --surface:#ffffff;
-    --border:#e5e7eb;
+    --border:#e7e7e7;
 
     --text:#111827;
     --text-normal:#374151;
@@ -13,10 +13,10 @@
 
     --accent:#666;
 
-    --hover-bg:#fbfcff;
+    --hover-bg:#fdfdfd;
     --hover-bg-nav:#f3f3f3;
     --hover-border:#cfcfcf;
-    --active-bg:#f6f6f6;
+    --active-bg:#fbfbfb;
     --active-border:#cfcfcf;
 
     --font-weight-normal:500;
