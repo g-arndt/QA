@@ -321,10 +321,11 @@ button{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    padding:20px;
-    border-radius:20px;
-    background:var(--accent);
-    color:var(--text-normal);
+    padding:20px 5px;
+    border:1.5px solid var(accent);
+    border-radius:var(--radius-md);
+    background:var(--active-bg);
+    color:var(--text);
     text-decoration:none;
 }
 
