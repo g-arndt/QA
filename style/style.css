@@ -5,20 +5,21 @@
 :root{
     --bg:#f6f8fb;
     --surface:#ffffff;
+    --border:#e5e7eb;
 
     --text:#111827;
     --text-normal:#374151;
     --text-muted:#6b7280;
 
-    --border:#e5e7eb;
-
     --accent:#666;
     --accent-light:#eef2ff;
     --accent-active:#eff6ff;
 
-    --hover-bg:#fbfcff; /* #f3f3f3; */
+    --hover-bg:#fbfcff;
+    --hover-bg-nav:#f3f3f3;
     --hover-border:#cfcfcf;
-    --active:#ededed;
+    --active-bg:#eff6ff;
+    --active-border:#cfcfcf;
 
     --transition-fast:.15s ease;
     --transition-normal:.2s ease;
@@ -72,7 +73,7 @@ nav a{
 }
 
 nav a:hover{
-    background:var(--hover-bg);
+    background:var(--hover-bg-nav);
     color:var(--text);
 }
 
@@ -158,24 +159,18 @@ nav a:hover{
     text-decoration:none;
     font-size:14px;
     transition:
-        transform var(--transition-fast);
+        transform var(--transition-fast),
         /* color var(--transition-normal), */
         background-color var(--transition-normal),
-        border-color var(--transition-normal),
-}
-
-.side-nav a:hover{
-    background:var(--hover);
-    border-color:var(--text);
-    transform:translateX(4px);
+        border-color var(--transition-normal);
 }
 
 .side-nav a.active{
-    background:var(--active);
+    background:var(--active-bg);
     /* border-left-color:var(--accent); */
-    border:#666;
+    border:var(--active-border);
     color:var(--text);
-    font-weight:600;
+    /* font-weight:600; */
     transform:none;
 }
 
@@ -240,12 +235,6 @@ nav a:hover{
         transform var(--transition-fast),
         border-color var(--transition-normal),
         background-color var(--transition-normal);
-}
-
-.nav-card:hover{
-    transform:translateX(3px);
-    border-color:var(--hover-border);
-    background:var(--hover-bg);
 }
 
 .nav-card h4{
@@ -346,8 +335,8 @@ nav a:hover{
     justify-content:center;
     padding:20px;
     border-radius:20px;
-    background:#666;
-    color:#fff;
+    background:var(--accent);
+    color:var(--surface);
     text-decoration:none;
 }
 
@@ -493,4 +482,11 @@ nav a:hover{
 .gradient-side-nav a:hover{
     transform:translateY(-1px);
     box-shadow:var(--shadow-medium);
+}
+
+.side-nav a:hover,
+.nav-card:hover{
+    transform:translateX(3px);
+    border-color:var(--hover-border);
+    background:var(--hover-bg);
 }
