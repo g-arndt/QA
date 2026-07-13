@@ -152,7 +152,7 @@ nav a{
 
 .side-nav a.active{
     background:var(--active-bg);
-    border:var(--active-border);
+    border-color:var(--active-border);
     color:var(--text);
     /* font-weight:600; */
     transform:none;
@@ -306,7 +306,7 @@ nav a{
     padding:20px;
     border-radius:20px;
     background:var(--accent);
-    color:var(--surface);
+    color:var(--text-normal);
     text-decoration:none;
 }
 
