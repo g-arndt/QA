@@ -11,11 +11,13 @@
     --text-normal:#374151;
     --text-muted:#6b7280;
 
-    --hover-bg:#fafafa;
-    --hover-border:#cfcfcf;
-
     --active-bg:#f8f8f8;
+    --active-bg-nav:#f2f2f2;
     --active-border:#cfcfcf;
+
+    --hover-bg:#fafafa;
+    --hover-bg-nav:#f5f5f5;
+    --hover-border:#cfcfcf;
 
     --accent:#666;
     --accent-gradient:linear-gradient(
