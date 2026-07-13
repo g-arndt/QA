@@ -18,22 +18,16 @@ async function fetchNav() {
 ========================= */
 
 function highlightCurrentNav() {
-  let path = window.location.pathname
-    .split("/")
-    .pop()
-    .toLowerCase();
+  // Remove trailing slash (except for "/")
+  const normalize = path =>
+    path.replace(/\/$/, "").toLowerCase();
 
-  if (!path) {
-    path = "index.html";
-  }
+  const current = normalize(window.location.pathname);
 
   document.querySelectorAll("#nav a").forEach(a => {
-    const href = (a.getAttribute("href") || "")
-      .split("/")
-      .pop()
-      .toLowerCase();
+    const href = normalize(new URL(a.href, location.origin).pathname);
 
-    if (href === path) {
+    if (href === current) {
       a.classList.add("active");
     }
   });
