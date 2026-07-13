@@ -16,7 +16,8 @@
     --hover-bg:#fdfdfd;
     --hover-bg-nav:#f3f3f3;
     --hover-border:#cfcfcf;
-    --active-bg:#fbfbfb;
+    --active-bg:#f6f6f6;
+    --active-bg-nav:#fcfcfc;
     --active-border:#cfcfcf;
 
     --font-weight-normal:500;
@@ -70,6 +71,11 @@ nav a{
     color:var(--text-normal);
     font-weight:var(--font-weight-normal);
     text-decoration:none;
+}
+
+nav a.active{
+    background-color:var(--active-bg-nav);
+    font-weight:var(--font-weight-heavy);
 }
 
 /* =========================================================
