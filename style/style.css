@@ -84,6 +84,7 @@ nav a{
 }
 
 nav a.active{
+    color:var(--text);
     background-color:var(--active-bg-nav);
     /* font-weight:var(--font-weight-heavy); */
 }
