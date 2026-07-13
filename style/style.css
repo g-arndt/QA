@@ -15,19 +15,19 @@
     --hover-bg-nav:#f3f3f3;
     --hover-border:#cfcfcf;
     --active-bg:#f6f6f6;
-    --active-bg-nav:#fcfcfc;
+    --active-bg-nav:#f0f0f0;
     --active-border:#cfcfcf;
 
     --accent:#666;
-    --accent-gradient: linear-gradient(
+    --accent-gradient:linear-gradient(
         75deg,
         #2563EB,
         #06B6D4,
         #7C3AED,
         #2563EB
     );
-    --fake-gradient-bg: linear-gradient(var(--bg), var(--bg));
-    --fake-gradient-surface: linear-gradient(var(--surface), var(--surface));
+    --fake-gradient-bg:linear-gradient(var(--bg), var(--bg));
+    --fake-gradient-surface:linear-gradient(var(--surface), var(--surface));
 
     --font-weight-normal:500;
     --font-weight-heavy:600;
