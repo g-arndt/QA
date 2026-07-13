@@ -324,7 +324,7 @@ button{
     align-items:center;
     justify-content:center;
     padding:5px 20px;
-    /* min-height:15px; */
+    min-height:25px;
     border:1.5px solid var(accent);
     border-radius:var(--radius-md);
     background:var(--active-bg);
