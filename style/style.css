@@ -84,7 +84,7 @@ nav a{
 }
 
 nav a.active{
-    background-color:var(--active-bg);
+    background-color:var(--active-bg-nav);
     font-weight:var(--font-weight-heavy);
 }
 
@@ -323,7 +323,8 @@ button{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    padding:20px 5px;
+    padding:5px 20px;
+    /* min-height:15px; */
     border:1.5px solid var(accent);
     border-radius:var(--radius-md);
     background:var(--active-bg);
@@ -427,7 +428,7 @@ nav a{
 }
 
 nav a:hover{
-    background:var(--hover-bg);
+    background:var(--hover-bg-nav);
     color:var(--text);
 }
 
