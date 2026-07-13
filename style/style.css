@@ -12,11 +12,12 @@
 
     --border:#e5e7eb;
 
-    /* --accent:#2563eb; */
+    --accent:#666;
     --accent-light:#eef2ff;
     --accent-active:#eff6ff;
 
-    --hover:#f3f3f3;
+    --hover-bg:#f3f3f3;
+    --hover-border:#cfcfcf;
     --active:#ededed;
 
     --transition-fast:.15s ease;
@@ -147,30 +148,32 @@ nav a:hover{
 
 .side-nav a{
     display:block;
-    color:var(--text-normal);
-    border:1px solid transparent;
-    border-radius:8px;
-    /* border-left:3px solid transparent; */
     padding:10px;
-    font-size:14px;
+    gap:14px;
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    background:var(--surface);
+    /* border-left:3px solid transparent; */
+    color:var(--text-normal);
     text-decoration:none;
+    font-size:14px;
     transition:
-        color var(--transition-normal),
+        transform var(--transition-fast);
+        /* color var(--transition-normal), */
         background-color var(--transition-normal),
         border-color var(--transition-normal),
-        transform var(--transition-fast);
 }
 
 .side-nav a:hover{
     background:var(--hover);
-    color:var(--text);
+    border-color:var(--text);
     transform:translateX(4px);
 }
 
 .side-nav a.active{
     background:var(--active);
     /* border-left-color:var(--accent); */
-    border-left:3px solid #666;
+    border:#666;
     color:var(--text);
     font-weight:600;
     transform:none;
@@ -241,8 +244,8 @@ nav a:hover{
 
 .nav-card:hover{
     transform:translateX(4px);
-    border-color:#cfcfcf;
-    background:#fbfcff;
+    border-color:var(--hover-border);
+    background:var(--hover-bg); /* #fbfcff; */
 }
 
 .nav-card h4{
