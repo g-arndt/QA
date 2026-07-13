@@ -12,9 +12,12 @@
 
     --border:#e5e7eb;
 
-    --accent:#2563eb;
+    /* --accent:#2563eb; */
     --accent-light:#eef2ff;
     --accent-active:#eff6ff;
+
+    --hover:#f3f3f3;
+    --active:#ededed;
 
     --transition-fast:.15s ease;
     --transition-normal:.2s ease;
@@ -68,8 +71,8 @@ nav a{
 }
 
 nav a:hover{
-    background:var(--accent-light);
-    color:var(--accent);
+    background:var(--hover);
+    color:var(--text);
 }
 
 /* =========================================================
@@ -145,9 +148,10 @@ nav a:hover{
 .side-nav a{
     display:block;
     color:var(--text-normal);
-    border-left:3px solid transparent;
+    border:1px solid transparent;
+    border-radius:8px;
+    /* border-left:3px solid transparent; */
     padding:10px;
-    border-radius:0;
     font-size:14px;
     text-decoration:none;
     transition:
@@ -158,14 +162,15 @@ nav a:hover{
 }
 
 .side-nav a:hover{
-    background:var(--accent-light);
-    color:var(--accent);
+    background:var(--hover);
+    color:var(--text);
     transform:translateX(4px);
 }
 
 .side-nav a.active{
-    background:var(--accent-active);
-    border-left-color:var(--accent);
+    background:var(--active);
+    /* border-left-color:var(--accent); */
+    border-left:3px solid #666;
     color:var(--text);
     font-weight:600;
     transform:none;
@@ -236,7 +241,7 @@ nav a:hover{
 
 .nav-card:hover{
     transform:translateX(4px);
-    border-color:var(--accent);
+    border-color:#cfcfcf;
     background:#fbfcff;
 }
 
@@ -287,7 +292,7 @@ nav a:hover{
 }
 
 .sidebar-toggle:hover{
-    transform:translateY(-1px);
+    /* transform:translateY(-1px); */
     border-color:#d1d5db;
     box-shadow:var(--shadow-small);
 }
@@ -338,13 +343,9 @@ nav a:hover{
     justify-content:center;
     padding:20px;
     border-radius:20px;
-    background:var(--accent);
+    background:#666;
     color:#fff;
     text-decoration:none;
-}
-
-.button:hover{
-    background:#1d4ed8;
 }
 
 .button-group{
@@ -473,6 +474,7 @@ nav a:hover{
         box-shadow var(--transition-normal);
 }
 
+.button:hover,
 .gradient-button:hover,
 .gradient-button-fill:hover{
     transform:translateY(-1px);
