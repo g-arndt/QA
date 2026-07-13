@@ -181,8 +181,8 @@ nav a.active{
 ========================================================= */
 
 .hero{
-    display:flex-start;
-    /* align-items:center; */
+    display: flex;
+    align-items: center;
     justify-content:space-between;
     gap:40px;
     min-height:calc(100vh - 72px);
