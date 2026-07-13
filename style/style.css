@@ -419,13 +419,13 @@ nav a.active{
    INTERACTIONS
 ========================================================= */
 
-.nav a{
+nav a{
     transition:
         color var(--transition-normal),
         background-color var(--transition-normal);
 }
 
-.nav a:hover{
+nav a:hover{
     background:var(--hover-bg-nav);
     color:var(--text);
 }
