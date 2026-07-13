@@ -16,7 +16,7 @@
     --hover-bg:#fbfcff;
     --hover-bg-nav:#f3f3f3;
     --hover-border:#cfcfcf;
-    --active-bg:#fafafa;
+    --active-bg:#f6f6f6;
     --active-border:#cfcfcf;
 
     --font-weight-normal:500;
@@ -68,7 +68,7 @@ nav a{
     padding:6px 10px;
     border-radius:6px;
     color:var(--text-normal);
-    font-weight:500;
+    font-weight:var(--font-weight-normal);
     text-decoration:none;
 }
 
