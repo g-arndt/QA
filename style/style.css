@@ -325,8 +325,9 @@ button{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    padding:5px 20px;
-    min-height:25px;
+    padding:5px 10px;
+    min-height:20px;
+    min-width:100px;
     border:0.75px solid var(--accent);
     border-radius:var(--radius-sm);
     background:var(--active-bg);
