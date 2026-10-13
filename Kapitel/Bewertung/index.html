@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/QA/res/favicon.svg">
+    <title>Bewertung</title>
+    <script src="/QA/js/preload.js"></script>
+    <link rel="stylesheet" href="/QA/style/style.css">
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+</head>
+
+<body>
+
+<div id="nav"></div>
+
+<div class="layout initial-hidden">
+
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="content">
+    <div class="content-inner">
+
+        <h1>Bewertung der Quantenüberlegenheit und Ausblick</h1>
+
+        Beim Vergleich von Studien aus dem gleichen Anwendungsgebiet fällt auf, dass der Stand der Forschung teilweise sehr <span style="font-weight: bold;">unterschiedlich eingeschätzt</span> wird. Während Xia, Bian und Kais (2018) optimistisch resümieren: „This demonstrates that one can generally map the electronic ground state energy of a molecular Hamiltonian to an Ising-type Hamiltonian which could easily be implemented on presently available quantum hardware“, relativieren Streif, Neukart und Leib (2019) dies zu: „[T]he investigated method in general works, but it might be difficult to apply it to larger systems.“ Auch Copenhaver, Wasserman und Wehefritz-Kaufmann (2021) schlussfolgern: „[N]either method is able to accurately simulate all but the smallest of molecules.“
+
+        <div class="card">
+            <h2> Gibt es aktuell schon Belege für einen Quantenvorteil? </h2>
+            In keiner der vorgestellten Studien konnte bisher eine rechentechnische Überlegenheit von Quantum Annealing im Vergleich zu klassischen Verfahren festgestellt werden. Als aktuelle <span style="font-weight: bold;">Einschränkungen</span> der Effektivität von Quantum Annealing werden insbesondere
+            <p>
+                Quantum Annealing ist ein quantenphysikalisches Verfahren zum Lösen von <span style="font-weight: bold;">Optimierungsproblemen</span>. In diesem Fortbildungsmodul werden folgende Fragen beleuchtet:
+                <ol>
+                    <li>das aufwändige Mapping realer Probleme auf die QUBO-Form, welches teilweise viel klassische Vorverarbeitung benötigt,</li>
+                    <li>die exponentielle Skalierung von logischen und physikalischen Qubits mit steigender Problemgröße und</li>
+                    <li>die limitierte Konnektivität der Qubits, die zu einem großen Embedding-Overhead führt,</li>
+                </ol>
+            </p>
+            identifiziert. Diesen Problemen könnte beigekommen werden, indem die Anzahl der physikalischen Qubits auf der Annealer-Hardware erhöht und eine verbesserte Topologie zur Steigerung der Konnektivität entwickelt wird.
+        </div>
+
+        <div class="card">
+            <h2> An welchen Lösungen wird gearbeitet? </h2>
+            Kürzlich gab D-Wave Quantum bekannt, ein großes US-Forschungsbudget eingeworben zu haben, von dem unter anderem die Entwicklung eines neuen Annealers mit <span style="font-weight: bold;">100.000 Qubits</span> finanziert werden soll, also eine Skalierung um den Faktor 20 (von aktuell 5.000 Qubits) erfolgen soll (D-Wave Quantum Inc. 2026). In Anbetracht der zuvor beschriebenen Einschränkungen hätte dies maßgebliche Auswirkungen auf die Fähigkeit des Annealers, reale Optimierungsprobleme effizient abzubilden. Quantenchemische Berechnungen werden dabei dediziert als Anwendungsfall aufgeführt. Die aktuelle Hardware basiert mittlerweile zudem auf der Zephyr-Topologie, welche beispielsweise im Vergleich zur Chimera-Topologie, die noch in der Untersuchung von Streif, Neukart und Leib (2019) verwendet wurde, eine deutlich <span style="font-weight: bold;">gesteigerte Konnektivität</span> aufweist.
+        </div>
+
+        <div class="card">
+            <h2> Wann können wir Moleküle mit Quantum Annealing simulieren? </h2>
+            Im Auftrag von D-Wave Quantum demonstrieren King u. a. (2025) einen <span style="font-weight: bold;">rechentechnischen Vorteil</span> bei der Simulation bestimmter quantenmechanischer Vielteilchendynamiken. Sie weisen nach, dass führende klassische Simulationsverfahren auf Basis von Tensornetzen und neuronalen Netzen die erreichte Genauigkeit für die untersuchten Problemgrößen nicht innerhalb praktikabler Rechenzeiten reproduzieren können. Juan Carrasquilla, ein Beteiligter des Benchmarking-Projekts, relativiert die Implikationen dieses vermeintlichen Durchbruchs allerdings folgendermaßen: „When people say we can now simulate materials, that refers to a very, very small corner of materials, and definitely not molecules, not drug discovery, not materials discovery. It’s very interesting for statistical mechanics and quantum many-body physics, but for commercially relevant problems I think this is still far away“ (Gent 2025). Die optimistische Prognose, die Xia, Bian und Kais (2018) bereits vor zehn Jahren trafen, hat sich also auch heute noch nicht bewahrheitet.
+        </div>
+
+        <div class="card">
+            <h2> Gibt es auch Übergangstechnologien? </h2>
+            In den vorgestellten Studien werden auch <span style="font-weight: bold;">hybride klassisch-quantenmechanische Verfahren</span> untersucht. Klassische Computer und Quantencomputer erfüllen aufgrund ihrer Architektur ganz unterschiedliche Aufgaben, sodass eine klassische Vorverarbeitung oft unumgänglich ist. Nenno und Caspari (2024) beschreiben zudem ein Verfahren, bei dem Embedding-Probleme gezielt dadurch gelöst werden, dass der QUBO in kleinere Teilprobleme zerlegt wird, die besser auf die Topologie abgebildet werden können. Ein klassischer Computer führt die Teilergebnisse dann zusammen. Camino u. a. (2023) resümieren: „[Q]uantum annealing is becoming an extra resource in the computational chemist’s scientific toolbox.“ Die Autoren wollen damit sicher andeuten, dass Quantum Annealing ein <span style="font-style: italic;">zusätzliches</span> nützliches Verfahren neben klassischen Berechnungsmethoden ist, diese aber nicht ersetzt.
+        </div>
+
+        <div class="card">
+            <h2> Referenzen </h2>
+            Camino, B. u. a. (13. Juni 2023). „Quantum computing and materials sci- ence: A practical guide to applying quantum annealing to the configurational analysis of materials“. In: Journal of Applied Physics 133.22, 221102. DOI: 10.1063/5.0151346.
+
+            Copenhaver, Justin, Adam Wasserman und Birgit Wehefritz-Kaufmann (15. Jan. 2021). „Using quantum annealers to calculate ground state properties of molecules“. In: The Journal of Chemical Physics 154.3, 034105. DOI: 10.1063/5.0030397.
+
+            D-Wave Quantum Inc. (8. Sep. 2026). D-Wave Quantum Finalizes Definitive Agreement with U.S. Department of Commerce for Up to $100 Million to Accelerate U.S. Leadership in Quantum Computing. URL: https://www.dwavequantum.com/company/newsroom/press-release/d-wave-finalizes-agreement-with-u-s-department-of-commerce-for-up-to-100-million/ (besucht am 20.09.2026).
+
+            Gent, Edd (31. März 2025). D-Wave “Supremacy” Controversy Overshadows Real Progress. The company’s quantum machine can solve certain problems blazingly fast. IEEE Spectrum. URL: https://spectrum.ieee.org/d-wave-quantum (besucht am 08.10.2026).
+
+            King, Andrew D. u. a. (12. März 2025). „Beyond-classical computation in quantum simulation“. In: Science 388.6743, Seiten 199–204. DOI: 10.1126/science.ado6285.
+
+            Nenno, Dennis M. und Adrian Caspari (25. Apr. 2024). „Dynamic optimization on quantum hardware: Feasibility for a process industry use case“. In: Computers & Chemical Engineering 186, 108704. DOI: 10.101/j.compchemeng.2024.108704.
+
+            Streif, Michael, Florian Neukart und Martin Leib (19. Feb. 2019). „Solving Quantum Chemistry Problems with a D-Wave Quantum Annealer“. In: Quantum Technology and Optimization Problems. Herausgegeben von Sebastian Feld und Claudia Linnhoff-Popien. Cham: Springer International Publishing, Seiten 111–122. DOI: 10.1007/9 78-3-030-14082-3_10.
+
+            Xia, Rongxin, Teng Bian und Sabre Kais (5. Apr. 2018). „Electronic Structure Calculations and the Ising Hamiltonian“. In: The Journal of Physical Chemistry B 122.13, Seiten 3384–3395. DOI: 10.1021/acs.jpcb.7b10371.
+        </div>
+
+    </div>
+    </main>
+
+</div>
+
+
+<script src="/QA/js/app.js"></script>
+<script>
+
+</script>
+
+</main>
+</body>
+</html>
