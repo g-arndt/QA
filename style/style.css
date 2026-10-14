@@ -133,6 +133,7 @@ nav a.active{
     pointer-events:none;
     border-right:1px solid var(--border);
     box-shadow:var(--shadow-sidebar);
+    align-self: stretch;
 }
 
 .layout.sidebar-open .sidebar{
