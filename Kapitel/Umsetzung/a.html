@@ -20,25 +20,27 @@
 
     <main class="content">
 
+        <h1>Supraleitende Fluss-Qubits</h1>
+
         <div class="card">
-            <h1>Supraleitende Fluss-Qubits</h1>
+            <h2>Woraus bestehen die Qubits von D-Wave Quantum?</h2>
             <p>
-                Eine ungedämpfte harmonische Schwingung beschreibt einen idealisierten Fall,
-                bei dem keine Energieverluste auftreten.
+                D-Wave Quantum verwendet keine tatsächlichen Elektronenspins, sondern bezeichnet seine Qubits als <span style="font-weight: bold;">künstliche („manufactured“) Spins</span>. Deren Aufbau ist im Folgenden schematisch dargestellt.
+            </p>
+            <img src="/QA/res/supraleitendes_Qubit.svg" class="pdf-image" alt="Aufbau eines supraleitenden Qubits">
+            <p>
+                Ein Qubit besteht aus zwei miteinander verbundenen <span style="font-weight: bold;">supraleitenden Schleifen</span>, in denen elektrische Ströme verlustfrei zirkulieren können. Je nach Flussrichtung des Stroms (mit oder gegen den Uhrzeigersinn) befindet sich das Qubit in einem der Zustände $|0\rangle$ oder $|1\rangle$. Überlagerungszustände entstehen dadurch, dass eine der supraleitenden Schleifen von zwei <span style="font-weight: bold;">Josephson-Kontakten</span> unterbrochen wird. Dabei handelt es sich um dünne isolierende Schichten zwischen supraleitenden Kontakten. Die elektrischen Ströme können diese aufgrund des Tunneleffekts durchqueren und bilden somit Überlagerungen der Qubit-Zustände aus. An die beiden Schleifen werden zudem die <span style="font-weight: bold;">äußeren magnetischen Flüsse</span> $\phi_{1,x}$ und $\phi_{2,x}$ angelegt, durch die die Form des Potentials, welches das Qubit beschreibt, gesteuert wird (konkret werden dadurch die Parameter $\delta E$ und $2h$, also die Barrierenhöhe und der Bias aus der Abbildung im nächsten Block eingestellt). Die Qubits sind dadurch programmierbar. Eine frühe Demonstration lieferten Johnson u. a. (2011), die ein System aus acht künstlichen Spins erzeugten und bei Temperaturen im Millikelvin-Bereich ein Verhalten registrierten, welches sich (aufgrund der tiefen Temperaturen) nicht durch thermische Fluktuationen erklären lässt, sondern quantenmechanischer Natur sein muss.
             </p>
         </div>
 
         <div class="card">
-            <h2>Mathematische Beschreibung</h2>
+            <h2>Sind diese Qubits tatsächlich äquivalent zu Spins (Zwei-Niveau-Systemen)?</h2>
             <p>
-                x(t) = A · sin(ωt)
+                Streng genommen handelt es sich bei dieser technischen Umsetzung nicht um ein reines Zwei-Niveau-System. Der magnetische Fluss bildet ein <span style="font-weight: bold;">Doppelmuldenpotential</span> aus, welches im Folgenden dargestellt ist.
             </p>
-        </div>
-
-        <div class="card">
-            <h2>Physikalische Bedeutung</h2>
+            <img src="/QA/res/Doppelmuldenpotential.svg" class="pdf-image" alt="Doppelmuldenpotential bei supraleitenden Qubits">
             <p>
-                Die Amplitude bleibt konstant, da keine Reibung oder Dämpfung wirkt.
+                Innerhalb dessen können nur diskrete Energieniveaus angenommen werden, welche aber nicht auf die Grundzustände der beiden Potentialmulden beschränkt sind. Um thermische Fluktuationen, also Anregungen in die Zustände $|2\rangle$ und $|3\rangle$ (oder noch höhere), zu verhindern, ist somit ein Tieftemperaturbetrieb vonnöten (Johnson u. a. 2011).
             </p>
         </div>
 
