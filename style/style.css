@@ -321,9 +321,10 @@ nav a.active{
 
 .pdf-image {
     width: 100%;
-    align-items:center;
+    max-width: 600px;
     height: auto;
     display: block;
+    margin: 0 auto;
 }
 
 /* =========================================================
