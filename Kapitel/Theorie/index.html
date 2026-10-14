@@ -23,7 +23,7 @@
 
         <h1>Theoretischer Hintergrund</h1>
 
-        < class="card">
+        <div class="card">
             <h2>Kurzfassung für Eilige</h2>
             <p>
             Quantum Annealing ist ein heuristisches Optimierungsverfahren, das auf <span style="font-weight: bold;">Superposition</span> und dem <span style="font-weight: bold;">Tunneleffekt</span> beruht. Die mathematische Kostenfunktion wird dafür in eine physikalische <span style="font-weight: bold;">Energielandschaft</span> überführt, deren <span style="font-weight: bold;">Minimum</span> die optimale Lösung des Problems codiert. Die Aufgabe der Optimierung verschiebt sich also vom Berechnen der Kostenfunktion für alle Konstellationen der freien Variablen zum Auffinden eines realen physikalischen Systems mit der entsprechenden Energielandschaft. Beim Quantum Annealing wird dafür ein System aus programmierbaren <span style="font-weight: bold;">interagierenden Spins</span> mit binären Werten gewählt. Dessen energetische Repräsentation ist der <span style="font-weight: bold;">Ising-Hamiltonian</span>, der in eine <span style="font-weight: bold;">QUBO</span>-Darstellung (Quadratic Unconstrained Binary Optimization) transformiert werden kann, sodass die zu lösende Optimierung auf die Form
@@ -32,7 +32,7 @@
             $$
             gebracht wird. Dabei ist $\vec{x}$ der Vektor mit den freien Variablen der Optimierung. QUBO-Variablen können nur die binären Werte $0$ und $1$ annehmen, weswegen $x_i{}^2=x_i$ gilt. $Q$ ist eine Koeffizientenmatrix, auf deren Diagonale die lokalen Bias-Werte $h_i$ der einzelnen Variablen auftauchen, während auf ihren Nichtdiagonalpositionen die Kopplungskonstanten $J_{ij}$ zwischen jeweils zwei Variablen stehen. Nachfolgend ist der Ablauf eines Annealing-Vorgangs, beginnend mit der QUBO-Formulierung, dargestellt.
             </p>
-            <img src="/QA/res/Ablauf.svg" class="pdf-bild" alt="Ablauf des Annealing-Vorgangs">
+            <img src="/QA/res/Ablauf.svg" class="pdf-image" alt="Ablauf des Annealing-Vorgangs">
             <p>
             Zunächst wird die QUBO-Matrix in einen topologischen Graphen (logische Qubits) überführt, der im Anschluss, während des <span style="font-weight: bold;">Minor Embeddings</span>, an die Topologie der Hardware (physikalische Qubits) angepasst wird. Dabei entsteht je nach Komplexität der Kopplungen ein großer Embedding-Overhead, da die Zahl physikalischer Qubits gegenüber der Zahl logischer Qubits stark zunimmt. Die Hardware wird anschließend auf das spezielle Problem programmiert (wobei die Bias-Werte und Kopplungskonstanten aus der QUBO-Matrix eingestellt werden) und in den Grundzustand eines initialen Hamiltonians versetzt. Ein festgelegter <span style="font-weight: bold;">Annealing-Schedule</span> überführt den anfänglichen Hamiltonian in den Ising-Hamiltonian. Dabei wird eine <span style="font-weight: bold;">adiabatische Entwicklung</span> angestrebt, damit der System-Hamiltonian in seinem Grundzustand verharrt. Das System befindet sich so schlussendlich im Grundzustand des Ising-Hamiltonians, welcher dann <span style="font-weight: bold;">ausgelesen</span> werden kann. Da es sich um ein heuristisches Verfahren handelt, muss der Prozess <span style="font-weight: bold;">statistisch wiederholt</span> werden, um aussagekräftige Ergebnisse zu erzielen.
             </p>

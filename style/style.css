@@ -319,9 +319,8 @@ nav a.active{
     flex:1;
 }
 
-.pdf-bild {
+.pdf-image {
     width: 100%;
-    max-width: 500px;
     align-items:center;
     height: auto;
     display: block;
