@@ -320,11 +320,12 @@ nav a.active{
 }
 
 .pdf-image {
+    display: block;
     width: 100%;
     max-width: 600px;
     height: auto;
-    display: block;
     margin: 0 auto;
+    overflow: visible;
 }
 
 /* =========================================================
