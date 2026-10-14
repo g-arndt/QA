@@ -24,40 +24,8 @@
         <h1>Technische Umsetzung von Quantum Annealern</h1>
 
         <div class="card">
-            <p>Untersuchen Sie den Einfluss der Frequenz auf den Verlauf der Schwingung.</p>
-
-            <p>Frequenz ω: <span id="omegaValue">1</span></p>
-
-            <input type="range" id="omegaSlider" min="0.5" max="5" step="0.1" value="1">
-
-            <div class="plot-container">
-                <div id="plot" class="plot"></div>
-            </div>
-
+            Ein Quantum Annealer besteht aus Qubits und Kopplern. Die physikalische Anforderung an ein Qubit ist, dass es sich um ein <span style="font-weight: bold;">Zwei-Niveau-System</span> handelt. Ein solches kann auf unterschiedliche Art technisch realisiert werden. Derzeit ist die Umsetzung mittels supraleitender Fluss-Qubits des Herstellers D-Wave Quantum am weitesten entwickelt und die meisten Studien, in denen Anwendungsfälle von Quantum Annealing erprobt werden, verwenden dazu diese Hardware. Qubits können aber auch durch andere physikalische Systeme wie Neutralatome oder gefangene Ionen realisiert werden (Yarkoni u. a. 2022).
         </div>
-
-        <div class="card">
-
-            <h2>Zwischenfrage</h2>
-
-            <p>Welche Größe verändert sich, wenn ω erhöht wird?</p>
-
-            <label><input type="radio" name="q1" value="a"> Amplitude</label><br>
-            <label><input type="radio" name="q1" value="b"> Periodendauer</label><br><br>
-
-            <button onclick="checkAnswer()">Prüfen</button>
-
-            <p id="feedback" style="margin-top: 10px;"></p>
-
-        </div>
-
-        <p>Die Bewegung ist gegeben durch:</p>
-
-        $$
-           x(t) = A \sin(\omega t)
-        $$
-
-        <p>mit $\omega = 2\pi f$.</p>
 
    </div>
    </main>
