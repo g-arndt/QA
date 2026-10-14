@@ -46,9 +46,14 @@
 
         <div class="card">
             <h2>Kontrollfrage</h2>
-            <p>
-                ...
-            </p>
+            <details>
+                <summary>
+                 	Was ändert sich für das QUBO-Mapping eines Problems, wenn eine andere Annealer-Hardware verwendet wird?
+                </summary>
+                <p>
+                    Grundsätzlich ändert sich nichts. Das QUBO-Mapping ist lediglich ein mathematisches Modell des Problems. Es bezieht sich auf binäre Entscheidungsgrößen $x_i\in\{0;1\}$, die in der äquivalenten Ising-Formulierung durch Spinvariablen $s_i\in{\pm1}$ dargestellt werden. In der quantenmechanischen Beschreibung entspricht dies zwar nominell einem Spin-System, welches aber technisch durch ein prinzipiell beliebiges physikalisches Zwei-Niveau-System umgesetzt werden kann. Hardwarespezifisch ist also nicht das QUBO-Mapping, sondern lediglich die Frage, wie effizient sich dieses auf der gegebenen Topologie der Hardware darstellen lässt.
+                </p>
+            </details>
         </div>
 
     </div>
