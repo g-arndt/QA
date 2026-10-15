@@ -40,12 +40,12 @@
                 $$
                 ausgedrückt, wobei die Koeffizienten $\alpha$ und $\beta$ gemäß
                 $$
-                    |\alpha^2+\beta^2|	&= 1		& \alpha,\beta&\in\mathbb{C}
+                    |\alpha^2+\beta^2|	= 1		\qquad\alpha,\beta&\in\mathbb{C}
                 $$
                 normiert sind. Die Zustände $|0\rangle$ und $|1\rangle$ bilden die Basis des Systems und sind als
                 $$
-                    |0\rangle		&= \begin{pmatrix}1\\0\end{pmatrix}	&
-                    |1\rangle		&= \begin{pmatrix}0\\1\end{pmatrix}	%
+                    |0\rangle	= \begin{pmatrix}1\\0\end{pmatrix}	\qquad
+                    |1\rangle	= \begin{pmatrix}0\\1\end{pmatrix}	%
                 $$
                 definiert. Die Dirac-Schreibweise dient als nützliche Abkürzung der vektoriellen Notation. Überlagerungszustände bilden die Grundlage für die <span style="font-weight: bold;">rechentechnische Überlegenheit</span> von Quantencomputern, da ein System aus Qubits alle Zustände gleichzeitig annehmen kann, während ein klassischer Computer dafür erst über alle möglichen Kombinationen binärer Bit-Zustände iterieren muss.
                 Bei einer <span style="font-weight: bold;">Messung</span> nimmt allerdings auch ein Qubit stets einen der beiden binären Werte an, wobei abhängig vom Verhältnis der Koeffizienten $\alpha$ und $\beta$ der beiden Basiszustände eine statistische Verteilung der Messwerte zu beobachten ist. Das Qubit ist nach dem Messvorgang im gemessenen Zustand präpariert, die Überlagerung wird also durch die Messung aufgelöst. Um den Quantenvorteil nicht einzubüßen (welcher ganz maßgeblich auf die Superposition zurückzuführen ist), erfolgt der Messprozess in Quantenalgorithmen erst ganz am Ende, nachdem alle logischen Operationen auf die Qubits angewandt wurden (Müller und Greinert 2023). Die Unterschiede zwischen klassischem Bit und quantenmechanischem Qubit sind noch einmal in der folgenden Abbildung verdeutlicht.
@@ -64,14 +64,87 @@
         <div class="card">
             <h2>Qubit-Operatoren</h2>
             <p>
-                ...
+                Operatoren\graffito{Operatoren} zur Beschreibung von Quantenfluktuationen und Messprozess sind die Pauli-X- und Pauli-Z-Matrix, die gemäß
+                $$
+                    \sigma_x    = \begin{pmatrix}0&1\\1&0\end{pmatrix}				\qquad
+                    \sigma_z	= \begin{pmatrix}1&\phantom{-}0\\0&-1\end{pmatrix}
+                $$
+                definiert sind. Angewandt auf die Basiszustände ergibt sich
+                $$
+                    \sigma_x|0\rangle	= +1|1\rangle							\qquad
+                    \sigma_x|1\rangle	= +1|0\rangle							\\
+                    \sigma_z|0\rangle	= +1|0\rangle							\qquad
+                    \sigma_z|1\rangle	= -1|1\rangle\,\text{.}
+                $$
+                Der Pauli-$X$-Operator induziert also Fluktuationen, indem er die Zustände tauscht, während der Pauli-$Z$-Operator den Zuständen ihre Eigenwerte zuordnet (Müller und Greinert 2023).
             </p>
+        </div>
+
+        <div class="learning-checks">
+            <details>
+                <summary>
+                    <span class="check-label">Wissen überprüfen</span>
+                    <span class="check-question">
+                       	Rechnen Sie obige Relationen explizit nach!
+                    </span>
+                    <span class="check-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="check-answer">
+                    $$
+                        \sigma_x|0\rangle
+                            = \hspace{8.5pt}\begin{pmatrix}0&1\\1&0\end{pmatrix}
+                                \begin{pmatrix}1\\0\end{pmatrix}
+                            = +\begin{pmatrix}0\\1\end{pmatrix}
+                            = +1|1\rangle									\\[12pt]
+                        \sigma_x|1\rangle
+                            = \hspace{8.5pt}\begin{pmatrix}0&1\\1&0\end{pmatrix}
+                                \begin{pmatrix}0\\1\end{pmatrix}
+                            = +\begin{pmatrix}1\\0\end{pmatrix}
+                            = +1|0\rangle									\\[12pt]
+                        \sigma_z|0\rangle
+                            = \begin{pmatrix}1&\phantom{-}0\\0&-1\end{pmatrix}
+                                \begin{pmatrix}1\\0\end{pmatrix}
+                            = +\begin{pmatrix}1\\0\end{pmatrix}
+                            = +1|0\rangle									\\[12pt]
+                        \sigma_z|1\rangle
+                            = \begin{pmatrix}1&\phantom{-}0\\0&-1\end{pmatrix}
+                                \begin{pmatrix}0\\1\end{pmatrix}
+                            = -\begin{pmatrix}0\\1\end{pmatrix}
+                            = -1|1\rangle
+                    $$
+                </div>
+            </details>
         </div>
 
         <div class="card">
             <h2>Behandlung mehrerer Qubits</h2>
             <p>
-                ...
+                Um nicht nur einzelne Qubits beschreiben zu können, sondern eine Vielzahl von Qubits, wie sie auch in Quantencomputern vorkommen, verwendet man das <span style="font-weight: bold;">Tensorprodukt</span>, welches für zwei Qubits
+                $$
+                    |\psi_1\rangle
+                        = \alpha_1|0\rangle + \beta_1|1\rangle
+                        = \begin{pmatrix}\alpha_1\\\beta_1\end{pmatrix}	    \\[12pt]
+                    |\psi_2\rangle
+                        = \alpha_2|0\rangle + \beta_2|1\rangle
+                        = \begin{pmatrix}\alpha_2\\\beta_2\end{pmatrix}
+                $$
+                gemäß
+                $$
+                    |\psi_1\rangle \otimes |\psi_2\rangle
+                        = \begin{pmatrix}
+                                \alpha_1\alpha_2 	\\
+                                \alpha_1\beta_2 	\\
+                                \beta_1\alpha_2	    \\
+                                \beta_1\beta_2		%
+                            \end{pmatrix}
+                $$
+                definiert ist. Die neuen Basiszustände lauten
+                $$
+                    |0\rangle \otimes |0\rangle		= |00\rangle			    \qquad
+                    |1\rangle \otimes |0\rangle		= |10\rangle			    \\[12pt]
+                    |0\rangle \otimes |1\rangle		= |01\rangle			    \qquad
+                    |1\rangle \otimes |1\rangle		= |11\rangle\,\text{.}		%
+                $$
             </p>
         </div>
 
