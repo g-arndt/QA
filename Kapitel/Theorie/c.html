@@ -34,13 +34,51 @@
             <h2>Nebenbedingungen</h2>
             <p>
                 ...
+
+                Auf diesem Wege können allerdings nicht alle Arten von Nebenbedingungen effizient implementiert werden. Ideal eignen sich <span style="font-weight: bold;">lineare Bedingungen</span>. Die binäre Belegungslogik der QUBO-Variablen begünstigt zudem <span style="font-weight: bold;">ganzzahlige Koeffizienten</span> (Yarkoni u. a. 2022).
+            </p>
+
+            <p>
+                Beispielhaft soll die lineare <span style="font-weight: bold;">Gleichheitsbedingung</span> „genau eine von drei Variablen wird ausgewählt“ als QUBO-Strafterm formuliert werden. Die Bedingung lässt sich zunächst als
+                $$
+                    x_1+x_2+x_3 = 1
+                $$
+                ausdrücken, wobei genau eine der drei Variablen den Wert $1$ annimmt und die anderen beiden den Wert $0$. Die Gleichung wird gemäß
+                $$
+                    0 = \lambda(x_1+x_2+x_3 - 1)^2\,\text{,}
+                $$
+                umgeformt und quadriert, wodurch gewährleistet ist, dass der Wert des Strafterms stets nichtnegativ ist. Aufgrund der Linearität der Ausgangsbedingung entstehen beim Quadrieren höchstens Terme zweiter Ordnung, deren Koeffizienten unmittelbar in die QUBO-Matrix eingebunden werden können. Schließlich wird auch ein Penalty-Faktor $\lambda$ hinzugefügt. Der allgemeine Ausdruck für Gleichheitsbedingungen lautet
+                $$
+                    0 = \lambda\Big(\sum_ia_ix_i - b\Big)^2\,\text{,}
+                $$
+                wobei $a_i$ ein ganzzahliger Gewichtungsfaktor für den Summanden $x_i$ und $b$ der Koeffizient der linearen Nebenbedingung ist. Auch <span style="font-weight: bold;">Ungleichheitsbedingungen</span> lassen sich als QUBO-Strafterme formulieren. Dabei werden Schlupfvariablen eingeführt, um Gleichheitsbedingungen zu generieren. Die Nebenbedingung „mindestens eine von drei Variablen wird ausgewählt“ lässt sich als
+                $$
+                    x_1+x_2+x_3 \geq 1
+                $$
+                ausdrücken. Durch Einführung der Schlupfvariablen $y_1$ und $y_2$ lässt sich dies gemäß
+                $$
+                    x_1+x_2+x_3 = 1 + y_1 + y_2
+                $$
+                in eine Gleichheitsbedingung umwandeln. Der Strafterm lautet also
+                $$
+                    0 = \lambda(x_1+x_2+x_3 - 1 - y_1 - y_2)^2\,\text{.}
+                $$
+                Der allgemeine Ausdruck für Ungleichheitsbedingungen ist
+                $$
+                    0 = \lambda\Big(\sum_ia_ix_i + \sum_j^W w_jy_j - b\Big)^2\,\text{,}
+                $$
+                wobei $w_j$ ein ganzzahliger Gewichtungsfaktor für den Summanden $y_j$ ist. Die Anzahl $W$ der Schlupfvariablen muss passend zur konkreten Nebenbedingung gewählt werden. Die Beschreibung beider Nebenbedingungen folgt Yarkoni u. a. (2022). Weitere Beispiele finden sich bei Glover, Kochenberger und Du (2019).
             </p>
         </div>
 
         <div class="card">
             <h2>Terme höherer Ordnung</h2>
             <p>
-                ...
+                Terme höherer Ordnung können nicht direkt in die QUBO-Matrix eingehen, da diese nur zweidimensional ist und höherdimensionale Kopplungen zwischen den QUBO-Variablen somit nicht vorgesehen sind. Stattdessen muss ein Term höherer Ordnung wie $x_1x_2x_3$ <span style="font-weight: bold;">quadratisiert</span> werden. Dafür wird eine neue QUBO-Variable $x_4=x_2x_3$ eingeführt und eine entsprechende Nebenbedingung konstruiert. Damit ergibt sich
+                $$
+                    x_1x_2x_3	&= x_1x_4 + \lambda(x_2x_3 - 2(x_2+x_3)x_4 + 3x_4)
+                $$
+                als quadratische Ersetzungsvorschrift. Die Nebenbedingung kann verifiziert werden, indem alle möglichen Wertekombinationen von $x_2$, $x_3$ und $x_4$ eingesetzt werden. Ausschließlich diejenigen Konstellationen, die $x_4=x_2x_3$ erfüllen, dürfen die Bedingung minimieren. Mit Termen vierter, fünfter oder noch höherer Ordnung muss entsprechend iterativ verfahren werden (Yarkoni u. a. 2022).
             </p>
         </div>
 
