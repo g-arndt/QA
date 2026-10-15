@@ -44,48 +44,22 @@
             </p>
         </div>
 
-        <div class="card">
-            <h2>Kontrollfrage</h2>
+        <div class="learning-checks">
             <details>
                 <summary>
-                 	Was ändert sich für das QUBO-Mapping eines Problems, wenn eine andere Annealer-Hardware verwendet wird?
+                    <span class="check-label">Wissen überprüfen</span>
+                    <span class="check-question">
+                       	Was ändert sich für das QUBO-Mapping eines Problems, wenn eine andere Annealer-Hardware verwendet wird?
+                    </span>
+                    <span class="check-icon" aria-hidden="true"></span>
                 </summary>
-                <p>
-                    Grundsätzlich ändert sich nichts. Das QUBO-Mapping ist lediglich ein mathematisches Modell des Problems. Es bezieht sich auf binäre Entscheidungsgrößen $x_i\in\{0;1\}$, die in der äquivalenten Ising-Formulierung durch Spinvariablen $s_i\in{\pm1}$ dargestellt werden. In der quantenmechanischen Beschreibung entspricht dies zwar nominell einem Spin-System, welches aber technisch durch ein prinzipiell beliebiges physikalisches Zwei-Niveau-System umgesetzt werden kann. Hardwarespezifisch ist also nicht das QUBO-Mapping, sondern lediglich die Frage, wie effizient sich dieses auf der gegebenen Topologie der Hardware darstellen lässt.
-                </p>
+                <div class="check-answer">
+                    <p>
+                        Grundsätzlich ändert sich nichts. Das QUBO-Mapping ist lediglich ein mathematisches Modell des Problems. Es bezieht sich auf binäre Entscheidungsgrößen $x_i\in\{0;1\}$, die in der äquivalenten Ising-Formulierung durch Spinvariablen $s_i\in{\pm1}$ dargestellt werden. In der quantenmechanischen Beschreibung entspricht dies zwar nominell einem Spin-System, welches aber technisch durch ein prinzipiell beliebiges physikalisches Zwei-Niveau-System umgesetzt werden kann. Hardwarespezifisch ist also nicht das QUBO-Mapping, sondern lediglich die Frage, wie effizient sich dieses auf der gegebenen Topologie der Hardware darstellen lässt.
+                    </p>
+                </div>
             </details>
         </div>
-
-
-
-
-        <div class="learning-checks">
-
-          <details name="kontrollfragen">
-            <summary>
-              <span class="check-label">Wissen überprüfen</span>
-              <span class="check-question">
-                Welche Aufgabe übernimmt JavaScript?
-              </span>
-              <span class="check-icon" aria-hidden="true"></span>
-            </summary>
-
-            <div class="check-answer">
-              <p>
-                JavaScript ermöglicht interaktive Funktionen und
-                dynamische Inhalte auf Webseiten.
-              </p>
-              <p>Beispiele dafür sind:</p>
-              <ul>
-                <li>Formulare validieren</li>
-                <li>Inhalte dynamisch aktualisieren</li>
-                <li>Interaktive Menüs erstellen</li>
-              </ul>
-            </div>
-          </details>
-
-        </div>
-
 
     </div>
     </main>
@@ -93,6 +67,19 @@
 </div>
 
 <script src="/QA/js/app.js"></script>
+<script>
+document.querySelectorAll(".learning-checks details").forEach((details) => {
+    details.addEventListener("toggle", () => {
+        if (details.open) {
+            const answer = details.querySelector(".check-answer");
 
+            answer.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }
+    });
+});
+</script>
 </body>
 </html>
