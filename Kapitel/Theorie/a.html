@@ -26,22 +26,39 @@
         <div class="card">
             <h2>Quanteneffekte</h2>
             <p>
-                ...
+                Bei Quantentechnologien handelt es sich um Technologien, die sich <span style="font-weight: bold;">Quanteneffekte</span> zunutze machen (Müller und Greinert 2023). Dies sind Effekte, die durch die klassische Mechanik nicht korrekt beschrieben werden können, da sie sich an Quantenobjekten abspielen, also Objekten in sehr kleiner Größenordnung, für die die <span style="font-weight: bold;">Heisenbergsche Unschärferelation</span> relevant ist. Diese sagt aus, dass Ort und Impuls (oder Geschwindigkeit) eines Objekts niemals gleichzeitig exakt bestimmt werden können. Dies gilt prinzipiell für alle Körper, macht sich aber bei makroskopischen Objekten, die in der klassischen Mechanik betrachtet werden (wie einem fahrenden Auto), praktisch nicht bemerkbar, da der Fehler, der durch die Orts- und Impulsunschärfe hinzukommt, deutlich unterhalb der Messgenauigkeit klassischer Messgeräte (wie einem GPS-Gerät oder Tachometer) liegt. Werden jedoch Quantenobjekte (wie Elektronen und Photonen) betrachtet, beeinflusst bereits der Messprozess die Dynamik dieser Objekte signifikant. Somit ist eine nicht-klassische Beschreibung, nämlich eine quantenphysikalische, vonnöten (Feynman, Leighton und Sands 2011).
             </p>
         </div>
 
         <div class="card">
             <h2>Superposition</h2>
             <p>
-                ...
+                Beim Quantum Annealing kommen die beiden Quanteneffekte Superposition und Tunneleffekt zum Einsatz. Superposition bedeutet, dass ein Quantenobjekt sich nicht in einem festgelegten Zustand befinden muss, sondern einen <span style="font-weight: bold;">Überlagerungszustand</span> aus mehreren Zuständen annehmen kann. Im Vergleich zum klassischen binären Bit mit den Zuständen 0 und 1 stellt ein Quantum Bit, kurz: Qubit, im Allgemeinen eine Überlagerung der beiden binären Zustände dar. In Dirac-Schreibweise wird der Zustand $|\psi\rangle$ des Qubits als
+                $$
+                    |\psi\rangle	= \alpha|0\rangle + \beta|1\rangle
+                                    = \begin{pmatrix}\alpha\\\beta\end{pmatrix}
+                $$
+                ausgedrückt, wobei die Koeffizienten $\alpha$ und $\beta$ gemäß
+                $$
+                    |\alpha^2+\beta^2|	&= 1		& \alpha,\beta&\in\mathbb{C}
+                $$
+                normiert sind. Die Zustände $|0\rangle$ und $|1\rangle$ bilden die Basis des Systems und sind als
+                $$
+                    |0\rangle		&= \begin{pmatrix}1\\0\end{pmatrix}	&
+                    |1\rangle		&= \begin{pmatrix}0\\1\end{pmatrix}	%
+                $$
+                definiert. Die Dirac-Schreibweise dient als nützliche Abkürzung der vektoriellen Notation. Überlagerungszustände bilden die Grundlage für die <span style="font-weight: bold;">rechentechnische Überlegenheit</span> von Quantencomputern, da ein System aus Qubits alle Zustände gleichzeitig annehmen kann, während ein klassischer Computer dafür erst über alle möglichen Kombinationen binärer Bit-Zustände iterieren muss.
+                Bei einer <span style="font-weight: bold;">Messung</span> nimmt allerdings auch ein Qubit stets einen der beiden binären Werte an, wobei abhängig vom Verhältnis der Koeffizienten $\alpha$ und $\beta$ der beiden Basiszustände eine statistische Verteilung der Messwerte zu beobachten ist. Das Qubit ist nach dem Messvorgang im gemessenen Zustand präpariert, die Überlagerung wird also durch die Messung aufgelöst. Um den Quantenvorteil nicht einzubüßen (welcher ganz maßgeblich auf die Superposition zurückzuführen ist), erfolgt der Messprozess in Quantenalgorithmen erst ganz am Ende, nachdem alle logischen Operationen auf die Qubits angewandt wurden (Müller und Greinert 2023). Die Unterschiede zwischen klassischem Bit und quantenmechanischem Qubit sind noch einmal in der folgenden Abbildung verdeutlicht.
             </p>
+            <img src="/QA/res/Bit_Qubit.svg" class="pdf-image" alt="Unterschiede von klassischen Bits und quantenmechanischen Qubits">
         </div>
 
         <div class="card">
             <h2>Tunneleffekt</h2>
             <p>
-                ...
+                Der zweite Quanteneffekt, der beim Quantum Annealing eine maßgebliche Rolle spielt, ist der Tunneleffekt. Dabei wird ein Quantenobjekt, welches auf eine Energiebarriere trifft, von dieser nicht zu 100% reflektiert, sondern kann die Barriere zu einem gewissen Grad durchqueren. Die lokale Aufenthaltswahrscheinlichkeit des Quantenobjekts nimmt allerdings mit steigender Barrierendicke exponentiell ab. Quantenfluktuationen treten also insbesondere bei dünnen Barrieren auf (Nolting 2013). Der Tunneleffekt ist im Folgenden schematisch dargestellt.
             </p>
+            <img src="/QA/res/Tunneleffekt.svg" class="pdf-image" alt="Schematische Darstellung des quantenmechanischen Tunneleffekts">
         </div>
 
         <div class="card">
