@@ -20,6 +20,7 @@
     --hover-border:#cfcfcf;
 
     --accent:#666;
+    --accent-color:#b20000;
     --accent-gradient:linear-gradient(
         75deg,
         #2563EB,
@@ -546,7 +547,7 @@ button:hover,
 
 .learning-checks .check-label {
   grid-column: 1;
-  color: var(--text-muted);
+  color: var(--accent-color);
   font-size: 12px;
   letter-spacing: .04em;
   text-transform: uppercase;
