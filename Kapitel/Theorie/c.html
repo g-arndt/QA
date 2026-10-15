@@ -26,7 +26,7 @@
         <div class="card">
             <h2>Ising- und QUBO-Modell</h2>
             <p>
-                Lucas (2014) zeigt, wie diverse Optimierungsprobleme als Ising-Modell ausgedrückt werden können. Äquivalent zur Ising-Formulierung ist das QUBO-Modell (Quadratic Unconstrained Binary Optimization), welches \textcite{Glover_2019} erläutern. Dabei handelt es sich um
+                Lucas (2014) zeigt, wie diverse Optimierungsprobleme als Ising-Modell ausgedrückt werden können. Äquivalent zur Ising-Formulierung ist das QUBO-Modell (Quadratic Unconstrained Binary Optimization), welches Glover, Kochenberger und Du (2019) erläutern. Dabei handelt es sich um
             </p>
             <ol>
                 <li>eine <span style="font-weight: bold;">Optimierungsvorschrift</span> der Form
@@ -44,11 +44,57 @@
             <p>
                 Ising- und QUBO-Variablen können gemäß
                     $$
-                        x_i	&= \frac{s_i+1}{2}		&
-                        s_i	&= 2x_i-1				%
+                        x_i	= \frac{s_i+1}{2}		\qquad
+                        s_i	= 2x_i-1				%
                     $$
                 ineinander überführt werden. In der hier verwendeten Konvention, bei der über alle $i\leq{}j$ summiert wird, ist Q eine obere Dreiecksmatrix.
             </p>
+        </div>
+
+        <div class="learning-checks">
+            <details>
+                <summary>
+                    <span class="check-label">Wissen überprüfen</span>
+                    <span class="check-question">
+                       	Was unterscheidet QUBO-Variablen von Ising-Variablen?
+                    </span>
+                    <span class="check-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="check-answer">
+                    <p>
+                       	Ising-Variablen beziehen sich auf ein reales physikalisches System aus Spins $s_i$ mit den möglichen Werten $+1$ und $-1$, während QUBO-Variablen $x_i$ die Werte $0$ und $1$ annehmen können. Beide Darstellungen sind äquivalent und durch eine einfache Umformung ineinander zu überführen.
+                    </p>
+                </div>
+            </details>
+        </div>
+
+        <div class="learning-checks">
+            <details>
+                <summary>
+                    <span class="check-label">Wissen überprüfen</span>
+                    <span class="check-question">
+                       	Formulieren Sie folgende Funktion als QUBO!
+                        $$
+                            f(\vec{x}) = 5 x_1{}^2 + 2 x_1x_2 - 4 x_1x_3 + x_2{}^2 + 6 x_2x_3 - 2 x_3 - x_3{}^2
+                        $$
+                    </span>
+                    <span class="check-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="check-answer">
+                    <p>
+                       	Die lineare Term $-2x_3$ wird zunächst zu $-2x_3{}^2$ quadratisiert. Zusammengefasst mit $-x_3{}^2$ ergibt sich
+                        $$
+                            f(\vec{x}) = 5x_1{}^2 + 2 x_1x_2 - 4 x_1x_3 + x_2{}^2 + 6 x_2x_3- 3 x_3{}^2
+                                \overset{!}{=} \sum_{i\leq{}j} Q_{ij}x_ix_j
+                        $$
+                        und die QUBO-Matrix wird anhand der Koeffizienten zu
+                        $$
+                            Q = \begin{pmatrix}5&2&-4\\0&1&\phantom{-}6\\0&0&-3\end{pmatrix}
+                        $$
+                        bestimmt.
+                    </p>
+                </div>
+            </details>
         </div>
 
         <div class="card">
@@ -63,6 +109,43 @@
             <p>
                 Um Strafterme gegenüber der Kostenfunktion zu priorisieren, werden sie zusätzlich mit einem Penalty-Faktor $\lambda$ skaliert.
             </p>
+        </div>
+
+        <div class="learning-checks">
+            <details>
+                <summary>
+                    <span class="check-label">Wissen überprüfen</span>
+                    <span class="check-question">
+                       	Was unterscheidet Nebenbedingungen von der Kostenfunktion?
+                    </span>
+                    <span class="check-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="check-answer">
+                    <p>
+                       	Die Lösung der Kostenfunktion ist unbekannt und soll optimiert werden. Eine Nebenbedingung muss hingegen zwangsläufig erfüllt werden.
+                    </p>
+                </div>
+            </details>
+        </div>
+
+        <div class="learning-checks">
+            <details>
+                <summary>
+                    <span class="check-label">Wissen überprüfen</span>
+                    <span class="check-question">
+                       	Welche Nachteile entstehen, wenn der Penalty-Faktor zu klein oder zu groß gewählt wird?
+                    </span>
+                    <span class="check-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="check-answer">
+                    <p>
+                       	Ein zu kleiner Penalty-Faktor sorgt dafür, dass das Einnehmen verbotener Variablenkonstellationen attraktiver wird, da diese nicht hinreichend bestraft werden. Ein zu großer Penalty-Faktor kann hingegen die Koeffizienten der Zielfunktion dominieren. Ist der Penalty-Faktor signifikant größer als die Koeffizienten, leidet darunter die Auflösung der Zielfunktion.
+                    </p>
+                </div>
+            </details>
+        </div>
+
+	    <div class="card">
             <p>
                 Auf diesem Wege können allerdings nicht alle Arten von Nebenbedingungen effizient implementiert werden. Ideal eignen sich <span style="font-weight: bold;">lineare Bedingungen</span>. Die binäre Belegungslogik der QUBO-Variablen begünstigt zudem <span style="font-weight: bold;">ganzzahlige Koeffizienten</span> (Yarkoni u. a. 2022).
             </p>
@@ -111,12 +194,59 @@
             </p>
         </div>
 
+	    <div class="learning-checks">
+            <details>
+                <summary>
+                    <span class="check-label">Wissen überprüfen</span>
+                    <span class="check-question">
+                       	Warum wird nicht $\lambda(x_4-x_2x_3)$ als Strafterm der Quadratisierung gewählt?
+                    </span>
+                    <span class="check-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="check-answer">
+                    <p>
+                       	Das Minimum dieses Terms ist nicht Null, sondern $-\lambda$, nämlich für $x_2=x_3=1$ und $x_4=0$. Damit würde eine Verletzung des Strafterms in der Kostenfunktion sogar belohnt werden. Bei der Formulierung des Strafterms muss also darauf geachtet werden, dass sein Minimum wirklich bei Null liegt und ausschließlich von denjenigen Variablenbelegungen, die die zugehörige Nebenbedingung $x_4=x_2x_3$ erfüllen, angenommen wird.
+                    </p>
+                </div>
+            </details>
+        </div>
+
+        <div class="learning-checks">
+               <details>
+                   <summary>
+                       <span class="check-label">Wissen überprüfen</span>
+                       <span class="check-question">
+                          	Welcher Nachteil entsteht, wenn zu viele Terme höherer Ordnung in der Optimierung vorkommen?
+                       </span>
+                       <span class="check-icon" aria-hidden="true"></span>
+                   </summary>
+                   <div class="check-answer">
+                       <p>
+                          	Die Anzahl an QUBO-Variablen erhöht sich durch die Quadratisierung dieser Terme stark. Dies gilt insbesondere für Terme sehr hoher Ordnung, da die Ordnung iterativ reduziert wird und bei jeder Iteration eine neue QUBO-Variable hinzukommt.
+                       </p>
+                   </div>
+               </details>
+           </div>
+
     </div>
     </main>
 
 </div>
 
 <script src="/QA/js/app.js"></script>
+<script>
+document.querySelectorAll(".learning-checks details").forEach((details) => {
+    details.addEventListener("toggle", () => {
+        if (details.open) {
+            const answer = details.querySelector(".check-answer");
 
+            answer.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }
+    });
+});
+</script>
 </body>
 </html>
