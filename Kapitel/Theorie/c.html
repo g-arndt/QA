@@ -21,7 +21,7 @@
     <main class="content">
     <div class="content-inner">
 
-        <h1>Mathematische Modellierung von Optimierungsproblemen</h1>
+        <h1>Modellierung von Optimierungsproblemen</h1>
 
         <div class="card">
             <h2>Ising- und QUBO-Modell</h2>
@@ -76,7 +76,7 @@
             <p>
                 Terme höherer Ordnung können nicht direkt in die QUBO-Matrix eingehen, da diese nur zweidimensional ist und höherdimensionale Kopplungen zwischen den QUBO-Variablen somit nicht vorgesehen sind. Stattdessen muss ein Term höherer Ordnung wie $x_1x_2x_3$ <span style="font-weight: bold;">quadratisiert</span> werden. Dafür wird eine neue QUBO-Variable $x_4=x_2x_3$ eingeführt und eine entsprechende Nebenbedingung konstruiert. Damit ergibt sich
                 $$
-                    x_1x_2x_3	&= x_1x_4 + \lambda(x_2x_3 - 2(x_2+x_3)x_4 + 3x_4)
+                    x_1x_2x_3	= x_1x_4 + \lambda(x_2x_3 - 2(x_2+x_3)x_4 + 3x_4)
                 $$
                 als quadratische Ersetzungsvorschrift. Die Nebenbedingung kann verifiziert werden, indem alle möglichen Wertekombinationen von $x_2$, $x_3$ und $x_4$ eingesetzt werden. Ausschließlich diejenigen Konstellationen, die $x_4=x_2x_3$ erfüllen, dürfen die Bedingung minimieren. Mit Termen vierter, fünfter oder noch höherer Ordnung muss entsprechend iterativ verfahren werden (Yarkoni u. a. 2022).
             </p>
