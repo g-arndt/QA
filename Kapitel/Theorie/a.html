@@ -251,5 +251,19 @@
 </div>
 
 <script src="/QA/js/app.js"></script>
+<script>
+document.querySelectorAll(".learning-checks details").forEach((details) => {
+    details.addEventListener("toggle", () => {
+        if (details.open) {
+            const answer = details.querySelector(".check-answer");
+
+            answer.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }
+    });
+});
+</script>
 </body>
 </html>
