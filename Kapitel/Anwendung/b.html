@@ -38,9 +38,71 @@
         </div>
 
         <div class="card">
-            <h2>...</h2>
+            <h2>Wie läuft die erste Modellbildung ab?</h2>
             <p>
-                ...
+                Es werden nun folgende Modellannahmen getroffen:
+            <ol>
+                <li>Eine Gitterposition wird durch je ein Qubit repräsentiert. Dabei bedeutet der Zustand $|1\rangle$, dass die Gitterstelle mit einem C-Atom besetzt ist, und der Zustand $|0\rangle$, dass es sich um eine Leerstelle handelt.</li>
+                <li>Die relative Energie des Gitters hängt nur von der Gesamtzahl der Bindungen ab.</li>
+                <li>Nur nächste Nachbarn koppeln miteinander, und zwar mit der Kopplungskonstante $A_{ij}$.</li>
+                <li>Wenn beide benachbarten Positionen mit C-Atomen gefüllt sind, verringert sich die relative Systemenergie um den Wert $\alpha$. Die Energieeinheit ist dabei arbiträr.</li>
+            </ol>
+            Die Elemente $A_{ij}$ der Kopplungsmatrix nehmen also unter diesen Annahmen für alle $i$ und $j$, bei denen es sich um nächste Nachbarn handelt, den Wert $1$ an, und für alle anderen den Wert $0$. Ohne Nebenbedingungen ergibt sich dann für die QUBO-Matrix
+            $$
+                Q_{ij}	= \begin{cases}-\alpha{}A_{ij}&\,i\lt{}j\\0&\,\mathrm{sonst}\end{cases}
+            $$
+            und somit für die Energiefunktion
+            $$
+                E(\vec{x})  = \vec{x}^TQ\vec{x}
+                            = \sum_{i\lt{}j}-\alpha{}A_{ij}x_ix_j\,\text{.}
+            $$
+            Die Bedingung $i\lt{}j$ sorgt dafür, dass jede Bindung nur einmal berücksichtigt wird. Die Autoren implementieren diese Optimierung auf einem Quantum Annealer und erhalten stets das Ergebnis, dass das System den finalen Zustand $|\psi\rangle = |111111111111111111\rangle$ annimmt. Dieser steht für diejenige Konfiguration, bei der alle 18 Gitterpositionen mit C-Atomen besetzt sind. Das Resultat ist plausibel, da diese Konfiguration tatsächlich die energetisch günstigste ist. Leerstellen verringern die Anzahl an Bindungen zwischen nächsten Nachbarn, sodass die Gitterkonfiguration mit zunehmender Anzahl an Leerstellen immer instabiler und energetisch ungünstiger wird.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Wie kann eine Nebenbedingung hinzugefügt werden?</h2>
+            <p>
+                Um auch Konfigurationen mit Leerstellen untersuchen zu können, muss eine Nebenbedingung eingeführt werden, da der Annealing-Vorgang ansonsten stets die Konfiguration ohne Leerstellen als ideale Lösung liefert. Um die Anzahl an C-Atomen zu fixieren, wird die Variable $N_C$ eingeführt. Als Nebenbedingung ergibt sich
+                $$
+                    N_C	= \sum_{i=1}^Nx_i\,\text{.}
+                $$
+                $N_C$ ist also die Summe aller mit C-Atomen besetzten Gitterpositionen, denn nur für diese nimmt $x_i$ den Wert $1$ an. Die Bedingung lässt sich zu
+                $$
+                    0 = \Big(\sum_{i=1}^Nx_i - N_C\Big)^2
+                $$
+                umschreiben. Durch das Quadrieren wird sichergestellt, dass die Bedingung stets nichtnegativ ist. Außerdem nehmen die Variablen in dieser Weise die QUBO-Form an. Ausmultiplizieren liefert
+                $$
+                    0 = \sum_{i=1}^Nx_i{}^2
+                        + \sum_{i\lt{}j}^N2x_ix_j
+                        - \sum_{i=1}^N2N_Cx_i
+                        + N_C{}^2
+                        \hat{=} \sum_{i=1}^N(1-2N_C)x_i
+                        + \sum_{i\lt{}j}^N2x_ix_j \,\text{,}
+                $$
+                wobei der konstante Summand $N_C{}^2$ vernachlässigt wird, da lediglich relative Gitterenergien betrachtet werden, und der quadratische Term aufgrund von $x_i{}^2=x_i$ linearisiert wird. Das QUBO-Modell verlangt, dass Nebenbedingungen direkt in die Zielfunktion eingebaut werden. Wenn obige Nebenbedingung erfüllt ist, beträgt sie Null und ändert somit die Zielfunktion nicht. Die Nebenbedingung kann also mit einem Penalty-Faktor $\lambda$ versehen zur ursprünglichen Energiefunktion addiert werden. Es ergibt sich
+                $$
+                    E(\vec{x}) = \sum_{i=1}^N\lambda(1-2N_C)x_i
+                                    + \sum_{i\lt{}j}(2\lambda-\alpha{}A_{ij})x_ix_j
+                $$
+                für die Energiefunktion und
+                $$
+                    Q_{ij}	    = \begin{cases}\lambda(1-2N_C)&\,i=j\\2\lambda-\alpha{}A_{ij}&\,i\lt{}j\\0&\,\mathrm{sonst}\end{cases}
+                $$
+                für die QUBO-Matrix. Die Autoren implementieren diesen QUBO im Annealer, wobei sie verschiedene Werte für den Parameter $N_C$ untersuchen.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Ist die eingeführte Nebenbedingung ausreichend?</h2>
+            <p>
+                Bei einer einzelnen Leerstelle, also für $N_C = N-1$, besitzen alle ermittelten Gitterstrukturen die gleiche Energie. Der Grund dafür wird schnell ersichtlich, wenn die Superzelle vervielfältigt und zu einem größeren Raster zusammengesetzt wird, wie in der folgende Abbildung dargestellt.
+            </p>
+            <img src="/QA/res/Graphen_Leerstellen1a.svg" class="pdf-image" alt="Graphen-Gitter mit einer Leerstelle, Variante A">
+            <img src="/QA/res/Graphen_Leerstellen1b.svg" class="pdf-image" alt="Graphen-Gitter mit einer Leerstelle, Variante B">
+            <img src="/QA/res/Graphen_Leerstellen1c.svg" class="pdf-image" alt="Graphen-Gitter mit einer Leerstelle, Variante C">
+            <p>
+                Großflächig betrachtet sind alle Konfigurationen mit einer einzelnen Leerstelle in der Superzelle translationssymmetrisch und somit zueinander äquivalent. Bei Optimierungen mit einer größeren Anzahl an Leerstellen führen die Autoren deshalb eine Nachbereitung der Messdaten durch, in der symmetrische Lösungen zusammengefasst werden.
             </p>
         </div>
 
