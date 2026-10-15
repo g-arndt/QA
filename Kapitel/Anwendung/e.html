@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="icon" href="/QA/res/favicon.svg">
-    <title>Beispiel: LiH</title>
+    <title>Reaktionsausbeuten</title>
     <script src="/QA/js/preload.js"></script>
     <link rel="stylesheet" href="/QA/style/style.css">
     <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
@@ -21,26 +21,15 @@
     <main class="content">
     <div class="content-inner">
 
-        <h1>Problemabbildung am Beispiel LiH</h1>
+        <h1>Optimierung von Reaktionsbedingungen</h1>
 
         <div class="card">
-            <h2>Schritt 1: ...</h2>
+            <h2>Welche alternativen Methoden zur Formulierung eines QUBOs gibt es?</h2>
             <p>
-                ...
+                Ein Beispiel für die QUBO-basierte Optimierung chemischer Reaktionsbedingungen beschreiben Li u. a. (2025). Sie untersuchen, wie sich Reaktionsausbeuten anhand experimenteller Daten vorhersagen und geeignete Reaktionsbedingungen effizient identifizieren lassen. Die Berechnungen werden dabei nicht auf Quantenhardware, sondern unter anderem auf einem digitalen Annealer durchgeführt, einem klassisch realisierten, quanteninspirierten Optimierungssystem. Da die Problemstellung als QUBO formuliert wird, ist eine Implementierung auf einem Quantum Annealer prinzipiell ebenfalls möglich.
             </p>
-        </div>
-
-        <div class="card">
-            <h2>Schritt 2: ...</h2>
             <p>
-                ...
-            </p>
-        </div>
-
-        <div class="card">
-            <h2>Schritt 3: ...</h2>
-            <p>
-                ...
+                Konkret wird die QUBO-Darstellung in der Studie nicht aus expliziten chemischen Modellannahmen, sondern datengetrieben <span style="font-weight: bold;">aus experimentellen Ergebnissen abgeleitet</span>, wobei zwei Ansätze miteinander verglichen werden: Einerseits werden die QUBO-Koeffizienten mittels klassischem maschinellen Lernen bestimmt, andererseits mit dem digitalen Annealer. Beide Ansätze erzielen vergleichbare Ergebnisse und weisen das Potential auf, sehr große Konfigurationsräume möglicher Reaktionsbedingungen effizient zu durchsuchen.
             </p>
         </div>
 
