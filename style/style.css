@@ -508,241 +508,120 @@ button:hover,
 
 /* =========================================================
    KONTROLLFRAGEN
-   Eigenständige Styles mit cq-Präfix
 ========================================================= */
 
-.cq-list {
-    display: grid;
-    gap: 12px;
-    width: 100%;
-    min-width: 0;
-    color: var(--text-normal);
-    font-family: inherit;
-    line-height: 1.6;
+.learning-checks {
+  display: grid;
+  gap: 12px;
 }
 
-/* Einzelne Lernkarte */
-
-.cq-list > details.cq-item {
-    display: block;
-    min-width: 0;
-    margin: 0;
-    padding: 0;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    background: var(--surface);
-    box-shadow: none;
-    overflow: hidden;
-    transition:
-        border-color var(--transition-normal),
-        box-shadow var(--transition-normal);
+.learning-checks details {
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  overflow: hidden;
 }
 
-.cq-list > details.cq-item:hover {
-    border-color: var(--hover-border);
+.learning-checks summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 28px;
+  gap: 6px 12px;
+  align-items: center;
+  padding: 18px 20px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text);
+  font-weight: var(--font-weight-normal);
 }
 
-.cq-list > details.cq-item[open] {
-    border-color: var(--active-border);
+.learning-checks summary::-webkit-details-marker {
+  display: none;
 }
 
-/* Klickbarer Kopfbereich */
-
-.cq-list > details.cq-item > summary {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 28px;
-    grid-template-rows: auto auto;
-    align-items: center;
-    gap: 5px 16px;
-    position: relative;
-    margin: 0;
-    padding: 18px 20px;
-    border: 0;
-    border-radius: 0;
-    background: var(--surface);
-    color: var(--text);
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: var(--font-weight-normal);
-    line-height: 1.5;
-    text-align: left;
-    cursor: pointer;
-    list-style: none;
-    transition: background-color var(--transition-normal);
+.learning-checks summary::marker {
+  content: "";
 }
 
-/* Browser-Standardmarker entfernen */
-
-.cq-list > details.cq-item > summary::marker {
-    content: "";
+.learning-checks .check-label {
+  grid-column: 1;
+  color: var(--text-muted);
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
 }
 
-.cq-list > details.cq-item > summary::-webkit-details-marker {
-    display: none;
+.learning-checks .check-question {
+  grid-column: 1;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-/* Dezente Kennzeichnung */
-
-.cq-list .cq-label {
-    grid-column: 1;
-    grid-row: 1;
-    display: block;
-    margin: 0;
-    padding: 0;
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    font-weight: var(--font-weight-normal);
-    letter-spacing: 0.035em;
-    line-height: 1.4;
-    text-transform: uppercase;
+.learning-checks .check-icon {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  border-radius: 50%;
+  background: var(--hover-bg);
 }
 
-/* Frage */
-
-.cq-list .cq-question {
-    grid-column: 1;
-    grid-row: 2;
-    display: block;
-    margin: 0;
-    padding: 0;
-    color: var(--text);
-    font-size: 1rem;
-    font-weight: var(--font-weight-normal);
-    line-height: 1.5;
+.learning-checks .check-icon::before,
+.learning-checks .check-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 1px;
+  background: var(--text-muted);
+  transform: translate(-50%, -50%);
 }
 
-/* Plus-/Minus-Symbol */
-
-.cq-list .cq-icon {
-    grid-column: 2;
-    grid-row: 1 / 3;
-    position: relative;
-    display: block;
-    width: 28px;
-    height: 28px;
-    box-sizing: border-box;
-    border: 0;
-    border-radius: 50%;
-    background: var(--hover-bg);
-    color: var(--text-muted);
-    transition: background-color var(--transition-normal);
+.learning-checks .check-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
 }
 
-/* Waagerechter Strich */
-
-.cq-list .cq-icon::before,
-.cq-list .cq-icon::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 10px;
-    height: 1px;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    border-radius: 1px;
-    background: currentColor;
-    transform: translate(-50%, -50%);
+.learning-checks details[open] .check-icon::after {
+  display: none;
 }
 
-/* Senkrechter Strich = Plus */
-
-.cq-list .cq-icon::after {
-    transform: translate(-50%, -50%) rotate(90deg);
-    transition: transform var(--transition-normal);
+.learning-checks summary:hover {
+  background: var(--hover-bg);
 }
 
-/* Beim Öffnen wird aus Plus ein Minus */
-
-.cq-list > details.cq-item[open] .cq-icon::after {
-    transform: translate(-50%, -50%) rotate(0deg);
+.learning-checks details[open] > .check-answer {
+  border-top: 1px solid var(--border);
 }
 
-/* Hover */
-
-.cq-list > details.cq-item > summary:hover {
-    background: var(--hover-bg);
+.learning-checks .check-answer {
+  padding: 16px 20px 20px;
+  color: var(--text-normal);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
-.cq-list > details.cq-item > summary:hover .cq-icon {
-    background: var(--active-bg);
+.learning-checks .check-answer p {
+  margin: 0 0 12px;
 }
 
-/* Tastaturfokus */
-
-.cq-list > details.cq-item > summary:focus-visible {
-    outline: 2px solid var(--active-border);
-    outline-offset: -3px;
+.learning-checks .check-answer p:last-child {
+  margin-bottom: 0;
 }
 
-/* Antwortbereich */
-
-.cq-list .cq-answer {
-    display: flow-root;
-    margin: 0;
-    padding: 0 20px 20px;
-    border: 0;
-    background: var(--surface);
-    color: var(--text-normal);
-    font-family: inherit;
-    font-size: 0.95rem;
-    font-weight: 400;
-    line-height: 1.7;
-    overflow-wrap: anywhere;
+.learning-checks .check-answer ul,
+.learning-checks .check-answer ol {
+  padding-left: 22px;
+  margin: 8px 0 12px;
 }
 
-/* Dezente Trennlinie zwischen Frage und Antwort */
-
-.cq-list > details.cq-item[open] > .cq-answer {
-    border-top: 1px solid var(--border);
-    padding-top: 16px;
+.learning-checks .check-answer li {
+  margin-bottom: 5px;
 }
 
-/* Formatierung der Antwort */
-
-.cq-list .cq-answer p {
-    margin: 0 0 12px;
-    padding: 0;
-    color: inherit;
-}
-
-.cq-list .cq-answer p:last-child {
-    margin-bottom: 0;
-}
-
-.cq-list .cq-answer ul,
-.cq-list .cq-answer ol {
-    margin: 8px 0 12px;
-    padding-left: 22px;
-}
-
-.cq-list .cq-answer li {
-    margin: 0 0 5px;
-    padding: 0 0 0 3px;
-}
-
-.cq-list .cq-answer li:last-child {
-    margin-bottom: 0;
-}
-
-.cq-list .cq-answer strong {
-    color: var(--text);
-    font-weight: var(--font-weight-heavy);
-}
-
-.cq-list .cq-answer a {
-    color: inherit;
-    text-underline-offset: 3px;
-}
-
-/* Bewegungen reduzieren, wenn gewünscht */
-
-@media (prefers-reduced-motion: reduce) {
-    .cq-list > details.cq-item,
-    .cq-list .cq-icon,
-    .cq-list .cq-icon::after,
-    .cq-list > details.cq-item > summary {
-        transition: none;
-    }
+.learning-checks summary:focus-visible {
+  outline: 2px solid var(--active-border);
+  outline-offset: -3px;
 }
