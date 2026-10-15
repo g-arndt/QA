@@ -100,9 +100,29 @@
         </div>
 
         <div class="card">
+            <p>
+                Das Prinzip des Überwindens von Energiebarrieren durch thermische und Quantenfluktuationen ist in der folgenden Abbildung vergleichend dargestellt.
+            </p>
+            <img src="/QA/res/Grundprinzip.svg" class="pdf-image" alt="Vergleich des Prinzips von klassischem und quantenmechanischem Annealing">
+        </div>
+
+        <div class="card">
             <h2>Durch welches physikalische System wird Quantum Annealing beschrieben?</h2>
             <p>
-                ...
+                In der Quantenmechanik sind die möglichen Messwerte der <span style="font-weight: bold;">Energie</span> eines Systems die <span style="font-weight: bold;">Eigenwerte des Hamiltonoperators</span> $\mathcal{H}$. Die zugehörige Eigenwertgleichung ist die zeitunabhängige Schrödingergleichung
+                $$
+                    \mathcal{H}|\psi\rangle = E|\psi\rangle\,\text{,}
+                $$
+                in der der Hamiltonoperator auf den Zustand $|\psi\rangle$ eines Quantensystems angewandt wird. Um eine zu optimierende Kostenfunktion als Energielandschaft zu beschreiben, muss also ein passendes physikalisches Quantensystem und dessen Hamiltonian gefunden werden. Die Wahl fällt dabei auf ein <span style="font-weight: bold;">System interagierender Spins</span> $s_i$, welche die Zustände <span style="font-style: italic;">spin up</span> ($\uparrow$) und <span style="font-style: italic;">spin down</span> ($\downarrow$) mit den Werten $+1$ und $-1$ annehmen können. Dieses physikalische System entspricht also genau der gewünschten binären Belegungslogik der Variablen. Ein Spin-System wird durch das Ising-Modell und den zugehörigen Ising-Hamiltonian
+                $$
+                    \mathcal{H}	= \sum_i h_is_i + \sum_{i\ltj} J_{ij}\,s_is_j
+                $$
+                beschrieben. Dabei ist $h_i$ der lokale Bias eines Spins, also ein Maß dafür, welchen der beiden Werte $+1$ und $-1$ der entsprechende Spin energetisch bevorzugt, und $J_{ij}$ die Kopplungsstärke zweier Spins. Das Modell geht ursprünglich auf die Beschreibung von Magnetismus zurück, weswegen eine negative Kopplung $J_{ij}\lt0$ oft als ferromagnetisch und eine positive $J_{ij}\gt0$ als antiferromagnetisch bezeichnet wird. Beim Quantum Annealing werden die <span style="font-weight: bold;">Spins</span> nicht mehr als binäre Variablen, sondern als Quantenobjekte <span style="font-weight: bold;">in einem Superpositionszustand</span> aufgefasst und können folglich als Qubits beschrieben werden. Der Zustand <span style="font-style: italic;">spin up</span> mit dem Wert $s_\uparrow=+1$ wird dem Qubit-Zustand $|0\rangle$ und <span style="font-style: italic;">spin down</span> mit dem Wert $s_\downarrow=-1$ dem Qubit-Zustand $|1\rangle$ zugeordnet. Die Spinwerte entsprechen damit genau den Eigenwerten des Pauli-$Z$-Operators für die korrespondierenden Qubit-Zustände. Durch die Quantisierung werden also die klassischen Spinvariablen $s_i$ durch entsprechende Pauli-$Z$-Operatoren $\sigma_z^{(i)}$ ersetzt. Die Zustände des Gesamtsystems ergeben sich dabei aus dem Tensorprodukt der Zustände der einzelnen Qubits, wobei der Operator $\sigma_z^{(i)}$ genau auf das $i$-te Qubit wirkt. Damit folgt
+                $$
+                    \mathcal{H}	= \sum_i h_i\sigma_z^{(i)}
+                                    + \sum_{i\ltj} J_{ij}\,\sigma_z^{(i)}\sigma_z^{(j)}
+                $$
+                für den quantisierten Ising-Hamiltonian \parencite{Albash_2018}.
             </p>
         </div>
 
