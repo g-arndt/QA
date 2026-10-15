@@ -342,6 +342,19 @@ nav a.active{
 /* =========================================================
    BUTTONS
 ========================================================= */
+.inline-button{
+    display:inline-block;
+    align-items:center;
+    justify-content:center;
+    padding:2px 5px;
+    min-height:10px;
+    border:0.75px solid var(--accent);
+    border-radius:var(--radius-sm);
+    background:var(--active-bg);
+    color:var(--text);
+    text-decoration:none;
+    cursor: pointer;
+}
 
 button{
     display:inline-flex;
@@ -491,6 +504,7 @@ nav a:hover{
 }
 
 button,
+.inline-button,
 .gradient-button,
 .gradient-button-fill,
 .gradient-side-nav a{
@@ -500,6 +514,7 @@ button,
 }
 
 button:hover,
+.inline-button:hover,
 .gradient-button:hover,
 .gradient-button-fill:hover,
 .gradient-side-nav a:hover{
