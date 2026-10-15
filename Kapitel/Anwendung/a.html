@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="icon" href="/QA/res/favicon.svg">
-    <title>Mathematische Grundlagen</title>
+    <title>Elektronenkonfigurationen</title>
     <script src="/QA/js/preload.js"></script>
     <link rel="stylesheet" href="/QA/style/style.css">
     <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
@@ -21,21 +21,47 @@
     <main class="content">
     <div class="content-inner">
 
-        <h1>Mathematische Grundlagen</h1>
+        <h1>Berechnung von Elektronenkonfigurationen</h1>
 
         <div class="card">
-            <h2>Dirac-Notation</h2>
+            <h2>Quantenobjekte mit Quantenobjekten simulieren</h2>
             <p>
-                ...
+                In einem Vortrag zur computerbasierten Simulation physikalischer Systeme wies bereits Feynman (1982) darauf hin, dass sich Quantensysteme am besten durch andere Quantensysteme simulieren lassen, da klassische Computer die vorherrschenden Quanteneffekte nur unzulänglich beschreiben können, während Quantensysteme diese auf natürlichem Wege selbst durchlaufen können. Ein vielversprechendes Beispiel aus der Quantenchemie ist die Berechnung von <span style="font-weight: bold;">Elektronenkonfigurationen</span>, da es sich bei Elektronen um Quantenobjekte handelt.
             </p>
         </div>
 
         <div class="card">
-            <h2>zweites Thema</h2>
+            <h2>Freiheitsgrade der Simulation</h2>
             <p>
-                ...
+                Tew, Klopper und Helgaker (2007) beschreiben die Berechnung elektronischer Zustände als ein <span style="font-weight: bold;">quantenmechanisches Mehrkörperproblem</span>, da die Bewegung der einzelnen Elektronen aufgrund ihrer gegenseitigen Wechselwirkung nicht unabhängig voneinander beschreibbar ist. Die Elektronenkorrelation umfasst dabei zwei wesentliche Beiträge: Die <span style="font-weight: bold;">Fermi-Korrelation</span> ergibt sich aus der Antisymmetrie der elektronischen Wellenfunktion und hängt somit mit dem Pauli-Prinzip zusammen, während die <span style="font-weight: bold;">Coulomb-Korrelation</span> auf der elektrostatischen Abstoßung der Elektronen beruht. Beide Beiträge müssen bei einer möglichst genauen Beschreibung des elektronischen Zustands berücksichtigt werden. Eine exakte Lösung dieses Mehrkörperproblems ist nur für Systeme wie Wasserstoff mit genau einem Elektron möglich.
             </p>
         </div>
+
+        <div class="card">
+            <h2>Elektronischer Hamiltonian als QUBO</h2>
+            <p>
+                In der klassischen Quantenchemie werden daher <span style="font-weight: bold;">üblicherweise Näherungsverfahren</span> eingesetzt. Ein alternativer Ansatz ist die Abbildung des elektronischen Hamiltonoperators auf ein Ising-Modell, dessen Grundzustand mittels Quantum Annealing bestimmt werden kann. Xia, Bian und Kais (2018) beschreiben eine Methode für diese Umwandlung. Ausgangspunkt ist die elektronische Schrödingergleichung
+                $$
+                    \mathcal{H}|\psi\rangle	= E|\psi\rangle\,\text{,}
+                $$
+                deren Lösung die möglichen elektronischen Zustände und ihre Energien bestimmt. Unter Verwendung der <span style="font-weight: bold;">Born-Oppenheimer-Näherung</span> werden die Kernkoordinaten bei der Berechnung der elektronischen Zustände als festgehaltene Parameter behandelt. Der elektronische Hamiltonoperator lässt sich dann schrittweise in einen QUBO überführen.
+            </p>
+            <ol>
+                <li>Der <span style="font-weight: bold;">elektronische Hamiltonoperator</span> wird mithilfe fermionischer Erzeugungs- und Vernichtungsoperatoren $\hat{a}_i{}^\dagger$ und $\hat{a}_i$ gemäß
+                $$
+                    \mathcal{H}	= \sum_{i,j}h_{ij}\hat{a}_i{}^\dagger\hat{a}_j
+                                    + \frac{1}{2}\sum_{i,j,k,l}
+                                        h_{ijkl}\hat{a}_i{}^\dagger\hat{a}_j{}^\dagger
+                                        \hat{a}_k\hat{a}_l
+				$$
+				als zweite Quantisierung formuliert. Die Koeffizienten $h_{ij}$ und $h_{ijkl}$ beschreiben die Ein- und Zwei-Elektronen-Integrale in einer gewählten Orbitalbasis und müssen mit klassischen Methoden als Parameter für den QUBO berechnet werden.</li>
+                <li>Mithilfe einer Jordan-Wigner- oder Bravyi-Kitaev-Transforma\-tion werden die fermionischen Operatoren durch Produkte von Pauli-Operatoren $\sigma_x^{(i)}$, $\sigma_y^{(i)}$ und $\sigma_z^{(i)}$ ausgedrückt, da damit <span style="font-weight: bold;">Qubits</span> beschrieben werden können.</li>
+                <li>Der Qubit-Hamiltonoperator wird in eine reine Darstellung aus Pauli-$Z$-Operatoren $\sigma_z^{(i)}$ überführt. Dadurch lässt sich die Energie als Funktion binärer <span style="font-weight: bold;">Ising-Variablen</span> formulieren, die die möglichen Besetzungen der Orbitale kodieren.</li>
+                <li>Terme höherer Ordnung werden durch die Einführung zusätzlicher binärer Variablen und geeigneter Nebenbedingungen in eine <span style="font-weight: bold;">quadratische Form</span> gebracht, wie <a href="/QA/Kapitel/Theorie/d/">zuvor</a> beschrieben, um schließlich die QUBO-Form zu erhalten.</li>
+            </ol>
+        </div>
+
+
 
     </div>
     </main>

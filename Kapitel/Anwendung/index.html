@@ -21,31 +21,12 @@
     <main class="content">
     <div class="content-inner">
 
-        <h1>Anwendung von Quantum Annealing</h1>
-
-        <p>Untersuchen Sie den Einfluss der Frequenz auf den Verlauf der Schwingung.</p>
-
-        <p>Frequenz ω: <span id="omegaValue">1</span></p>
-
-        <input type="range" id="omegaSlider" min="0.5" max="5" step="0.1" value="1">
-
-        <div id="plot"></div>
-
-        <p>irgendein Text</p>
+        <h1>Anwendungen in der Chemieindustrie</h1>
 
         <div class="card">
-
-            <h2>Zwischenfrage</h2>
-
-            <p>Welche Größe verändert sich, wenn ω erhöht wird?</p>
-
-            <label><input type="radio" name="q1" value="a"> Amplitude</label><br>
-            <label><input type="radio" name="q1" value="b"> Periodendauer</label><br><br>
-
-           <button onclick="checkAnswer()">Prüfen</button>
-
-            <p id="feedback" style="margin-top: 10px;"></p>
-
+            <p>
+                 Nachfolgend werden Studien vorgestellt, die den Einsatz von Quantum Annealing zum Lösen verschiedener chemischer Optimierungsprobleme untersuchen. Die Anwendungsfälle werden in unterschiedlicher Tiefe besprochen, wobei vor allem das jeweilige methodische Vorgehen verdeutlicht werden soll.
+            </p>
         </div>
 
    </div>
@@ -53,89 +34,6 @@
 
 </div>
 
-
 <script src="/QA/js/app.js"></script>
-<script>
-
-// dynamischer Plot
-let t = [];
-for(let i = 0; i <= 1000; i++){
-    t.push(i * 0.01);
-}
-
-let omega = 1;
-
-function drawPlot(omega){
-
-    let y = t.map(x => Math.sin(omega * x));
-
-    Plotly.react("plot", [{
-        x: t,
-        y: y,
-        mode: "lines"
-    }], {
-        title: "x(t) = sin(ωt)"
-    });
-
-}
-
-// Initial zeichnen
-drawPlot(omega);
-
-
-// Slider
-const slider = document.getElementById("omegaSlider");
-const display = document.getElementById("omegaValue");
-
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    // Ausgangsplot zeichnen
-    drawPlot(omega);
-
-    // Änderungen über Slider durchführen
-    slider.addEventListener("input", function () {
-
-        omega = parseFloat(this.value);
-
-        display.textContent =
-            omega.toFixed(1);
-
-        drawPlot(omega);
-
-    });
-
-});
-
-// Quiz
-function checkAnswer(){
-
-    let selected = document.querySelector('input[name="q1"]:checked');
-    let feedback = document.getElementById("feedback");
-
-    if(!selected){
-        feedback.textContent = "Bitte eine Antwort wählen.";
-        return;
-    }
-
-    if(selected.value === "b"){
-        feedback.textContent = "Richtig! Die Periodendauer hängt von ω ab.";
-        feedback.style.color = "green";
-
-        // Fortschritt speichern
-        localStorage.setItem("anwendung_done", "true");
-        localStorage.setItem("nextChapter", "Kapitel/Selbsttest/");
-    } else {
-        feedback.textContent = "Nicht ganz. Überlege den Zusammenhang zwischen ω und T.";
-        feedback.style.color = "red";
-    }
-
-    // automatisch zum Feedback scrollen
-    feedback.scrollIntoView({ behavior: "smooth", block: "center" });
-
-}
-
-</script>
-
 </body>
 </html>
