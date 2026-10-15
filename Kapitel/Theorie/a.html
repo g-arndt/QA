@@ -64,7 +64,7 @@
         <div class="card">
             <h2>Qubit-Operatoren</h2>
             <p>
-                Operatoren\graffito{Operatoren} zur Beschreibung von Quantenfluktuationen und Messprozess sind die Pauli-X- und Pauli-Z-Matrix, die gemäß
+                Operatoren zur Beschreibung von Quantenfluktuationen und Messprozess sind die Pauli-$X$- und Pauli-$Z$-Matrix, die gemäß
                 $$
                     \sigma_x    = \begin{pmatrix}0&1\\1&0\end{pmatrix}				\qquad
                     \sigma_z	= \begin{pmatrix}1&\phantom{-}0\\0&-1\end{pmatrix}
@@ -157,10 +157,90 @@
                     |0\rangle \otimes |1\rangle		= |01\rangle			    \qquad
                     |1\rangle \otimes |1\rangle		= |11\rangle\,\text{.}		%
                 $$
+                Durch das Tensorprodukt kann der gesamte Zustandsraum beschrieben werden, der von $N$ Qubits aufgespannt wird. Dabei ergeben sich $2^N$ neue Basiszustände. Der Zustand des gesamten Systems ist im Allgemeinen eine Überlagerung aus allen Basiszuständen  (Nielsen und Chuang 2010).
             </p>
         </div>
 
+        <div class="learning-checks">
+            <details>
+                <summary>
+                    <span class="check-label">Wissen überprüfen</span>
+                    <span class="check-question">
+                       	Wie lautet das Tensorprodukt von drei Qubits und was sind die zugehörigen neuen Basiszustände?
+                    </span>
+                    <span class="check-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="check-answer">
+                    Für das Tensorprodukt gilt
+                    $$
+                        |\psi_1\rangle \otimes |\psi_2\rangle \otimes |\psi_3\rangle
+                            = \begin{pmatrix}
+                                \alpha_1\alpha_2\alpha_3 	\\
+                                \alpha_1\alpha_2\beta_3	 	\\
+                                \alpha_1\beta_2\alpha_3 	\\
+                                \alpha_1\beta_2\beta_3	 	\\
+                                \beta_1\alpha_2\alpha_3		\\
+                                \beta_1\alpha_2\beta_3	 	\\
+                                \beta_1\beta_2\alpha_3		\\
+                                \beta_1\beta_2\beta_3		%
+                            \end{pmatrix}
+                    $$
+                    und für die neuen Basisvektoren
+                    $$
+                        |0\rangle \otimes |0\rangle \otimes |0\rangle = |000\rangle
+                    $$
+                    $$
+                        |0\rangle \otimes |0\rangle \otimes |1\rangle = |001\rangle
+                    $$
+                    $$
+                        |0\rangle \otimes |1\rangle \otimes |0\rangle = |010\rangle
+                    $$
+                    $$
+                        |0\rangle \otimes |1\rangle \otimes |1\rangle = |011\rangle
+                    $$
+                    $$
+                        |1\rangle \otimes |0\rangle \otimes |0\rangle = |100\rangle
+                    $$
+                    $$
+                        |1\rangle \otimes |0\rangle \otimes |1\rangle = |101\rangle
+                    $$
+                    $$
+                        |1\rangle \otimes |1\rangle \otimes |0\rangle = |110\rangle
+                    $$
+                    $$
+                        |1\rangle \otimes |1\rangle \otimes |1\rangle = |111\rangle\,\text{.}
+                    $$
+                </div>
+            </details>
+        </div>
 
+        <div class="card">
+            <p>
+                Für das Tensorprodukt zweier Ein-Qubit-Operatoren $A$ und $B$ gilt
+                $$
+                    A\otimes{}B
+                        = 	\begin{pmatrix}
+                            A_{11}B & A_{12}B \\
+                            A_{21}B & A_{22}B
+                        \end{pmatrix}
+                        = 	\begin{pmatrix}
+                            A_{11}B_{11} & A_{11}B_{12} & A_{12}B_{11} & A_{12}B_{12} \\
+                            A_{11}B_{21} & A_{11}B_{22} & A_{12}B_{21} & A_{12}B_{22} \\
+                            A_{21}B_{11} & A_{21}B_{12} & A_{22}B_{11} & A_{22}B_{12} \\
+                            A_{21}B_{21} & A_{21}B_{22} & A_{22}B_{21} & A_{22}B_{22} \\
+						\end{pmatrix}\,\text{.}
+                $$
+                Operatoren im neuen Zustandsraum besitzen die Größe $2^N\times2^N$. Soll ein Operator in diesem vergrößerten Zustandsraum auf ein einzelnes Qubit wirken, so wird ein Tensorprodukt mit der Einheitsmatrix
+                $$
+                    \mathds{1}	= \begin{pmatrix}1&0\\0&1\end{pmatrix}\,\text{,}
+                $$
+                auch Identität oder Identitätsoperator genannt, gebildet. Für einen Operator $A$, der nur auf das $i$-te Qubit wirkt, gilt
+                $$
+                    A^{(i)}		= \mathds{1}\otimes\mathds{1}\otimes...\otimes\mathds{1}\otimes{}A\otimes\mathds{1}\otimes...\otimes\mathds{1}\,\text{,}
+                $$
+                wobei der Operator $A$ an $i$-ter Stelle im Tensorprodukt auftritt (Nielsen und Chuang 2010). Beim Quantum Annealing kommen in dieser Form vor allem der Pauli-$X$- und Pauli-$Z$-Operator zum Einsatz, also als $\sigma_x^{(i)}$ und $\sigma_z^{(i)}$ (Yarkoni u. a. 2022).
+            </p>
+        </div>
 
     </div>
     </main>

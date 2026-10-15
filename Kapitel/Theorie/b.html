@@ -26,22 +26,77 @@
         <div class="card">
             <h2>Was ist Annealing allgemein?</h2>
             <p>
-                ...
+                Beim Annealing handelt es sich um ein <span style="font-weight: bold;">heuristisches Optimierungsverfahren</span>, bei dem das globale Minimum einer Kostenfunktion aufgefunden werden soll, ohne den Wert der Kostenfunktion an jeder einzelnen Stelle, also für jede mögliche Konstellation der freien Variablen, explizit zu berechnen. Stattdessen werden die <span style="font-weight: bold;">Variablen</span> entlang der Kostenfunktion hin zu geringeren Funktionswerten <span style="font-weight: bold;">variiert</span>, wobei es allerdings vorkommen kann, dass ein lokales Minimum angenommen wird. Um lokale Minima zugunsten des globalen Minimums zu verlassen, wird bei der Variablenänderung eine gewisse Flexibilität zugelassen, sodass auch Richtungen, die eigentlich den Wert der Kostenfunktion vergrößern, erkundet werden können. Diese Freiheit wird jedoch mit zunehmendem Fortschritt des Annealing-Vorgangs mehr und mehr eingeschränkt, sodass die Variablen am Ende <span style="font-weight: bold;">eingefroren</span> werden, wenn sie (idealerweise) die Konstellation des globalen Minimums eingenommen haben. Da es sich um ein heuristisches Verfahren handelt, ist das Erreichen des globalen Minimums nicht sichergestellt. Der Prozess muss also wiederholt durchlaufen werden, um statistisch signifikante Ergebnisse zu erzielen (Chakrabarti und Das 2005).
             </p>
+        </div>
+
+        <div class="learning-checks">
+            <details>
+                <summary>
+                    <span class="check-label">Wissen überprüfen</span>
+                    <span class="check-question">
+                       	Wie kann mittels Annealing auch das Maximum einer Funktion bestimmt werden?
+                    </span>
+                    <span class="check-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="check-answer">
+                    <p>
+                       	Indem die Kostenfunktion ein negatives Vorzeichen erhält.
+                    </p>
+                </div>
+            </details>
         </div>
 
         <div class="card">
             <h2>Wie funktioniert klassisches Annealing?</h2>
             <p>
-                ...
+                Beim klassischen Annealing, auch simuliertes Annealing genannt, wird der Grad, bis zu dem sich die Kostenfunktion temporär verschlechtern darf, durch die <span style="font-weight: bold;">Temperatur</span> $T$ gesteuert. Die Kostenfunktion wird als Energielandschaft $E(\vec{x})$ in Abhängigkeit von Variablen kodiert, die in $\vec{x}$ vektoriell zusammengefasst sind. Anschaulich <span style="font-weight: bold;">bewegt</span> sich während des Annealing-Vorgangs ein <span style="font-weight: bold;">Materieteilchen</span> über die Energielandschaft. Es ist dabei grundsätzlich „bergab“ gerichtet, hin zu niedrigeren Energien. Gelangt es in ein lokales Minimum, so kann es dieses durch thermische Fluktuationen, also seine eigene kinetische Energie, wieder verlassen. Die thermische Energie des Teilchens entspricht dabei dem Produkt aus der vorherrschenden Temperatur und der Boltzmann-Konstante $k_B$. Die Geschwindigkeits- bzw. Energieverteilung freier Gasteilchen richtet sich nach der <span style="font-weight: bold;">Maxwell-Boltzmann-Statistik</span>. Die entscheidende Proportionalität ergibt sich aus dem Boltzmann-Faktor mit der Beziehung
+                $$
+                    p(\vec{x},T) \propto \exp\Big(-\frac{E(\vec{x})}{k_B T}\Big)
+                $$
+                zwischen der Wahrscheinlichkeitsdichte $p$ und der Temperatur. Im Exponentialterm wird die lokale Energie der Kostenfunktion mit der thermischen Energie des Teilchens ins Verhältnis gesetzt. Eine zwischenzeitliche Energieerhöhung in der Kostenfunktion wirkt sich negativ auf die Wahrscheinlichkeitsdichte aus. Bei hohen Temperaturen ist das Verhältnis im Exponenten jedoch grundsätzlich gering. Der entsprechende Strafterm $\Delta p$ bei einer Erhöhung von $E(\vec{x})$ ist dann nur sehr klein, sodass eine größere Flexibilität für eigentlich nicht erlaubte Bewegungsrichtungen besteht. Je mehr die Temperatur verringert wird, desto stärker wird die Bewegung der Teilchen eingeschränkt. Am Tiefpunkt der Temperatur erfolgt schließlich das Auslesen des Zustands, der sich eingestellt hat. Für eine bestmögliche Güte der Optimierung müssen geeignete Randbedingungen wie ein möglichst langsamer Abkühlvorgang gewährleistet werden, damit das System nicht in einem zufälligen <span style="font-weight: bold;">Zustand</span> abrupt <span style="font-weight: bold;">„einfriert“</span> (Chakrabarti und Das 2005).
             </p>
+        </div>
+
+        <div class="learning-checks">
+            <details>
+                <summary>
+                    <span class="check-label">Wissen überprüfen</span>
+                    <span class="check-question">
+                       	Warum kann klassisches Annealing lokale Energiebarrieren überwinden?
+                    </span>
+                    <span class="check-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="check-answer">
+                    <p>
+                       	Die Bewegung der Teilchen wird beim klassischen Annealing durch die Temperatur gesteuert. Auch die Bewegung in Richtungen, die eigentlich eine negative Auswirkung auf die Kostenfunktion haben, ist dadurch bis zu einem gewissen Grad erlaubt, wodurch den Teilchen die Möglichkeit eröffnet wird, lokale Minima zu verlassen und das globale Minimum aufzusuchen. Anfangs herrscht eine höhere Temperatur vor und die Teilchen besitzen eine größere kinetische Energie, sodass ihre Bewegungsfreiheit größer ist. Nach und nach wird die Temperatur verringert, sodass auch die kinetische Energie abnimmt, bis die Teilchenbewegung schließlich „einfriert“.
+                    </p>
+                </div>
+            </details>
         </div>
 
         <div class="card">
             <h2>Wie funktioniert quantenmechanisches Annealing?</h2>
             <p>
-                ...
+                Ein analoger Ansatz aus dem Bereich des Quantencomputings ist das Quantum Annealing, bei dem Energiebarrieren im Umfeld lokaler Minima durch den <span style="font-weight: bold;">quantenmechanischen Tunneleffekt</span> überwunden werden. Um diesen Effekt nutzen zu können, muss die Optimierung anhand von Quantenobjekten vollzogen werden. Die Lösung des Problems wird dafür als energetischer Grundzustand eines physikalischen Quantensystems kodiert (Chakrabarti und Das 2005).
             </p>
+        </div>
+
+        <div class="learning-checks">
+            <details>
+                <summary>
+                    <span class="check-label">Wissen überprüfen</span>
+                    <span class="check-question">
+                       	Was ist der qualitative Unterschied zwischen thermischem Überwinden einer Barriere und quantenmechanischem Tunneln?
+                    </span>
+                    <span class="check-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="check-answer">
+                    <p>
+                       	Thermische Fluktuationen treten bei Materieteilchen auf und erfordern, dass diese (vermittelt über die Temperatur) genug Energie erhalten, um die Barriere zu überwinden. Der Tunneleffekt ist hingegen Quantenobjekten vorbehalten und erfordert keine Erhöhung ihrer Energie. Die Barriere muss möglichst schmal sein, da die lokale Aufenthaltswahrscheinlichkeit eines Quantenteilchens mit zunehmender Barrierendicke exponentiell abnimmt. Quantenfluktuationen eignen sich somit insbesondere zum Passieren schmaler und hoher Energiebarrieren.
+                    </p>
+                </div>
+            </details>
         </div>
 
         <div class="card">
