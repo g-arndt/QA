@@ -151,7 +151,7 @@
                 definiert ist. Die neuen Basiszustände lauten
                 $$
                     |0\rangle \otimes |0\rangle		= |00\rangle			    \qquad
-                    |1\rangle \otimes |0\rangle		= |10\rangle
+                    |1\rangle \otimes |0\rangle		= |10\rangle\phantom{\,\text{.}}
                 $$
                 $$
                     |0\rangle \otimes |1\rangle		= |01\rangle			    \qquad
@@ -208,6 +208,7 @@
                         |1\rangle \otimes |1\rangle \otimes |0\rangle = |110\rangle
                     $$
                     $$
+                        \phantom{\,\text{.}}
                         |1\rangle \otimes |1\rangle \otimes |1\rangle = |111\rangle\,\text{.}
                     $$
                 </div>
@@ -248,6 +249,19 @@
 </div>
 
 <script src="/QA/js/app.js"></script>
-
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      macros: {
+        mathds: ["\\mathbb", 1]
+      }
+    }
+  };
+</script>
+<script defer
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
 </body>
 </html>
