@@ -131,7 +131,7 @@
             <p>
                 Um den Grundzustand des Ising-Hamiltonians zu erreichen, wird das <span style="font-weight: bold;">adiabatische Prinzip der Quantenmechanik</span> herangezogen. Dieses besagt, dass ein Quantensystem bei hinreichend langsamer Änderung seines Hamiltonians im momentanen Eigenzustand (bzw. dessen Projektion auf die neuen Basiszustände) verharrt. Der relevante Eigenzustand beim Quantum Annealing ist der Grundzustand, da dieser das Energieminimum darstellt. Das adiabatische Prinzip lässt sich hier also derart anwenden, dass das System zunächst einem initialen Hamiltonian $\mathcal{H}_i$ unterliegt, dessen Grundzustand technisch leicht zu präparieren ist. Der initiale Hamiltonian wird dann allmählich in den Problem-Hamiltonian $\mathcal{H}_p$ der Optimierung überführt. Entsprechend ist der System-Hamiltonian
                 $$
-	\mathcal{H}(t)	&= A(t)\mathcal{H}_i + B(t)\mathcal{H}_p
+                    \mathcal{H}(t)	= A(t)\mathcal{H}_i + B(t)\mathcal{H}_p
                 $$
                 zeitabhängig, wobei die Änderung durch die Funktionen $A(t)$ und $B(t)$ beschrieben wird. Dabei muss $B(t)$ am Anfang und $A(t)$ am Ende des Annealings Null sein. Die Funktionen können abgesehen davon beliebig gewählt werden und legen somit die Dynamik des Annealings fest, die auch als <span style="font-weight: bold;">Annealing-Schedule</span> bezeichnet wird (Albash und Lidar 2018).
             </p>
