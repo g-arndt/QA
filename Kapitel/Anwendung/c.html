@@ -26,14 +26,60 @@
         <div class="card">
             <h2>Warum werden Moleküle simuliert?</h2>
             <p>
-                Die Wirkstoffentwicklung für Arzneimittel beginnt längst nicht mehr direkt im Labor – die Spannweite an möglichen Molekülverbindungen ist viel zu groß, um zufällig die richtigen Stoffe zu synthetisieren. Stattdessen werden geeignete Kandidaten durch computergestützte Simulationen generiert. Pandey u. a. (2022) stellen ein Verfahren für eine QUBO-Beschreibung von Moleküldocking vor, bei dem <span style="font-weight: bold;">beliebig viele</span> Bestandteile, sogenannte <span style="font-weight: bold;">Körper</span>, berücksichtigt werden können. Klassische Simulationsverfahren können nur Zweikörperprobleme wie das Protein-Liganden-Docking effizient beschreiben, biologische Komplexe bestehen allerdings oft aus mehr als zwei Reaktionspartnern. Konkret wird in der betrachteten Studie ein Dreikörperproblem mit ausschließlich translatorischen <span style="font-weight: bold;">Freiheitsgraden</span> auf einem Quantum Annealer implementiert, was aber der begrenzten Verfügbarkeit von Qubits geschuldet ist. Prinzipiell lässt sich das Verfahren auf beliebig viele Reaktionspartner skalieren und es ist zudem möglich, auch innere und rotatorische Freiheitsgrade zu berücksichtigen.
+                Die Wirkstoffentwicklung für Arzneimittel beginnt längst nicht mehr direkt im Labor – die Spannweite an möglichen Molekülverbindungen ist viel zu groß, um zufällig die richtigen Stoffe zu synthetisieren. Stattdessen werden geeignete Kandidaten durch computergestützte Simulationen generiert.
             </p>
         </div>
 
         <div class="card">
-            <h2>...</h2>
+            <h2>Welche Simulationen sind bisher möglich?</h2>
             <p>
-                ...
+                Pandey u. a. (2022) stellen ein Verfahren für eine QUBO-Beschreibung von Moleküldocking vor, bei dem <span style="font-weight: bold;">beliebig viele</span> Bestandteile, sogenannte <span style="font-weight: bold;">Körper</span>, berücksichtigt werden können. Klassische Simulationsverfahren können nur Zweikörperprobleme wie das Protein-Liganden-Docking effizient beschreiben, biologische Komplexe bestehen allerdings oft aus mehr als zwei Reaktionspartnern. Konkret wird in der betrachteten Studie ein Dreikörperproblem mit ausschließlich translatorischen <span style="font-weight: bold;">Freiheitsgraden</span> auf einem Quantum Annealer implementiert, was aber der begrenzten Verfügbarkeit von Qubits geschuldet ist. Prinzipiell lässt sich das Verfahren auf beliebig viele Reaktionspartner skalieren und es ist zudem möglich, auch innere und rotatorische Freiheitsgrade zu berücksichtigen.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Wie erfolgt die Modellbildung?</h2>
+            <p>
+                Bei der Modellierung werden allgemein $N$ Körper betrachtet, von denen einer räumlich <span style="font-weight: bold;">fixiert</span> wird, damit <span style="font-weight: bold;">keine symmetrisch äquivalenten Lösungen</span> auftreten. Es verbleiben $N-1$ Körper mit variabler Position. Die möglichen Translationsbewegungen der Körper werden in $T$ <span style="font-weight: bold;">diskrete Vektoren</span> $x_t$ mit $t\in\{1;2;...;T\}$ zerlegt. Jeder der beweglichen Körper mit $i\in\{1;2;...;N-1\}$ wird dann durch den Produktzustand
+                $$
+                    |\psi^i\rangle	= |x_1^i\,x_2^i\,x_3^i\,\cdots{}\,x_T^i\rangle
+                $$
+                aus jeweils $T$ Ein-Qubit-Zuständen beschrieben. Die räumliche Auflösung des Problems hängt also signifikant von der verfügbaren Anzahl an Qubits auf dem Annealer ab. Es ergibt sich ein Lösungsraum mit $T^{N-1}$ möglichen Konfigurationen, für deren Codierung insgesamt $T(N-1)$ Qubits benötigt werden. Nimmt ein <span style="font-weight: bold;">Qubit</span> $|x_t^i\rangle$ den <span style="font-weight: bold;">Zustand</span> $|1\rangle$ an, so bedeutet dies, dass der $i$-te Körper um den Vektor $x_t$ verschoben wird. Der Zustand $|0\rangle$ sagt entsprechend aus, dass der Körper <span style="font-style: italic;">nicht</span> um diesen Vektor verschoben wird. Die Zuweisung zu Qubit-Zuständen ist konzeptionell ähnlich zur Belegung diskreter Gitterpositionen bei Camino u. a. (2023).
+            </p>
+            <p>
+                Da einem Körper allerdings nicht mehrere Translationsvektoren gleichzeitig\graffito{Nebenbedingung} zugeordnet werden können, muss für alle Körper die Nebenbedingung
+                $$
+                    \sum_{t=1}^T x_t^i = 1
+                $$
+                gelten. Dies entspricht einer Verallgemeinerung der Gleichheitsbedingung aus den <a href="/QA/Kapitel/Theorie/c.html" class="inline-button">Grundlagen</a> auf ein System aus $T$ Qubits sowie der Nebenbedingung von Camino u. a. (2023) bei $N_C=1$. Die Bedingung kann in der gleichen Weise wie <a href="/QA/Kapitel/Anwendung/b.html" class="inline-button">dort</a> durch Quadrieren und Umstellen auf die Form
+                $$
+                    \lambda\left(2\sum_{t\lt{}u} x_t^i\,x_u^i - \sum_{t=1}^T x_t^i + 1\right) = 0
+                $$
+                gebracht werden, wobei $\lambda$ den Penalty-Faktor darstellt. Die Autoren verfolgen bei der Optimierung nicht das Ziel, einen einzelnen Grundzustand aufzufinden, sondern sind an einer <span style="font-weight: bold;">Auswahl energetisch günstiger Kandidaten</span> in der Nähe des Grundzustands interessiert. Computergestützte Vorhersagen in der Wirkstoffentwicklung sind nämlich nicht als verlässliche Ergebnisse aufzufassen, sondern als Hypothesen, die im Labor verifiziert werden müssen. Um eine Variation der Lösungen zu erhalten, werden die Penalty-Faktoren eher moderat gewählt. Dabei wird bewusst der Kompromiss eingegangen, gegebenenfalls physikalisch unzulässige Lösungen zu generieren, die später aussortiert werden müssen.
+            </p>
+            <p>
+                Die <span style="font-weight: bold;">Energiefunktion</span> folgt aus dem regulären QUBO unter Einbindung der Nebenbedingung und beträgt (unter Auslassung von Konstanten)
+                $$
+                    E(\vec{x})	= \sum_{i=1}^{N-1}\sum_{t=1}^T \Big(h\big(x_t^i\big)
+                                    - \lambda\Big)x_t^i
+                                    + \sum_{i\leq{}j}\sum_{t\lt{}u}\Big(J\big(x_t^i,x_u^j\big)
+                                    + 2\lambda\delta_{ij}\Big)x_t^i\,x_u^j\,\text{,}
+                $$
+                wobei $\delta_{ij}$ Eins ist, wenn $i=j$ gilt, und ansonsten Null. Die <span style="font-weight: bold;">doppelte Summation</span> ergibt sich daraus, dass durch die Anzahl $N-1$ beweglicher Körper sowie die Anzahl $T$ diskreter Translationsvektoren zwei veränderliche Dimensionen vorliegen.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Wie werden die QUBO-Koeffizienten hergeleitet?</h2>
+            <p>
+                Der lokale Bias $h\big(x_t^i\big)$ eines Qubits und die Kopplung $J\big(x_t^i,x_u^j\big)$ zweier Qubits müssen je nach Zusammensetzung und Geometrie der konkreten betrachteten Körper durch klassische energetische Simulationen berechnet werden. Dabei ist zu beachten, dass ein Körper aus einer Vielzahl von Atomen bestehen kann. Pandey u. a. (2022) untersuchen beispielsweise das Docking von $N=3$ Helix-Strukturen, die jeweils selbst aus vielen Atomen zusammengesetzt sind.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Wie skaliert die Simulation?</h2>
+            <p>
+                Insgesamt müssen $T(N-1)$ Bias- und $\binom{T(N-1)}{2}$ Kopplungsparameter berechnet werden, welche linear bzw. quadratisch in $T$ und $N$ skalieren. Für $N>3$ wäre damit ein Vorteil gegenüber der Größe $T^{N-1}$ des Konfigurationsraums gegeben, welcher exponentiell in $N$ skaliert. Da in der Studie lediglich ein Dreikörperproblem auf der Hardware implementiert werden konnte, ist hier noch keine Quantenüberlegenheit zu verzeichnen.
             </p>
         </div>
 
