@@ -96,9 +96,8 @@
         <div class="card">
             <h2>Ist die eingeführte Nebenbedingung ausreichend?</h2>
             <p>
-                Bei einer einzelnen Leerstelle, also für $N_C = N-1$, besitzen alle ermittelten Gitterstrukturen die gleiche Energie. Der Grund dafür wird schnell ersichtlich, wenn die Superzelle vervielfältigt und zu einem größeren Raster zusammengesetzt wird, wie in der folgende Abbildung dargestellt.
+                Bei einer einzelnen Leerstelle, also für $N_C = N-1$, besitzen alle ermittelten Gitterstrukturen die gleiche Energie. Der Grund dafür wird schnell ersichtlich, wenn die Superzelle vervielfältigt und zu einem größeren Raster zusammengesetzt wird, wie in der folgenden Abbildung dargestellt.
             </p>
-
             <div class="card-with-image">
                 <img src="/QA/res/Graphen_Leerstellen1a.svg" style="width: 20%;" class="pdf-image" alt="Graphen-Gitter mit einer Leerstelle, Variante A">
                 <img src="/QA/res/Graphen_Leerstellen1b.svg" style="width: 20%;" class="pdf-image" alt="Graphen-Gitter mit einer Leerstelle, Variante B">
@@ -107,6 +106,53 @@
             <p>
                 Großflächig betrachtet sind alle Konfigurationen mit einer einzelnen Leerstelle in der Superzelle translationssymmetrisch und somit zueinander äquivalent. Bei Optimierungen mit einer größeren Anzahl an Leerstellen führen die Autoren deshalb eine Nachbereitung der Messdaten durch, in der symmetrische Lösungen zusammengefasst werden.
             </p>
+            <p>
+                Auf diese Art werden fünf unterschiedliche Konfigurationen bei der Betrachtung von zwei Leerstellen, also für $N_C = N-2$, gefunden, von denen drei im Folgenden dargestellt sind.
+            </p>
+            <div class="card-with-image">
+                <img src="/QA/res/Graphen_Leerstellen2a.svg" style="width: 20%;" class="pdf-image" alt="Graphen-Gitter mit zwei Leerstellen, Variante A">
+                <img src="/QA/res/Graphen_Leerstellen2b.svg" style="width: 20%;" class="pdf-image" alt="Graphen-Gitter mit zwei Leerstellen, Variante B">
+                <img src="/QA/res/Graphen_Leerstellen2c.svg" style="width: 20%;" class="pdf-image" alt="Graphen-Gitter mit zwei Leerstellen, Variante C">
+            </div>
+            <p>
+                Die linke Konfiguration ist dabei energetisch optimal. Alle anderen besitzen allesamt die gleiche, etwas höhere Energie. Es fällt jedoch auf, dass diese Konfigurationen eigentlich nicht energetisch gleichwertig sein sollten. Während die mittlere Struktur nur zweifach oder dreifach koordinierte C-Atome aufweist, besitzt die rechte Struktur auch einfach koordinierte Atome. Dies ist in der Realität sehr unwahrscheinlich. Die entsprechenden Atome würden sich eher auf Gitterplätze begeben, an denen sie mehr als einen Bindungspartner besitzen. Die rechte Konfiguration sollte also real deutlich instabiler als die mittlere sein.
+            </p>
+            <p>
+                Besonders deutlich wird die Unzulänglichkeit der bisherigen Modellbildung bei der Optimierung mit drei Leerstellen, also für $N_C=N-3$. Dabei ergeben sich sechs unterschiedliche Konfigurationen, von denen eine die minimale Energie annimmt. Unter den anderen Lösungen befinden sich mehrere, die laut der Simulation dieselbe Energie besitzen. Eine Auswahl ist im Folgenden dargestellt.
+            </p>
+            <div class="card-with-image">
+                <img src="/QA/res/Graphen_Leerstellen3a.svg" style="width: 20%;" class="pdf-image" alt="Graphen-Gitter mit drei Leerstellen, Variante A">
+                <img src="/QA/res/Graphen_Leerstellen3b.svg" style="width: 20%;" class="pdf-image" alt="Graphen-Gitter mit drei Leerstellen, Variante B">
+                <img src="/QA/res/Graphen_Leerstellen3c.svg" style="width: 20%;" class="pdf-image" alt="Graphen-Gitter mit drei Leerstellen, Variante C">
+            </div>
+            <p>
+                Die linke Struktur nimmt dabei eine physikalisch zulässige Form an, während die mittlere unkoordinierte Atome aufweist und die rechte sogar aus völlig separaten Bändern mit einer Breite von jeweils fünf Atomen besteht. Daran wird deutlich, dass die Modellbildung weiterer Einschränkungen bedarf, um unzulässige Lösungen im Vergleich zu zulässigen energetisch unattraktiver zu gestalten.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Wie kann die Nebenbedingung erweitert werden?</h2>
+            <p>
+                Dafür wird eine Koordinationsbedingung eingeführt, in der nun auch die übernächsten Nachbarn berücksichtigt werden. Analog zur Kopplungsmatrix $A$, über die die nächsten Nachbarn einer Gitterposition identifiziert werden können, wird eine Kopplungsmatrix $B$ konstruiert, die Informationen darüber enthält, ob es sich bei zwei Gitterpositionen um übernächste Nachbarn handelt. Die Matrix $B$ wird mit einem Faktor $\beta$ versehen, der den energetischen Einfluss der Bedingung skaliert. Die Energiefunktion wird damit zu
+                $$
+                    E(\vec{x})	= \sum_{i=1}^N\lambda(1-2N_C)x_i
+                                + \sum_{i\lt{}j}(2\lambda-\alpha{}A_{ij}-\beta{}B_{ij})x_ix_j
+                $$
+                und die QUBO-Matrix zu
+                $$
+                    Q_{ij}	= \begin{cases}\lambda(1-2N_C)&\,i=j\\
+                                2\lambda-\alpha{}A_{ij}-\beta{}B_{ij}&\,i\lt{}j
+                                \\0&\,\mathrm{sonst}\end{cases}
+                $$
+                ergänzt. Unzulässige Lösungen (wie die mit unkoordinierten Atomen oder separaten Bändern) werden somit unwahrscheinlicher, da sich ihre Energie durch die Verletzung der Koordinationsbedingung entsprechend erhöht. Damit die Nebenbedingungen eingehalten werden, müssen die Penalty-Faktoren $\lambda$ und $\beta$ ausreichend groß gewählt werden. Camino u. a. (2023) bezeichnen das Auffinden geeigneter Faktoren $\alpha$, $\beta$ und $\lambda$ als „chemische Intuition“. Alternativ können dafür auch zusätzliche theoretische Annahmen hinzugezogen werden. Im Folgenden ist schließlich die ideale Lösung dargestellt, die sich für ein Gitter mit drei Leerstellen finden lässt.
+            </p>
+            <img src="/QA/res/Graphen_Leerstellen3d.svg" style="width: 20%;" class="pdf-image" alt="Ideale Konfiguration des Graphen-Gitters mit drei Leerstellen">
+        </div>
+
+        <div class="card">
+            <h2>Was lässt sich aus der Studie lernen?</h2>
+            <p>
+            Das Beispiel von Camino u. a. (2023) verdeutlicht, dass dem Ablaufschema aus den <a href="/QA/Kapitel/Theorie/d.html" class="inline-button">Grundlagen</a> noch vorbereitende und nachbereitende Schritte hinzuzufügen sind. Zur Vorbereitung gehört die chemische Modellbildung und Aufstellung des QUBOs. Die Nachbereitung umfasst zunächst statistische Auswertungen, da Quantum Annealing ein heuristisches Verfahren ist und entsprechend oft wiederholt werden muss, um aussagekräftige Ergebnisse zu erzielen. Zusätzlich ist es nötig, die Plausibilität der gefundenen Lösungen zu überprüfen und, falls nötig, eine Anpassung oder Erweiterung der Modellannahmen vorzunehmen. Eine Simulation ist nämlich nur so gut wie die ihr zugrundeliegende Modellierung.
         </div>
 
     </div>
