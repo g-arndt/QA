@@ -26,15 +26,44 @@
         <div class="card">
             <h2>Ising- und QUBO-Modell</h2>
             <p>
-                ...
+                Lucas (2014) zeigt, wie diverse Optimierungsprobleme als Ising-Modell ausgedrückt werden können. Äquivalent zur Ising-Formulierung ist das QUBO-Modell (Quadratic Unconstrained Binary Optimization), welches \textcite{Glover_2019} erläutern. Dabei handelt es sich um
+            </p>
+            <ol>
+                <li>eine <span style="font-weight: bold;">Optimierungsvorschrift</span> der Form
+                    $$
+                        \mathop{\mathrm{min}}\limits_{\vec{x}} f(\vec{x})
+                        \qquad\mathrm{mit}\qquad
+                        f(\vec{x})	= \vec{x}^{\,T}Q\,\vec{x}
+                                    = \sum_{i\leq{}j} Q_{ij}x_ix_j
+					$$
+                </li>
+                <li>mit dem Vektor $\vec{x}$, der alle Variablen der Optimierung beinhaltet. QUBO-Variablen sind <span style="font-weight: bold;">binär</span> und besitzen die Werte $0$ und $1$. Dies bietet den entscheidenden Vorteil, dass stets $x_i{}^2=x_i$ gilt und somit lineare Terme aus dem Ising-Modell quadratisiert werden können, denn</li>
+                <li>alle Terme der Kostenfunktion sind <span style="font-weight: bold;">quadratisch</span> in den QUBO-Variablen. Die Koeffizientenmatrix $Q$ ist ebenfalls quadratisch. Auf ihrer Diagonalen stehen die lokalen Bias-Werte $h_i$ der einzelnen Variablen, während ihre Nichtdiagonalelemente die Kopplungsterme $J_{ij}$ zwischen jeweils zwei Variablen repräsentieren.</li>
+                <li>Die QUBO-Darstellung lässt <span style="font-weight: bold;">keine Nebenbedingungen</span> zu. Nebenbedingungen müssen stattdessen als Strafterme direkt in die Kostenfunktion integriert werden.</li>
+            </ol>
+            <p>
+                Ising- und QUBO-Variablen können gemäß
+                    $$
+                        x_i	&= \frac{s_i+1}{2}		&
+                        s_i	&= 2x_i-1				%
+                    $$
+                ineinander überführt werden. In der hier verwendeten Konvention, bei der über alle $i\leq{}j$ summiert wird, ist Q eine obere Dreiecksmatrix.
             </p>
         </div>
 
         <div class="card">
             <h2>Nebenbedingungen</h2>
             <p>
-                ...
-
+                Bei realen Optimierungsproblemen werden oft zusätzliche Anforderungen an die Variablen gestellt, die mathematisch in Form von Nebenbedingungen ausgedrückt werden. Dies ist aber im QUBO-Modell explizit nicht gestattet, da hier ein physikalisches System, nämlich der Ising-Hamiltonian, codiert wird. Einmal festgelegt, bestimmt der Hamiltonian den Verlauf des Annealing-Vorgangs. Maßgeblich für die Lösung der Optimierung ist nur sein Grundzustand, während Nebenbedingungen an die Variablen beim Annealing nicht gesondert implementiert werden können. Allerdings besteht die Möglichkeit, diese Einschränkung zu umgehen, indem die Nebenbedingungen direkt bei der Formulierung des Hamiltonians berücksichtigt werden (\parencite{)Yarkoni u. a. 2022). Ein gängiger Ansatz dafür ist, entsprechende <span style="font-weight: bold;">Strafterme</span> in die Kostenfunktion einzubringen (Glover, Kochenberger und Du 2019). Ein Strafterm muss demgemäß
+            </p>
+            <ol>
+                <li>für alle Variablenbelegungen nichtnegativ sein, da er ansonsten den Wert der Kostenfunktion sogar verbessern kann, und</li>
+                <li>ausschließlich für all diejenigen Variablenbelegungen, die die zugehörige Nebenbedingung erfüllen, minimal werden, also Null.</li>
+            </ol>
+            <p>
+                Um Strafterme gegenüber der Kostenfunktion zu priorisieren, werden sie zusätzlich mit einem Penalty-Faktor $\lambda$ skaliert.
+            </p>
+            <p>
                 Auf diesem Wege können allerdings nicht alle Arten von Nebenbedingungen effizient implementiert werden. Ideal eignen sich <span style="font-weight: bold;">lineare Bedingungen</span>. Die binäre Belegungslogik der QUBO-Variablen begünstigt zudem <span style="font-weight: bold;">ganzzahlige Koeffizienten</span> (Yarkoni u. a. 2022).
             </p>
 
