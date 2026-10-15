@@ -35,13 +35,13 @@
             <p>
                 In der Studie wird das Modell des <span style="font-style: italic;">continuous stirred-tank reactor</span> (CSTR) herangezogen, welches auf einem <span style="font-weight: bold;">System von Differentialgleichungen</span> beruht. Wichtige zeitabhängige Parameter in dem Modell sind die Ausflussrate $F$, die Füllhöhe $h$, die Konzentration $c$, die Temperatur $T$ und die Kühlertemperatur $T^c$. Letztere stellt die zu optimierende Variable dar. Die Differentialgleichungen
                 $$
-                    \scalebox{1.25}{$\odv{}{t}$}\, h \,	    = f\Big(h(t), F(t)\Big)
+                    \odv{}{t}\, h \,	= f\Big(h(t), F(t)\Big)
                 $$
                 $$
-                    \scalebox{1.25}{$\odv{}{t}$}\, c \,\,	= f\Big(c(t), h(t)\Big)
+                    \odv{}{t}\, c \,\,	= f\Big(c(t), h(t)\Big)
                 $$
                 $$
-                    \scalebox{1.25}{$\odv{}{t}$}\, T		= f\Big(T(t), T^c(t), c(t), h(t)\Big)
+                    \odv{}{t}\, T		= f\Big(T(t), T^c(t), c(t), h(t)\Big)
                 $$
                 werden mittels des expliziten Euler-Verfahrens gemäß
                 $$
