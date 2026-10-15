@@ -24,21 +24,21 @@
         <h1>Berechnung von Elektronenkonfigurationen</h1>
 
         <div class="card">
-            <h2>Quantenobjekte mit Quantenobjekten simulieren</h2>
+            <h2>Warum sollten Quantenobjekte mit Quantenobjekten simuliert werden?</h2>
             <p>
                 In einem Vortrag zur computerbasierten Simulation physikalischer Systeme wies bereits Feynman (1982) darauf hin, dass sich Quantensysteme am besten durch andere Quantensysteme simulieren lassen, da klassische Computer die vorherrschenden Quanteneffekte nur unzulänglich beschreiben können, während Quantensysteme diese auf natürlichem Wege selbst durchlaufen können. Ein vielversprechendes Beispiel aus der Quantenchemie ist die Berechnung von <span style="font-weight: bold;">Elektronenkonfigurationen</span>, da es sich bei Elektronen um Quantenobjekte handelt.
             </p>
         </div>
 
         <div class="card">
-            <h2>Freiheitsgrade der Simulation</h2>
+            <h2>Welche Freiheitsgrade besitzt die Simulation?</h2>
             <p>
                 Tew, Klopper und Helgaker (2007) beschreiben die Berechnung elektronischer Zustände als ein <span style="font-weight: bold;">quantenmechanisches Mehrkörperproblem</span>, da die Bewegung der einzelnen Elektronen aufgrund ihrer gegenseitigen Wechselwirkung nicht unabhängig voneinander beschreibbar ist. Die Elektronenkorrelation umfasst dabei zwei wesentliche Beiträge: Die <span style="font-weight: bold;">Fermi-Korrelation</span> ergibt sich aus der Antisymmetrie der elektronischen Wellenfunktion und hängt somit mit dem Pauli-Prinzip zusammen, während die <span style="font-weight: bold;">Coulomb-Korrelation</span> auf der elektrostatischen Abstoßung der Elektronen beruht. Beide Beiträge müssen bei einer möglichst genauen Beschreibung des elektronischen Zustands berücksichtigt werden. Eine exakte Lösung dieses Mehrkörperproblems ist nur für Systeme wie Wasserstoff mit genau einem Elektron möglich.
             </p>
         </div>
 
         <div class="card">
-            <h2>Elektronischer Hamiltonian als QUBO</h2>
+            <h2>Wie kann der elektronische Hamiltonian als QUBO ausgedrückt werden?</h2>
             <p>
                 In der klassischen Quantenchemie werden daher <span style="font-weight: bold;">üblicherweise Näherungsverfahren</span> eingesetzt. Ein alternativer Ansatz ist die Abbildung des elektronischen Hamiltonoperators auf ein Ising-Modell, dessen Grundzustand mittels Quantum Annealing bestimmt werden kann. Xia, Bian und Kais (2018) beschreiben eine Methode für diese Umwandlung. Ausgangspunkt ist die elektronische Schrödingergleichung
                 $$
@@ -61,7 +61,22 @@
             </ol>
         </div>
 
+        <div class="card">
+            <h2>Wie funktioniert dieses Verfahren in der Praxis?</h2>
+            <p>
+                Xia, Bian und Kais (2018) demonstrieren ihre Methode für molekularen Wasserstoff H$_2$, molekulares Helium He$_2$, das Heliumhydrid-Ion HeH$^+$ und Lithiumhydrid LiH. Für diese Systeme stimmen die in der Studie simulierten Ergebnisse mit den entsprechenden exakten numerischen Rechnungen überein.
+            </p>
+            <p>
+                Streif, Neukart und Leib (2019) übertragen diese Methode auf D-Wave-Hardware und untersuchen die Berechnung elektronischer Potentialkurven und Grundzustandsenergien für H$_2$ und LiH. Dabei analysieren sie insbesondere den Bedarf an physikalischen Qubits und die Auswirkungen der begrenzten Konnektivität der Hardware. Copenhaver, Wasserman und Wehefritz-Kaufmann (2021) vergleichen obige Methode mit einem hybriden klassisch-quantenmechanischen Ansatz, indem sie die Potentialkurven und Grundzustandseigenschaften für das Triwasserstoff-Kation H$_3{}^+$ und Wasser H$_2$O berechnen. Beide Studien verdeutlichen, dass neben der eigentlichen Optimierung auch die klassische Vorverarbeitung und die Abbildung auf die verfügbare Hardware einen erheblichen Ressourcenaufwand verursachen kann. Insbesondere die begrenzte Konnektivität und der damit verbundene Bedarf an zusätzlichen physikalischen Qubits erschweren die Skalierung auf größere Systeme. Selbst für die betrachteten kleinen Moleküle konnte daher kein Vorteil gegenüber klassischen Verfahren nachgewiesen werden.
+            </p>
+        </div>
 
+        <div class="card">
+            <h2>Eignet sich die Berechnung von Elektronenkonfigurationen als einführendes Beispiel?</h2>
+            <p>
+                Die Simulation von Elektronenkonfigurationen ist ein zentrales Problem der numerischen Quantenchemie und sollte deshalb an dieser Stelle zumindest konzeptionell Erwähnung finden. Aufgrund der mathematischen Komplexität des QUBO-Mappings ist eine ausführlichere Besprechung von Beispielen als Einstieg in die Formulierung von QUBOs allerdings nicht geeignet.
+            </p>
+        </div>
 
     </div>
     </main>
