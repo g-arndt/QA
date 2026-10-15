@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="icon" href="/QA/res/favicon.svg">
-    <title>Problemabbildung</title>
+    <title>Ablauf</title>
     <script src="/QA/js/preload.js"></script>
     <link rel="stylesheet" href="/QA/style/style.css">
     <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
@@ -21,26 +21,16 @@
     <main class="content">
     <div class="content-inner">
 
-        <h1>Problemabbildung</h1>
+        <h1>Ablauf des Annealing-Vorgangs</h1>
 
         <div class="card">
-            <h2>Reales Problem → mathematische Formulierung</h2>
+            <h2>Was passiert nach der Formulierung der QUBO-Matrix?</h2>
             <p>
-                ...
+                Der Ablauf eines Annealing-Vorgangs ist im Folgenden dargestellt.
             </p>
-        </div>
-
-        <div class="card">
-            <h2>Mathematische Formulierung → physikalisches Ising-Modell</h2>
+            <img src="/QA/res/Ablauf.svg" class="pdf-image" alt="Ablauf des Annealing-Vorgangs">
             <p>
-                ...
-            </p>
-        </div>
-
-        <div class="card">
-            <h2>Physikalisches Ising-Modell → QUBO</h2>
-            <p>
-                ...
+                Nachdem das Optimierungsproblem mathematisch als QUBO ausgedrückt wurde, wird seine logische Topologie in Form eines <span style="font-weight: bold;">QUBO-Graphen</span> bestimmt. Dabei werden die benötigten logischen Qubits und ihre Kopplungen untereinander ermittelt. Im nächsten Schritt, dem <span style="font-weight: bold;">Minor Embedding</span>, wird der QUBO-Graph an die Topologie der Annealer-Hardware angepasst. Dafür ist es in der Regel nötig, ein einzelnes logisches Qubit aus dem QUBO-Graphen durch mehrere verkettete physikalische Qubits auf der Annealer-Hardware zu realisieren, um die nötigen Kopplungen zu anderen Qubits herstellen zu können. Entsprechend entsteht schnell ein großer Embedding-Overhead. Die Anzahl physikalischer Qubits skaliert also exponentiell mit der Anzahl logischer Qubits. Für das Minor Embedding werden meist klassische Algorithmen verwendet, um ein möglichst effizientes Mapping zu erhalten. Nachdem die Qubits zugeordnet wurden, müssen ihnen <span style="font-weight: bold;">Werte</span> für den lokalen Bias $h_i$ und die Kopplungskonstante $J_{ij}$ <span style="font-weight: bold;">zugewiesen</span> werden. Diese folgen aus der QUBO-Matrix und können in den Annealer programmiert werden. Wenn die Qubits in ihren Anfangszuständen präpariert sind, welche dem Grundzustand des initialen Hamiltonians entsprechen, kann der <span style="font-weight: bold;">Annealing-Schedule</span> gestartet werden. Dabei wird der Beitrag des initialen Hamiltonians langsam verringert, während der Problem-Hamiltonian nach und nach dazugeschaltet wird. Am Ende des Annealing-Schedules sollte sich das System im Grundzustand des Problem-Hamiltonians befinden. Dann kann die <span style="font-weight: bold;">Messung</span> der Zustandswerte an den physikalischen Qubits stattfinden und auf die ursprünglichen QUBO-Variablen übertragen werden. Die Schritte Initialisierung, Scheduling und Messung sollten im Anschluss möglichst oft wiederholt werden, um statistisch aussagekräftige Ergebnisse zu erhalten (Yarkoni u. a. 2022).
             </p>
         </div>
 
