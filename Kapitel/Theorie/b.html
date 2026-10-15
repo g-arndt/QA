@@ -115,21 +115,32 @@
                 $$
                 in der der Hamiltonoperator auf den Zustand $|\psi\rangle$ eines Quantensystems angewandt wird. Um eine zu optimierende Kostenfunktion als Energielandschaft zu beschreiben, muss also ein passendes physikalisches Quantensystem und dessen Hamiltonian gefunden werden. Die Wahl fällt dabei auf ein <span style="font-weight: bold;">System interagierender Spins</span> $s_i$, welche die Zustände <span style="font-style: italic;">spin up</span> ($\uparrow$) und <span style="font-style: italic;">spin down</span> ($\downarrow$) mit den Werten $+1$ und $-1$ annehmen können. Dieses physikalische System entspricht also genau der gewünschten binären Belegungslogik der Variablen. Ein Spin-System wird durch das Ising-Modell und den zugehörigen Ising-Hamiltonian
                 $$
-                    \mathcal{H}	= \sum_i h_is_i + \sum_{i\ltj} J_{ij}\,s_is_j
+                    \mathcal{H}	= \sum_i h_is_i + \sum_{i\lt{}j} J_{ij}\,s_is_j
                 $$
-                beschrieben. Dabei ist $h_i$ der lokale Bias eines Spins, also ein Maß dafür, welchen der beiden Werte $+1$ und $-1$ der entsprechende Spin energetisch bevorzugt, und $J_{ij}$ die Kopplungsstärke zweier Spins. Das Modell geht ursprünglich auf die Beschreibung von Magnetismus zurück, weswegen eine negative Kopplung $J_{ij}\lt0$ oft als ferromagnetisch und eine positive $J_{ij}\gt0$ als antiferromagnetisch bezeichnet wird. Beim Quantum Annealing werden die <span style="font-weight: bold;">Spins</span> nicht mehr als binäre Variablen, sondern als Quantenobjekte <span style="font-weight: bold;">in einem Superpositionszustand</span> aufgefasst und können folglich als Qubits beschrieben werden. Der Zustand <span style="font-style: italic;">spin up</span> mit dem Wert $s_\uparrow=+1$ wird dem Qubit-Zustand $|0\rangle$ und <span style="font-style: italic;">spin down</span> mit dem Wert $s_\downarrow=-1$ dem Qubit-Zustand $|1\rangle$ zugeordnet. Die Spinwerte entsprechen damit genau den Eigenwerten des Pauli-$Z$-Operators für die korrespondierenden Qubit-Zustände. Durch die Quantisierung werden also die klassischen Spinvariablen $s_i$ durch entsprechende Pauli-$Z$-Operatoren $\sigma_z^{(i)}$ ersetzt. Die Zustände des Gesamtsystems ergeben sich dabei aus dem Tensorprodukt der Zustände der einzelnen Qubits, wobei der Operator $\sigma_z^{(i)}$ genau auf das $i$-te Qubit wirkt. Damit folgt
+                beschrieben. Dabei ist $h_i$ der lokale Bias eines Spins, also ein Maß dafür, welchen der beiden Werte $+1$ und $-1$ der entsprechende Spin energetisch bevorzugt, und $J_{ij}$ die Kopplungsstärke zweier Spins. Das Modell geht ursprünglich auf die Beschreibung von Magnetismus zurück, weswegen eine negative Kopplung $J_{ij}\lt{}0$ oft als ferromagnetisch und eine positive $J_{ij}\gt0$ als antiferromagnetisch bezeichnet wird. Beim Quantum Annealing werden die <span style="font-weight: bold;">Spins</span> nicht mehr als binäre Variablen, sondern als Quantenobjekte <span style="font-weight: bold;">in einem Superpositionszustand</span> aufgefasst und können folglich als Qubits beschrieben werden. Der Zustand <span style="font-style: italic;">spin up</span> mit dem Wert $s_\uparrow=+1$ wird dem Qubit-Zustand $|0\rangle$ und <span style="font-style: italic;">spin down</span> mit dem Wert $s_\downarrow=-1$ dem Qubit-Zustand $|1\rangle$ zugeordnet. Die Spinwerte entsprechen damit genau den Eigenwerten des Pauli-$Z$-Operators für die korrespondierenden Qubit-Zustände. Durch die Quantisierung werden also die klassischen Spinvariablen $s_i$ durch entsprechende Pauli-$Z$-Operatoren $\sigma_z^{(i)}$ ersetzt. Die Zustände des Gesamtsystems ergeben sich dabei aus dem Tensorprodukt der Zustände der einzelnen Qubits, wobei der Operator $\sigma_z^{(i)}$ genau auf das $i$-te Qubit wirkt. Damit folgt
                 $$
                     \mathcal{H}	= \sum_i h_i\sigma_z^{(i)}
-                                    + \sum_{i\ltj} J_{ij}\,\sigma_z^{(i)}\sigma_z^{(j)}
+                                    + \sum_{i\lt{}j} J_{ij}\,\sigma_z^{(i)}\sigma_z^{(j)}
                 $$
-                für den quantisierten Ising-Hamiltonian \parencite{Albash_2018}.
+                für den quantisierten Ising-Hamiltonian (Albash und Lidar 2018).
             </p>
         </div>
 
         <div class="card">
             <h2>Wie wird der Grundzustand des Ising-Hamiltonians beim Quantum Annealing erreicht?</h2>
             <p>
-                ...
+                Um den Grundzustand des Ising-Hamiltonians zu erreichen, wird das <span style="font-weight: bold;">adiabatische Prinzip der Quantenmechanik</span> herangezogen. Dieses besagt, dass ein Quantensystem bei hinreichend langsamer Änderung seines Hamiltonians im momentanen Eigenzustand (bzw. dessen Projektion auf die neuen Basiszustände) verharrt. Der relevante Eigenzustand beim Quantum Annealing ist der Grundzustand, da dieser das Energieminimum darstellt. Das adiabatische Prinzip lässt sich hier also derart anwenden, dass das System zunächst einem initialen Hamiltonian $\mathcal{H}_i$ unterliegt, dessen Grundzustand technisch leicht zu präparieren ist. Der initiale Hamiltonian wird dann allmählich in den Problem-Hamiltonian $\mathcal{H}_p$ der Optimierung überführt. Entsprechend ist der System-Hamiltonian
+                $$
+	\mathcal{H}(t)	&= A(t)\mathcal{H}_i + B(t)\mathcal{H}_p
+                $$
+                zeitabhängig, wobei die Änderung durch die Funktionen $A(t)$ und $B(t)$ beschrieben wird. Dabei muss $B(t)$ am Anfang und $A(t)$ am Ende des Annealings Null sein. Die Funktionen können abgesehen davon beliebig gewählt werden und legen somit die Dynamik des Annealings fest, die auch als <span style="font-weight: bold;">Annealing-Schedule</span> bezeichnet wird (Albash und Lidar 2018).
+            </p>
+            <p>
+                Eine sinnvolle Wahl für den initialen Hamiltonian ist
+                $$
+                    \mathcal{H}_i = \sum_ih_i\sigma_x^{(i)}\,\text{,}
+                $$
+                da dessen Grundzustand leicht zu präparieren ist und der Pauli-$X$-Operator Quantenfluktuationen induziert. Als Problem-Hamiltonian $\mathcal{H_P}$ wird der Ising-Hamiltonian gewählt, dessen Grundzustand am Ende des Annealings angenommen werden soll (Yarkoni u.a. 2022).
             </p>
         </div>
 

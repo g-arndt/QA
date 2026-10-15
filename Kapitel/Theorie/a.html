@@ -75,6 +75,7 @@
                     \sigma_x|1\rangle	= +1|0\rangle
                 $$
                 $$
+                    \phantom{\,\text{.}}
                     \sigma_z|0\rangle	= +1|0\rangle							\qquad
                     \sigma_z|1\rangle	= -1|1\rangle\,\text{.}
                 $$
@@ -151,9 +152,10 @@
                 definiert ist. Die neuen Basiszustände lauten
                 $$
                     |0\rangle \otimes |0\rangle		= |00\rangle			    \qquad
-                    |1\rangle \otimes |0\rangle		= |10\rangle\phantom{\,\text{.}}
+                    |1\rangle \otimes |0\rangle		= |10\rangle
                 $$
                 $$
+                    \phantom{\,\text{.}}
                     |0\rangle \otimes |1\rangle		= |01\rangle			    \qquad
                     |1\rangle \otimes |1\rangle		= |11\rangle\,\text{.}		%
                 $$
@@ -233,11 +235,11 @@
                 $$
                 Operatoren im neuen Zustandsraum besitzen die Größe $2^N\times2^N$. Soll ein Operator in diesem vergrößerten Zustandsraum auf ein einzelnes Qubit wirken, so wird ein Tensorprodukt mit der Einheitsmatrix
                 $$
-                    \mathds{1}	= \begin{pmatrix}1&0\\0&1\end{pmatrix}\,\text{,}
+                    1	= \begin{pmatrix}1&0\\0&1\end{pmatrix}\,\text{,}
                 $$
                 auch Identität oder Identitätsoperator genannt, gebildet. Für einen Operator $A$, der nur auf das $i$-te Qubit wirkt, gilt
                 $$
-                    A^{(i)}		= \mathds{1}\otimes\mathds{1}\otimes...\otimes\mathds{1}\otimes{}A\otimes\mathds{1}\otimes...\otimes\mathds{1}\,\text{,}
+                    A^{(i)}		= 1\otimes1\otimes...\otimes1\otimes{}A\otimes1\otimes...\otimes1\,\text{,}
                 $$
                 wobei der Operator $A$ an $i$-ter Stelle im Tensorprodukt auftritt (Nielsen und Chuang 2010). Beim Quantum Annealing kommen in dieser Form vor allem der Pauli-$X$- und Pauli-$Z$-Operator zum Einsatz, also als $\sigma_x^{(i)}$ und $\sigma_z^{(i)}$ (Yarkoni u. a. 2022).
             </p>
@@ -249,19 +251,5 @@
 </div>
 
 <script src="/QA/js/app.js"></script>
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      macros: {
-        mathds: ["\\mathbb", 1]
-      }
-    }
-  };
-</script>
-<script defer
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-</script>
 </body>
 </html>
